@@ -15,7 +15,7 @@
     }catch(Exception $ex){
         print "An Exception Occured. Message:".$ex->getMessage();
     }catch(Error $e){
-        print "The system is busy please try later";
+        print "The system is busy please try later: ".$e->getMessage();
     }
     
     function close_connection(){

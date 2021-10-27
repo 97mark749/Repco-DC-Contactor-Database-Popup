@@ -67,7 +67,7 @@
 
     if(ISSET($_POST['filter'])){
         $size = $_POST['filter'];
-        print(getFilteredValues($size));
+        echo getFilteredValues($size);
     }
 
     if(ISSET($_POST['cancel'])){
