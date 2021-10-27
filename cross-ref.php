@@ -184,6 +184,11 @@
                     return json_encode(array($a1,$a2,$a3,$a4,$a5,$a6));
                     break;
                 case 'C82':
+                    $a1 = get_options_by_size($GLOBALS['connection'],'property3', 'c82blowout_coil_rating', $size_col);
+                    $a2 = get_options_by_size($GLOBALS['connection'], 'property6', 'c82type_of_mounting', $size_col);
+                    $a3 = get_options_by_size($GLOBALS['connection'], 'property8', 'c82auxiliary_contact_location', $size_col);
+                    mysqli_close($GLOBALS['connection']);
+                    return json_encode(array($a1, $a2, $a3));
                     break;
                 default:
                     break;
