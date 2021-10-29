@@ -52,7 +52,8 @@ function filter_search(text){
             }
         }
     });
-    /*$.ajax({
+    /*
+    $.ajax({
         type: 'POST',
         url: 'cross-ref.php',
         data:{check: 'true'},
@@ -63,7 +64,8 @@ function filter_search(text){
                 disable(properties[i]);
             }
         }
-    });*/
+    });
+    */
 }
 
 function filter_options(size){
@@ -72,6 +74,7 @@ function filter_options(size){
         url: 'cross-ref.php',
         data: {filter: size},
         success: function(data){
+            alert(data);
             let array = JSON.parse(data);
             for(let i = 0; i < array.length; i++){
                 checkExists(array[i]);

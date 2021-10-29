@@ -42,7 +42,7 @@
                     switch($target_property){
                         case 'property6':
                             if($target_value == 'None'){
-                                echo json_encode(array('property8','property9'));
+                                echo json_encode(array('property8','property9'),JSON_THROW_ON_ERROR);
                             }
                         case 'property8':
                             if($_SESSION['prop_7'] != 'B'){
@@ -51,7 +51,7 @@
                                     break;
                                 }else{
                                     // return the name of the rh_auxiliary dropdown in order to disable it since one sided (A) was chosen in dropdown 7
-                                    echo json_encode('property9');
+                                    echo json_encode('property9',JSON_THROW_ON_ERROR);
                                 }
                             }
                         default:break;
@@ -61,8 +61,8 @@
                     break;
                 default: break;
             }
-        }
-        */
+        } */
+        
     }
 
     if(ISSET($_POST['filter'])){
@@ -171,7 +171,7 @@
                     $a4 = get_options_by_size($GLOBALS['connection'],'property8','ds303coil_voltage', $size_col);
                     $a5 = get_options_by_size($GLOBALS['connection'],'property9','ds303auxiliaries',$size_col);
                     mysqli_close($GLOBALS['connection']);
-                    return json_encode(array($a1,$a2,$a3,$a4,$a5)); 
+                    return json_encode(array($a1,$a2,$a3,$a4,$a5));
                     break;
                 case 'C80':
                     $a1 = get_options_by_size($GLOBALS['connection'], 'property3','c80blowout_coil_rating',$size_col);
