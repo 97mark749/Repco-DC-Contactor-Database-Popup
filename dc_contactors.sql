@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Oct 28, 2021 at 10:29 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.12
+-- Host: localhost:3306
+-- Generation Time: Oct 29, 2021 at 07:43 AM
+-- Server version: 5.7.35-cll-lve
+-- PHP Version: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -49,25 +50,32 @@ INSERT INTO `c80auxiliary_contact_location` (`Symbol`, `Value`) VALUES
 
 CREATE TABLE `c80blowout_coil_rating` (
   `Symbol` char(1) NOT NULL,
-  `Value` varchar(5) NOT NULL
+  `Value` varchar(5) NOT NULL,
+  `Size_2` int(1) NOT NULL,
+  `Size_3` int(1) NOT NULL,
+  `Size_4` int(1) NOT NULL,
+  `Size_5` int(1) NOT NULL,
+  `Size_6` int(1) NOT NULL,
+  `Size_6A` int(1) NOT NULL,
+  `Size_8` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `c80blowout_coil_rating`
 --
 
-INSERT INTO `c80blowout_coil_rating` (`Symbol`, `Value`) VALUES
-('C', '5'),
-('D', '10'),
-('F', '25'),
-('G', '50'),
-('H', '100'),
-('J', '150'),
-('K', '300'),
-('L', '600'),
-('M', '810'),
-('N', '1350'),
-('X', 'None');
+INSERT INTO `c80blowout_coil_rating` (`Symbol`, `Value`, `Size_2`, `Size_3`, `Size_4`, `Size_5`, `Size_6`, `Size_6A`, `Size_8`) VALUES
+('C', '5', 1, 0, 0, 0, 0, 0, 0),
+('D', '10', 1, 0, 0, 0, 0, 0, 0),
+('F', '25', 1, 0, 0, 0, 0, 0, 0),
+('G', '50', 1, 0, 0, 0, 0, 0, 0),
+('H', '100', 0, 1, 0, 0, 0, 0, 0),
+('J', '150', 0, 0, 1, 0, 0, 0, 0),
+('K', '300', 0, 0, 0, 1, 0, 0, 0),
+('L', '600', 0, 0, 0, 0, 1, 0, 0),
+('M', '810', 0, 0, 0, 0, 0, 1, 0),
+('N', '1350', 0, 0, 0, 0, 0, 0, 1),
+('X', 'None', 1, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -97,19 +105,26 @@ INSERT INTO `c80coil_voltage` (`Symbol`, `Value`) VALUES
 
 CREATE TABLE `c80lh_auxiliary_contacts` (
   `Symbol` int(1) NOT NULL,
-  `Value` varchar(10) NOT NULL
+  `Value` varchar(10) NOT NULL,
+  `Size_2` int(1) NOT NULL,
+  `Size_3` int(1) NOT NULL,
+  `Size_4` int(1) NOT NULL,
+  `Size_5` int(1) NOT NULL,
+  `Size_6` int(1) NOT NULL,
+  `Size_6A` int(1) NOT NULL,
+  `Size_8` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `c80lh_auxiliary_contacts`
 --
 
-INSERT INTO `c80lh_auxiliary_contacts` (`Symbol`, `Value`) VALUES
-(1, '1NO'),
-(2, '2NO'),
-(3, '1NO-1NC'),
-(4, '1NC'),
-(0, 'None');
+INSERT INTO `c80lh_auxiliary_contacts` (`Symbol`, `Value`, `Size_2`, `Size_3`, `Size_4`, `Size_5`, `Size_6`, `Size_6A`, `Size_8`) VALUES
+(0, 'None', 1, 1, 1, 1, 1, 1, 1),
+(1, '1NO', 1, 1, 1, 1, 1, 1, 1),
+(2, '2NO', 1, 0, 0, 0, 0, 0, 0),
+(3, '2NO-1NC', 1, 0, 0, 0, 0, 0, 0),
+(4, '1NC', 0, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -143,17 +158,24 @@ INSERT INTO `c80nema_size` (`Symbol`, `Value`) VALUES
 
 CREATE TABLE `c80power_pole_configuration` (
   `Symbol` int(1) NOT NULL,
-  `Value` varchar(3) NOT NULL
+  `Value` varchar(3) NOT NULL,
+  `Size_2` int(1) NOT NULL,
+  `Size_3` int(1) NOT NULL,
+  `Size_4` int(1) NOT NULL,
+  `Size_5` int(1) NOT NULL,
+  `Size_6` int(1) NOT NULL,
+  `Size_6A` int(1) NOT NULL,
+  `Size_8` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `c80power_pole_configuration`
 --
 
-INSERT INTO `c80power_pole_configuration` (`Symbol`, `Value`) VALUES
-(1, '1NO'),
-(2, '2NO'),
-(4, '1NC');
+INSERT INTO `c80power_pole_configuration` (`Symbol`, `Value`, `Size_2`, `Size_3`, `Size_4`, `Size_5`, `Size_6`, `Size_6A`, `Size_8`) VALUES
+(1, '1NO', 1, 1, 1, 1, 1, 1, 1),
+(2, '2NO', 1, 0, 0, 0, 0, 0, 0),
+(4, '1NC', 1, 1, 1, 1, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -163,19 +185,26 @@ INSERT INTO `c80power_pole_configuration` (`Symbol`, `Value`) VALUES
 
 CREATE TABLE `c80rh_auxiliary_contacts` (
   `Symbol` int(1) NOT NULL,
-  `Value` varchar(10) NOT NULL
+  `Value` varchar(10) NOT NULL,
+  `Size_2` int(1) NOT NULL,
+  `Size_3` int(1) NOT NULL,
+  `Size_4` int(1) NOT NULL,
+  `Size_5` int(1) NOT NULL,
+  `Size_6` int(1) NOT NULL,
+  `Size_6A` int(1) NOT NULL,
+  `Size_8` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `c80rh_auxiliary_contacts`
 --
 
-INSERT INTO `c80rh_auxiliary_contacts` (`Symbol`, `Value`) VALUES
-(1, '1NO'),
-(2, '2NO'),
-(3, '1NO-1NC'),
-(4, '1NC'),
-(0, 'None');
+INSERT INTO `c80rh_auxiliary_contacts` (`Symbol`, `Value`, `Size_2`, `Size_3`, `Size_4`, `Size_5`, `Size_6`, `Size_6A`, `Size_8`) VALUES
+(0, 'None', 1, 1, 1, 1, 1, 1, 1),
+(1, '1NO', 1, 1, 1, 1, 1, 1, 1),
+(2, '2NO', 1, 0, 0, 0, 0, 0, 0),
+(3, '2NO-1NC', 1, 0, 0, 0, 0, 0, 0),
+(4, '1NC', 1, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -185,17 +214,24 @@ INSERT INTO `c80rh_auxiliary_contacts` (`Symbol`, `Value`) VALUES
 
 CREATE TABLE `c80type_of_mounting` (
   `Symbol` int(1) NOT NULL,
-  `Value` varchar(32) NOT NULL
+  `Value` varchar(32) NOT NULL,
+  `Size_2` int(1) NOT NULL,
+  `Size_3` int(1) NOT NULL,
+  `Size_4` int(1) NOT NULL,
+  `Size_5` int(1) NOT NULL,
+  `Size_6` int(1) NOT NULL,
+  `Size_6A` int(1) NOT NULL,
+  `Size_8` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `c80type_of_mounting`
 --
 
-INSERT INTO `c80type_of_mounting` (`Symbol`, `Value`) VALUES
-(0, 'None'),
-(1, 'Surface, Front of Panel'),
-(3, 'Elevated, Front of Panel');
+INSERT INTO `c80type_of_mounting` (`Symbol`, `Value`, `Size_2`, `Size_3`, `Size_4`, `Size_5`, `Size_6`, `Size_6A`, `Size_8`) VALUES
+(0, 'None', 1, 1, 1, 1, 1, 1, 1),
+(1, 'Surface, Front of Panel', 1, 1, 1, 1, 1, 1, 1),
+(3, 'Elevated, Front of Panel', 0, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -902,7 +938,9 @@ INSERT INTO `ds303nema_size` (`Symbol`, `Value`) VALUES
 (4, 4),
 (5, 5),
 (6, 6),
-(7, 7);
+(7, 7),
+(8, 8),
+(9, 9);
 
 -- --------------------------------------------------------
 
@@ -1017,6 +1055,12 @@ ALTER TABLE `c80coil_voltage`
   ADD PRIMARY KEY (`Symbol`);
 
 --
+-- Indexes for table `c80lh_auxiliary_contacts`
+--
+ALTER TABLE `c80lh_auxiliary_contacts`
+  ADD PRIMARY KEY (`Symbol`);
+
+--
 -- Indexes for table `c80nema_size`
 --
 ALTER TABLE `c80nema_size`
@@ -1026,6 +1070,12 @@ ALTER TABLE `c80nema_size`
 -- Indexes for table `c80power_pole_configuration`
 --
 ALTER TABLE `c80power_pole_configuration`
+  ADD PRIMARY KEY (`Symbol`);
+
+--
+-- Indexes for table `c80rh_auxiliary_contacts`
+--
+ALTER TABLE `c80rh_auxiliary_contacts`
   ADD PRIMARY KEY (`Symbol`);
 
 --
