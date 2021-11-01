@@ -42,7 +42,7 @@
                     switch($target_property){
                         case 'property6':
                             if($target_value == 'None'){
-                                echo json_encode(array('property8','property9'),JSON_THROW_ON_ERROR);
+                                echo json_encode(array('property8','property9'));
                             }
                         case 'property8':
                             if($_SESSION['prop_7'] != 'B'){
@@ -51,7 +51,7 @@
                                     break;
                                 }else{
                                     // return the name of the rh_auxiliary dropdown in order to disable it since one sided (A) was chosen in dropdown 7
-                                    echo json_encode('property9',JSON_THROW_ON_ERROR);
+                                    echo json_encode('property9');
                                 }
                             }
                         default:break;
@@ -61,8 +61,8 @@
                     break;
                 default: break;
             }
-        } */
-        
+        } 
+        */
     }
 
     if(ISSET($_POST['filter'])){

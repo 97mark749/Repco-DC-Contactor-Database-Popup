@@ -52,13 +52,12 @@ function filter_search(text){
             }
         }
     });
-    /*
+   /* 
     $.ajax({
         type: 'POST',
         url: 'cross-ref.php',
         data:{check: 'true'},
         success:function(data){
-            alert(data);
             let properties = JSON.parse(data);
             for(var i = 0; i < properties.length; i++){
                 disable(properties[i]);
@@ -74,7 +73,6 @@ function filter_options(size){
         url: 'cross-ref.php',
         data: {filter: size},
         success: function(data){
-            alert(data);
             let array = JSON.parse(data);
             for(let i = 0; i < array.length; i++){
                 checkExists(array[i]);
