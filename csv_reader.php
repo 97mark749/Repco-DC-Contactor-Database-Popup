@@ -11,8 +11,8 @@
             array_push($parsed_oems, $rows[0]);
             array_push($parsed_links, $rows[1]);
         }
-        
-        if($manufacturer == 'General Electric'){
+        switch($manufacturer){
+            case 'General Electric':
                 for($i=1; $i < sizeof($parsed_oems);$i++){
                     if (substr($parsed_oems[$i],0,5) == 'DS303'){
                         $array = array();
@@ -34,20 +34,17 @@
                         echo'<br>';
                         mysqli_close($connection);
                     }
-                    /*
-                    if(){} // Remaining Series for GE
-                    */
                 }
-
-        }else if($manufacturer == 'Cutler Hammer'){
-
-        }else if($manufacturer == 'Clark'){
-
-        }else if($manufacturer == 'BCH'){
-
-        }else{
-            die;
-        }
+                break;
+            case 'Cutler Hammer':
+                break;
+            case 'Clark':
+                break;
+            case 'BCH':
+                break;
+            default:
+                break;
+        }      
         
     }
     function get_value($db, $symbol, $position){

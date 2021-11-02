@@ -52,19 +52,7 @@ function filter_search(text){
             }
         }
     });
-   /* 
-    $.ajax({
-        type: 'POST',
-        url: 'cross-ref.php',
-        data:{check: 'true'},
-        success:function(data){
-            let properties = JSON.parse(data);
-            for(var i = 0; i < properties.length; i++){
-                disable(properties[i]);
-            }
-        }
-    });
-    */
+    
 }
 
 function filter_options(size){

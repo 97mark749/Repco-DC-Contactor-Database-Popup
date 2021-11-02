@@ -32,37 +32,7 @@
         if($table_name == 'NEMA_Size'){
             echo $target_value; //sends value back to JS File
         }
-
-        /*
-        if(ISSET($_POST['check'])){
-            // If a series has been chosen...
-            switch($_SESSION['prop_1']){
-                case 'C80':
-                    // if property is lh_auxiliary_contacts & auxiliary_contact_location is not B...
-                    switch($target_property){
-                        case 'property6':
-                            if($target_value == 'None'){
-                                echo json_encode(array('property8','property9'));
-                            }
-                        case 'property8':
-                            if($_SESSION['prop_7'] != 'B'){
-                                // If No value for the lh_auxiliary was chosen then ignore function...
-                                if($target_value == 'None' || $target_value == 'No Value'){
-                                    break;
-                                }else{
-                                    // return the name of the rh_auxiliary dropdown in order to disable it since one sided (A) was chosen in dropdown 7
-                                    echo json_encode('property9');
-                                }
-                            }
-                        default:break;
-                    }
-                    break;
-                case 'C82':
-                    break;
-                default: break;
-            }
-        } 
-        */
+        
     }
 
     if(ISSET($_POST['filter'])){
