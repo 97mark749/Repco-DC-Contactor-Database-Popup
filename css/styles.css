@@ -238,6 +238,10 @@ input:focus, textarea:focus, select:focus{
     flex-flow: row nowrap;
 }
 .table-item-header{
+    -moz-animation: fade-in 750ms;
+    -ms-animation: fade-in 750ms;
+    -webkit-animation: fade-in 750ms;
+    animation: fade-in 750ms;
     padding-right: 1rem;
     -moz-flex-basis: 60%;
     -ms-flex-basis: 60%;
@@ -248,6 +252,10 @@ input:focus, textarea:focus, select:focus{
     font-weight: bold;
 }
 .table-item{
+    -moz-animation: fade-in 750ms;
+    -ms-animation: fade-in 750ms;
+    -webkit-animation: fade-in 750ms;
+    animation: fade-in 750ms;
     -moz-flex-basis: 40%;
     -ms-flex-basis: 40%;
     -o-flex-basis: 40%;
@@ -399,6 +407,11 @@ input:focus, textarea:focus, select:focus{
   margin: 0 0 1em 0 !important;
   padding: 0;
   max-width: 11em;
+  -moz-animation: fade-in 125ms;
+  -ms-animation: fade-in 125ms;
+  -webkit-animation: fade-in 125ms;
+  animation: fade-in 125ms;
+
 }
 .dropdown-label{
   font-family: 'Average', 'sans-serif';
@@ -487,6 +500,10 @@ input:focus, textarea:focus, select:focus{
   text-align: center;
   max-width: 7.063em;
   text-shadow: 0.5px 0.5px 1px #99000048;
+  -ms-animation: fade-in 200ms;
+  -o-animation: fade-in 200ms;
+  -moz-animation: fade-in 200ms;
+  animation: fade-in 200ms;
 }
 .catalog_num{
   -webkit-display: inline-flex;
@@ -650,10 +667,6 @@ strong{
 }
 #suggestions{
   position: absolute;
-  -webkit-display: none;
-  -moz-display: none;
-  -o-dispaly: none;
-  -ms-display: none;
   display: none;
   background-color: rgb(231, 229, 229);
   border: solid #cccccc 1.25px;
@@ -668,6 +681,19 @@ strong{
   -moz-box-shadow: 1px 3px 4px 0 rgba(0,0,0,0.5);
   -ms-box-shadow: 1px 3px 4px 0 rgba(0,0,0,0.5); 
   box-shadow: 1px 3px 4px 0 rgba(0,0,0,0.5);
+  -o-transition-property: transform, display;
+  -ms-transition-propert: transform, display;
+  transition-property: transform, display;
+  -o-transition-duration: 300ms;
+  -ms-transition-duration: 300ms;
+  transition-duration: 300ms;
+  -o-transition-timing-function: ease-in-out;
+  -ms-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  -moz-animation: fade-in 200ms ease-in-out !important;
+  -ms-animation: fade-in 200ms ease-in-out !important;
+  -o-animation: fade-in 200ms ease-in-out !important;
+  animation: fade-in 200ms ease-in-out !important;
 }
 #suggestions-list{
   margin: 0;
@@ -694,13 +720,23 @@ strong{
   padding: 0;
   list-style-type:none;
   font-family: 'Average Sans', 'sans-serif';
+  -moz-animation: fade-in 500ms;
+  -ms-animation: fade-in 500ms;
+  -webkit-animation: fade-in 500ms;
+  animation: fade-in 500ms;
 }
 #matched_nums li{
   margin: 0 0 0.3em 0;
   padding: 0 0 0 0.5em;
-  -ms-transition: 0.15s;
-  -o-transition: 0.15s;
-  transition: 0.15s;
+  -ms-transition-property: transform, transform-origin, padding;
+  -o-transition-property: transform, transform-origin, padding;
+  transition-property: transform, transform-origin, padding; 
+  -ms-transition-duration:  200ms;
+  -o-transition-duration: 200ms;
+  transition-duration: 200ms;
+  -ms-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
 }
 #matched_nums li:hover{
   -ms-transform: scale(1.20);
@@ -717,9 +753,6 @@ strong{
 }
 #matched_nums li:active{
   font-weight: bold;
-  -ms-transition: 0.1s;
-  -o-transition: 0.1s;
-  transition: 0.1s;
   text-shadow: 1px 1px 6px #474747a9;
   letter-spacing: 0.05rem;
 }
@@ -1455,4 +1488,13 @@ body {
 }
 ::-ms-scrollbar{
   display: none;
+}
+
+@keyframes fade-in{
+  from{
+    opacity: 0%;
+  }
+  to{
+    opacity: 100%;
+  }
 }

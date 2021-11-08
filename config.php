@@ -1,6 +1,6 @@
 <?php
     define('username','kirbym3');
-    define('password','mkRepco6!');
+    define('password','Mk10201997!');
     define('server','localhost');
     define('db','dc_contactors');
 
