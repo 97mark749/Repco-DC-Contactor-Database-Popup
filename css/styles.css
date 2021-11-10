@@ -500,10 +500,10 @@ input:focus, textarea:focus, select:focus{
   text-align: center;
   max-width: 7.063em;
   text-shadow: 0.5px 0.5px 1px #99000048;
-  -ms-animation: fade-in 200ms;
-  -o-animation: fade-in 200ms;
-  -moz-animation: fade-in 200ms;
-  animation: fade-in 200ms;
+  -ms-animation: fade-in 300ms;
+  -o-animation: fade-in 300ms;
+  -moz-animation: fade-in 300ms;
+  animation: fade-in 300ms;
 }
 .catalog_num{
   -webkit-display: inline-flex;
