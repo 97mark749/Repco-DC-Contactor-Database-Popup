@@ -3,8 +3,14 @@
 
 
     if(!empty($_POST['keyword'])){
-        $query = mysqli_query($connection,"SELECT Catalog_No FROM contactor_numbers WHERE Catalog_No LIKE '".$_POST['keyword']."%' ORDER BY Catalog_No"); //WHERE Catalog_No LIKE '%$number%' LIMIT 18");
-        if(mysqli_num_rows($query) > 0){
+        $query = $connection ->prepare("SELECT Catalog_No FROM contactor_numbers WHERE Catalog_No Like ?");
+        // Binds the parameter as a string given the inserted input within the popup.
+        $query->bind_param('s',$_POST['keyword']);
+        $query->execute();
+        $query->store_result();
+        $query->close();
+
+        if($query->num_rows > 0){
             //$suffix = substr($num['Catalog_No'],sizeof($_POST['keyword']) - 1);
             echo '<ul id="suggestions-list">';
             while($num = mysqli_fetch_assoc($query)){
