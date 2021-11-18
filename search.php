@@ -38,6 +38,20 @@
     if(isset($_GET['website_nav'])){echo $_SESSION['link'];}
 
     function get_table_name($series_name){
+        
+        /*$query = $GLOBALS['connection']->prepare('SELECT Table_Name FROM series_tables WHERE Series_Name LIKE CONCAT('%',?,'%')') or die(mysqli_error($GLOBALS['connection']));
+        $query->bind_param('s', $series_name);
+        $query->execute();
+        $query->store_result();
+        $table = $query->bind_result();
+        if($query->num_rows > 0){
+            while($query->fetch()){
+                echo $table;
+            }
+            //echo $table;
+            
+        }
+        */
         $query = mysqli_query($GLOBALS['connection'],"SELECT Table_Name FROM series_tables WHERE Series_Name LIKE '%$series_name%'");
         $count = mysqli_num_rows($query);
         if($count == 0){
@@ -48,6 +62,7 @@
             $table = $row['Table_Name'];
         }
         return $table;
+        
     }
 
 
@@ -68,6 +83,10 @@
 
 
     function retrieve_contactor_values($catalog_num, $table_name){
+        $query = $GLOBALS['connection']->prepare("SELECT * FROM $table_name WHERE Catalog_No LIKE CONCAT('%',?,'%')");
+        $query->bind_param('s', $catalog_num);
+
+        //Stopped work her for the day
         $query = mysqli_query($GLOBALS['connection'],"SELECT * FROM $table_name WHERE Catalog_No LIKE '%$catalog_num%'");
         $count = mysqli_num_rows($query);
         if($count == 0){
