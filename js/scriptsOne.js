@@ -80,7 +80,7 @@ function get_link(){
                 url: 'search.php',
                 data: {website_nav:'1'},
                 success: function(data){
-                    window.location.replace(data);
+                    window.location.assign(data);
                 }    
             });
         });

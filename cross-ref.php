@@ -52,6 +52,7 @@
         $_SESSION['prop_9'] = Null;
         $_SESSION['prop_10'] = Null;
         $_SESSION['filtered_array'] = Null;
+        $_SESSION['link'] = Null;
     }
     
 

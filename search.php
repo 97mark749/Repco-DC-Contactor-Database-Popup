@@ -4,23 +4,22 @@
     session_start();
     //$_SESSION['validate'] = false;
     //setcookie("validate", "FALSE");
-
+    error_reporting(E_ALL);
 
 
     /// Everything that is going to be displayed in the Results Box
     if(isset($_GET['search'])){
-        $search_query = $_GET['search'];
+        $search_query = mysqli_escape_string($connection,$_GET['search']);
         $search_query = strtoupper(preg_replace("#[^0-9a-z]#i ","",$search_query)); //replace invalid characters & convert to uppercase
-        $sql = "SELECT * FROM contactor_numbers WHERE Catalog_No LIKE '%$search_query%'";
-        $query = mysqli_query($connection,$sql);
-        $count = mysqli_num_rows($query);
-        if($count == 0){
-            die('Please Enter A Valid Catalog Number!');
-        }
-        else{
-            //setcookie("validate", "TRUE");
-            //$_SESSION['validate'] = true;
-            $row = mysqli_fetch_array($query);
+        
+        $sql = "SELECT * FROM contactor_numbers WHERE Catalog_No LIKE CONCAT('%',?,'%')";
+        $query = $connection->prepare($sql);
+        $query->bind_param("s", $search_query);
+        $query->execute();
+        $result = $query->get_result();
+
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc();
             $cat_num = $row['Catalog_No'];
             assign_http($search_query);
             if($search_query != $cat_num){
@@ -31,6 +30,10 @@
             $headers = get_table_headers($db_table);
             $content = retrieve_contactor_values($cat_num, $db_table);
             format_content($headers, $content);
+            $query->close();
+        }
+        else{
+            die('Do Please Enter A Valid Catalog Number!');
         }
     }
 
@@ -83,10 +86,20 @@
 
 
     function retrieve_contactor_values($catalog_num, $table_name){
-        $query = $GLOBALS['connection']->prepare("SELECT * FROM $table_name WHERE Catalog_No LIKE CONCAT('%',?,'%')");
+        /*$query = $GLOBALS['connection']->prepare("SELECT * FROM $table_name WHERE Catalog_No LIKE CONCAT('%',?,'%')");
         $query->bind_param('s', $catalog_num);
-
-        //Stopped work her for the day
+        $query->execute();
+        //$query->store_result();
+        $result = $query->get_result();
+        
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc();
+            return $row;
+        }
+        else{
+            exit;
+        }*/
+        
         $query = mysqli_query($GLOBALS['connection'],"SELECT * FROM $table_name WHERE Catalog_No LIKE '%$catalog_num%'");
         $count = mysqli_num_rows($query);
         if($count == 0){
@@ -107,9 +120,8 @@
         echo "<p id='click-txt'>Click <a class='btn-results' id = 'website_nav'>Here</a> To View Our Repco Replacement!</p>";
     }
 
-    function assign_http(){
-        $temp = $GLOBALS['search_query'];
-        $query =  mysqli_query($GLOBALS['connection'], "SELECT Repco_Replacement_Link FROM contactor_numbers WHERE Catalog_No LIKE '%$temp%'");
+    function assign_http($parameter){
+        $query =  mysqli_query($GLOBALS['connection'], "SELECT Repco_Replacement_Link FROM contactor_numbers WHERE Catalog_No LIKE '%$parameter%'");
         $row = mysqli_fetch_array($query);
         $_SESSION['link']= strval($row[0]);
         //setcookie("link",strval($row[0]));

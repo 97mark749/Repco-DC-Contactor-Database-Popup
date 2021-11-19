@@ -2,7 +2,7 @@
     include('config.php');
     // will take the users inputted text and print out all catalog numbers that contain the typed in text.
     if(!empty($_POST['keyword'])){
-        $query = $connection->prepare("SELECT Catalog_No FROM contactor_numbers WHERE Catalog_No Like CONCAT(?,'%')");
+        $query = $connection->prepare("SELECT Catalog_No FROM contactor_numbers WHERE Catalog_No Like CONCAT(?,'%')") or die(mysqli_error($connection));
         // Binds the parameter as a string given the inserted input within the popup.
         $val = preg_replace("#[^0-9a-z]#i ","",$_POST['keyword']);
         $query->bind_param('s',$val);
@@ -23,30 +23,7 @@
         }
     }
     else{
-        return '';
+        die;
     }
-    /*
-<?php
-    include('config.php');
-
-
-    if(!empty($_POST['keyword'])){
-        $query = mysqli_query($connection,"SELECT Catalog_No FROM contactor_numbers WHERE Catalog_No LIKE '".$_POST['keyword']."%' ORDER BY Catalog_No"); //WHERE Catalog_No LIKE '%$number%' LIMIT 18");
-        if(mysqli_num_rows($query) > 0){
-            //$suffix = substr($num['Catalog_No'],sizeof($_POST['keyword']) - 1);
-            echo '<ul id="suggestions-list">';
-            while($num = mysqli_fetch_assoc($query)){
-                $txt = strtoupper('<strong>'.$_POST['keyword'].'</strong>'.substr($num['Catalog_No'],strlen($_POST['keyword'])));
-                echo '<li onclick="selectNumber('.strval(($num['Catalog_No'])).')" id="'.$num['Catalog_No'].'">'.$txt.'</li>';
-            }
-            echo '</ul>';
-            exit;
-        }
-    }
-    else{
-        return '';
-    }
-?>
-    */
 ?>
 
