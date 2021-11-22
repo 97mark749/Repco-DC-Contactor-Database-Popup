@@ -21,6 +21,9 @@
             $query->close();
             exit;
         }
+        else{
+            return '';
+        }
     }
     else{
         die;

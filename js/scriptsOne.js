@@ -37,9 +37,8 @@ function submit_search(e){
         data: {search:cont_num},
         cache: false,
         success: function(data){
-            temp = data;
             $("#result").html(data);
-            validate_replacement();
+            validate_replacement(data);
             validate_input();
             $(".results-box").show();
         }
@@ -54,16 +53,20 @@ function clear_form(){
     validate_input();
 }
 
-function validate_replacement(){
+function validate_replacement(temp){
     try{
         $.ajax({
             type:'GET',
             url: 'search.php',
             data:{ valid: "validate"},
             success: function(data){
-            if(temp=="Please Enter A Valid Catalog Number!"){$("#repcoResult").html("");}
-            else{$("#repcoResult").html(data); get_link();
-            }
+                if(temp=='<h2 id="errorMessage">Please Enter A Valid Catalog Number!</h2>'){
+                    $("#repcoResult").html("");
+                    $('.results-box').hide();
+                    document.getElementById("form").reset();
+                }
+                else{$("#repcoResult").html(data); get_link();
+                }
             }
         });
     }catch(e){
