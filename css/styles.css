@@ -814,10 +814,16 @@ body {
     .table-container{
         height:13.75em;
     }
+
+
+    /* Fix this Please  */
     #errorMessage{
-      text-align:center;
+      align-content:center !important;
       color: white !important;
     }
+
+
+    
     .table-row{
       -ms-flex-flow: row wrap !important;
       -o-flex-flow: row wrap !important;

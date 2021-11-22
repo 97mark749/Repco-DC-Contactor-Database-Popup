@@ -37,7 +37,11 @@ function submit_search(e){
         data: {search:cont_num},
         cache: false,
         success: function(data){
-            $("#result").html(data);
+            if(data == 'Please Enter A Valid Catalog Number!'){
+                $('#errorMessage').html(data);
+            }else{
+                $("#result").html(data);
+            }
             validate_replacement(data);
             validate_input();
             $(".results-box").show();
@@ -60,7 +64,7 @@ function validate_replacement(temp){
             url: 'search.php',
             data:{ valid: "validate"},
             success: function(data){
-                if(temp=='<h2 id="errorMessage">Please Enter A Valid Catalog Number!</h2>'){
+                if(temp=='Please Enter A Valid Catalog Number!'){
                     $("#repcoResult").html("");
                     $('.results-box').hide();
                     document.getElementById("form").reset();

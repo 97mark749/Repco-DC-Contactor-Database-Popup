@@ -23,7 +23,7 @@
             $cat_num = $row['Catalog_No'];
             assign_http($search_query);
             if($search_query != $cat_num){
-                die('<h2 id="errorMessage">Please Enter A Valid Catalog Number!</h2>');
+                die('Please Enter A Valid Catalog Number!');
             }
             $series = $row['Series'];
             $db_table = get_table_Name($series);
@@ -33,7 +33,7 @@
             $query->close();
         }
         else{
-            die('<h2 id="errorMessage">Please Enter A Valid Catalog Number!</h2>');
+            die('Please Enter A Valid Catalog Number!');
         }
     }
 

@@ -19,6 +19,7 @@
                 <form id="form" class="basic-form">
                     <div class="modal-body">
                         <div class="table-container" id="result" name="contactor-info">
+                        <h2 id="errorMessage"></h2>
                             <!-- Contactor Values -->
                         </div>
                         <div class="results-container">
