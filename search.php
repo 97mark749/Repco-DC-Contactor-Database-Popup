@@ -2,15 +2,14 @@
     //header('Content-type: text/plain');
     include('config.php');
     session_start();
-    //$_SESSION['validate'] = false;
-    //setcookie("validate", "FALSE");
     error_reporting(E_ALL);
 
 
     /// Everything that is going to be displayed in the Results Box
     if(isset($_GET['search'])){
         $search_query = mysqli_escape_string($connection,$_GET['search']);
-        $search_query = strtoupper(preg_replace("#[^0-9a-z]#i ","",$search_query)); //replace invalid characters & convert to uppercase
+        $search_query = strtoupper(preg_replace("#[^0-9a-z]#i ","",$search_query)); 
+        //replace invalid characters & convert to uppercase
         
         $sql = "SELECT * FROM contactor_numbers WHERE Catalog_No LIKE CONCAT('%',?,'%')";
         $query = $connection->prepare($sql);
@@ -42,19 +41,17 @@
 
     function get_table_name($series_name){
         
-        /*$query = $GLOBALS['connection']->prepare('SELECT Table_Name FROM series_tables WHERE Series_Name LIKE CONCAT('%',?,'%')') or die(mysqli_error($GLOBALS['connection']));
+        $query = $GLOBALS['connection']->prepare('SELECT Table_Name FROM series_tables WHERE Series_Name LIKE CONCAT("%",?,"%")') or die(mysqli_error($GLOBALS['connection']));
         $query->bind_param('s', $series_name);
         $query->execute();
         $query->store_result();
-        $table = $query->bind_result();
+        $query->bind_result($table);
         if($query->num_rows > 0){
             while($query->fetch()){
-                echo $table;
+                return $table;
             }
-            //echo $table;
-            
         }
-        */
+        /*
         $query = mysqli_query($GLOBALS['connection'],"SELECT Table_Name FROM series_tables WHERE Series_Name LIKE '%$series_name%'");
         $count = mysqli_num_rows($query);
         if($count == 0){
@@ -65,11 +62,23 @@
             $table = $row['Table_Name'];
         }
         return $table;
-        
+        */
     }
 
 
     function get_table_headers($table_name){
+        $query = $GLOBALS['connection']->prepare('SELECT COLUMNS FROM ?') or die(mysqli_error($GLOBALS['connection']));
+        $query->bind_param('s', $table_name);
+        $query->execute();
+        $query->store_result();
+        $result = $query->get_result();
+        if($result->num_rows != 0){
+            while($query->fetch_assoc()){
+                $cols[] = str_replace("_", " ", $result['Field']);
+            }
+            return $cols;
+        }
+        /*
         $query = mysqli_query($GLOBALS['connection'], "SHOW COLUMNS FROM $table_name");
         $count = mysqli_num_rows($query);
         if($count == 0){
@@ -82,6 +91,7 @@
             } 
             return $columns;    // RETURNS THE COLUMN ARRAY
         }
+        */
     }
 
 
@@ -121,9 +131,20 @@
     }
 
     function assign_http($parameter){
-        $query =  mysqli_query($GLOBALS['connection'], "SELECT Repco_Replacement_Link FROM contactor_numbers WHERE Catalog_No LIKE '%$parameter%'");
+        /*$query =  mysqli_query($GLOBALS['connection'], "SELECT Repco_Replacement_Link FROM contactor_numbers WHERE Catalog_No LIKE '%$parameter%'");
         $row = mysqli_fetch_array($query);
         $_SESSION['link']= strval($row[0]);
         //setcookie("link",strval($row[0]));
+        */
+        $query = $GLOBALS['connection']->prepare('SELECT Repco_Replacement_Link FROM contactor_numbers WHERE Catalog_No LIKE CONCAT("%",?,"%")') or die(mysqli_error($GLOBALS['connection']));
+        $query->bind_param('s', $parameter);
+        $query->execute();
+        $query->store_result();
+        $query->bind_result($link);
+        if($link->num_rows != 0){
+            while($query->fetch()){
+                $_SESSION['link'] = $link;
+            }
+        }
     }
 ?>
