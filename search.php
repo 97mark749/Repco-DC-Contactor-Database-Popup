@@ -46,10 +46,8 @@
         $query->execute();
         $query->store_result();
         $query->bind_result($table);
-        if($query->num_rows > 0){
-            while($query->fetch()){
-                return $table;
-            }
+        while($query->fetch()){
+            return $table;
         }
         /*
         $query = mysqli_query($GLOBALS['connection'],"SELECT Table_Name FROM series_tables WHERE Series_Name LIKE '%$series_name%'");
@@ -67,6 +65,9 @@
 
 
     function get_table_headers($table_name){
+        
+        // The below will not work as ? placeholders only work for parameters
+        /*
         $query = $GLOBALS['connection']->prepare('SELECT COLUMNS FROM ?') or die(mysqli_error($GLOBALS['connection']));
         $query->bind_param('s', $table_name);
         $query->execute();
@@ -78,7 +79,7 @@
             }
             return $cols;
         }
-        /*
+        */
         $query = mysqli_query($GLOBALS['connection'], "SHOW COLUMNS FROM $table_name");
         $count = mysqli_num_rows($query);
         if($count == 0){
@@ -91,7 +92,7 @@
             } 
             return $columns;    // RETURNS THE COLUMN ARRAY
         }
-        */
+        
     }
 
 
@@ -141,10 +142,8 @@
         $query->execute();
         $query->store_result();
         $query->bind_result($link);
-        if($link->num_rows != 0){
-            while($query->fetch()){
-                $_SESSION['link'] = $link;
-            }
+        while($query->fetch()){
+            $_SESSION['link'] = $link;
         }
     }
 ?>
