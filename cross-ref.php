@@ -61,6 +61,22 @@
     }
 
     function insertSeriesDropdown($info){
+        /*
+        $query = $GLOBALS['connection']->prepare("SELECT DISTINCT Series FROM contactor_numbers WHERE Manufacturer LIKE CONCAT('%',?,'%')") or die(mysqli_error($GLOBALS['connection']));
+        $query->bind_param('s', $info);
+        $query->execute();
+        $query->store_result();
+        $query->bind_result($values);
+        if($query->num_rows > 0){
+            echo'<option value="none" selected disabled hidden>Series</option>';
+            while($values->fetch()){
+                echo '<option value="'.$values.'" class="dropdown-item">'.$values.'</option>';
+            }
+        }
+        else{
+            die;
+        }
+        */
         $query = mysqli_query($GLOBALS['connection'], "SELECT DISTINCT Series FROM contactor_numbers WHERE Manufacturer LIKE '%$info%'");
         $count = mysqli_num_rows($query);
         if($count == 0){

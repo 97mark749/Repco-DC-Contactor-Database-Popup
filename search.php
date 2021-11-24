@@ -28,6 +28,7 @@
             $db_table = get_table_Name($series);
             $headers = get_table_headers($db_table);
             $content = retrieve_contactor_values($cat_num, $db_table);
+            // format_content is not converting to string
             format_content($headers, $content);
             $query->close();
         }
@@ -46,6 +47,7 @@
         $query->execute();
         $query->store_result();
         $query->bind_result($table);
+
         while($query->fetch()){
             return $table;
         }
@@ -97,7 +99,7 @@
 
 
     function retrieve_contactor_values($catalog_num, $table_name){
-        /*$query = $GLOBALS['connection']->prepare("SELECT * FROM $table_name WHERE Catalog_No LIKE CONCAT('%',?,'%')");
+        $query = $GLOBALS['connection']->prepare("SELECT * FROM $table_name WHERE Catalog_No LIKE CONCAT('%',?,'%')");
         $query->bind_param('s', $catalog_num);
         $query->execute();
         //$query->store_result();
@@ -109,8 +111,8 @@
         }
         else{
             exit;
-        }*/
-        
+        }
+        /*
         $query = mysqli_query($GLOBALS['connection'],"SELECT * FROM $table_name WHERE Catalog_No LIKE '%$catalog_num%'");
         $count = mysqli_num_rows($query);
         if($count == 0){
@@ -120,6 +122,7 @@
             $row = mysqli_fetch_array($query);
             return $row;
         }
+        */
     }
 
     function format_content($headers, $values){
