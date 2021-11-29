@@ -47,7 +47,7 @@
     </div>
 
 
-    <div class="modal" id="popup-window-two" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal" id="popup-window-two" aria-hidden="true" aria-labelledby="ModalToggleLabel2" tabindex="-1">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
@@ -71,6 +71,7 @@
                     </form>
                     </div>
                     <div class="cross-ref-main-content">
+                        <iframe src="docs/ds303_data_sheet.pdf"></iframe>
                         <form id="dropdown-nav-container" class="dropdown-nav-container">
                             <div id="remaining-dropdowns" class="dropdown-area">
                                 <!-- Will Be Populated From php Document -->

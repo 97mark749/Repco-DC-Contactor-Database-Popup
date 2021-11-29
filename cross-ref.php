@@ -206,6 +206,15 @@
 
     function getSymbol($table_name, $value){ //passes 'series', 'position', 'value'
             $tb_name = strtolower($_SESSION['prop_1'].$table_name);
+            /*$query = $GLOBALS['connection']->prepare("SELECT Symbol FROM ? WHERE Value LIKE CONCAT('%',?,'%')") or die(mysqli_error($GLOBALS['connection']));
+            // Stack Trace thrown Here!!
+            $query->bind_param('ss',$tb_name,$value);
+            $query->execute();
+            $query->bind_result($result);
+            while($query->fetch()){
+                return $result['Symbol'];
+            }
+            */
             $query = mysqli_query($GLOBALS['connection'], "SELECT Symbol FROM $tb_name WHERE Value LIKE '%$value%'");
             $count = mysqli_num_rows($query);
             if($count == 0){
@@ -259,8 +268,23 @@
     }
 
     function get_catalog_numbers($series){
-        //Stop
-        $sql = "SELECT * FROM contactor_numbers WHERE Series LIKE '%$series%'";
+        $cat_nums = array();
+        $query = $GLOBALS['connection']->prepare("SELECT * FROM contactor_numbers WHERE Series LIKE CONCAT('%',?,'%')");
+        $query->bind_param('s', $series);
+        $query->execute();
+        $result = $query->get_result();
+
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                array_push($cat_nums,array($row['Catalog_No'],$row['Repco_Replacement_Link']));
+            }
+            return $cat_nums;
+        }else{
+            echo "ERROR: Not able to execute Query. " . mysqli_error($GLOBALS['connection']);
+        }
+
+
+        /*$sql = "SELECT * FROM contactor_numbers WHERE Series LIKE '%$series%'";
         $cat_nums = array();
         if($query = mysqli_query($GLOBALS['connection'], $sql)){
             while($row = mysqli_fetch_array($query)){
@@ -270,7 +294,7 @@
 
         } else{
             echo "ERROR: Not able to execute $sql. " . mysqli_error($GLOBALS['connection']);
-        }
+        }*/
     }
 
     function filter_catalog_numbers(){
