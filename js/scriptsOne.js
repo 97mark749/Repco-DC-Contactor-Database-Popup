@@ -1,3 +1,12 @@
+$(document).ready(function(){
+    $('#close').click(function(){
+        $('#popup-window-one').modal('hide');
+    });
+    $('#close-search-x').click(function(){
+        $('#popup-window-one').modal('hide');
+    });
+});
+
 let temp = "None";
 
 

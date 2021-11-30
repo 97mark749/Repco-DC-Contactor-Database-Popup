@@ -1,3 +1,19 @@
+$(document).ready(function(){
+    $('#close-cross-ref').click(function(){
+        $('#popup-window-two').modal('hide');
+        $('#popup-window-one').modal('hide');
+    });
+    $('#close-cross-ref-x').click(function(){
+        $('#popup-window-two').modal('hide');
+        $('#popup-window-one').modal('hide');
+    });
+    $('#search-switch-btn').click(function(){
+        $('#popup-window-two').modal('hide');
+        $('#popup-window-one').modal('show');
+    });
+});
+
+
 function set_dropdowns(){
     let select = document.getElementById('selectManufacturer');
     let value = select.options[select.selectedIndex].value;

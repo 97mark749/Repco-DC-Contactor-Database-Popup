@@ -1,0 +1,10 @@
+$(document).ready(function(){
+    $('#close-data-sheet').click(function(){
+        $('#popup-window-three').modal('hide');
+        $('#popup-window-two').modal('show');
+    });
+    $('#close-data-sheet-x').click(function(){
+        $('#popup-window-three').modal('hide');
+        $('#popup-window-two').modal('show');
+    });
+});

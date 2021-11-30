@@ -494,7 +494,8 @@
         $array = json_decode($array_str);
         echo '<ul id="matched_nums">';
         for($i = 0; $i < sizeof($array); $i++){
-            echo '<li id = "'.$array[$i].'">'.$array[$i]."</li>";
+            echo '<li id = "'.$array[$i].'"><a id="data-sheet-link" data-bs-target="#popup-window-three" data-bs-toggle="modal" data-bs-dismiss="modal">'.$array[$i].'</a></li>';
+
         }
         echo '</ul>';
     }
