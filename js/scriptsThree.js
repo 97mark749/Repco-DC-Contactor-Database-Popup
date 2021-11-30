@@ -8,3 +8,8 @@ $(document).ready(function(){
         $('#popup-window-two').modal('show');
     });
 });
+
+function assign_info(item_num){
+
+    $('#data-sheet-title').html("Catalog No. " + item_num);
+}

@@ -47,7 +47,7 @@
     </div>
 
 
-    <div class="modal" id="popup-window-two" aria-hidden="true" aria-labelledby="ModalToggleLabel2" tabindex="-1">
+    <div class="modal" id="popup-window-two" data-bs-backdrop= "static" aria-hidden="true" aria-labelledby="ModalToggleLabel2" tabindex="-1">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
@@ -99,11 +99,11 @@
     </div> 
 
 
-    <div class="modal" id="popup-window-three" aria-hidden="true" aria-labelledby="ModalTogglePDF" tabindex="-1">
+    <div class="modal" id="popup-window-three" data-bs-backdrop= "static" aria-hidden="true" aria-labelledby="ModalTogglePDF" tabindex="-1">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Contactor No. _________</h5>
+                    <h5 class="modal-title" id="data-sheet-title"><!-- Assigned By jQuery --></h5>
                     <a class="modal_close btn-close" id = "close-data-sheet-x" aria-label="Close"></a>
                 </div>
                 <div class="modal-body" id="cross-ref-body">

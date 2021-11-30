@@ -74,16 +74,32 @@ input:focus, textarea:focus, select:focus, button:focus{
   box-shadow: 1px 1px 3px rgb(0,0,0,0.7) !important;
 }
 iframe{
-  border-radius: 5px;
-  position: absolute;
-  top: 0;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -moz-border-radius: 5px;
+  position: relative;
+  top:auto;
   bottom: 0;
-  left:0;
-  right:auto;
-  margin:1em;
+  border-radius: 5px;
+  border: 1px solid black;
+  height: 95%;
+  /*min-height: 31.25em !important;*/
+  margin: 1em 0;
   z-index: 999;
-  
+  width:100%;
 }
+/* Safari Hack */
+@media not all and (min-resolution:.001dpcm){
+  /*
+    This adjustment is onlhy for Safari as iFrame does not work properly 
+    with Safari when using percentages in demensional adjustemnts
+  */
+  iframe{
+    height: 31.25em !important;
+  }
+}
+
+
 /** Containers **/
 .modal-dialog{
   border-radius: 0 !important;
@@ -843,6 +859,9 @@ body {
     .modal-content{
       min-height: 34.375em !important;
     }
+    #popup-window-three .modal-content{
+      min-height: 44.375em !important;
+    }
     .modal-body{
       height: 22em !important;
       -moz-flex-basis: auto;
@@ -1226,6 +1245,9 @@ body {
     .modal-content{
       height:33.313em;
     }
+    #popup-window-three .modal-content{
+      min-height: 43.313em !important;
+    }
     .modal-dialog{
       width: 498px !important;
     }
@@ -1465,6 +1487,9 @@ body {
     }
     .basic-form, .modal-content{
         min-height: 21.7em !important;
+    }
+    #popup-window-three .modal-content{
+      min-height: 41.7em !important;
     }
     #modalOne-footer{
         position: relative;
