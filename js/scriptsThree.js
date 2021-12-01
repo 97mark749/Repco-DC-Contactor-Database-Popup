@@ -9,7 +9,6 @@ $(document).ready(function(){
     });
 });
 
-function assign_info(item_num){
-
-    $('#data-sheet-title').html("Catalog No. " + item_num);
+function assign_info(id){
+    $('#data-sheet-title').html("Catalog No. " + id);
 }

@@ -60,6 +60,11 @@
         print_filtered_list($_SESSION['filtered_array']);
     }
 
+    if(ISSET($_GET['retrieve_num'])){
+        echo json_encode($_SESSION['selected_num']);
+        //echo json_encode('192.168.5.5');
+    }
+
     function insertSeriesDropdown($info){
         /*
         $query = $GLOBALS['connection']->prepare("SELECT DISTINCT Series FROM contactor_numbers WHERE Manufacturer LIKE CONCAT('%',?,'%')") or die(mysqli_error($GLOBALS['connection']));
@@ -489,13 +494,22 @@
         
         return $printed_list;
     }
-    
+
+    function get_data_sheet_location($cat_num){
+        $query = $GLOBALS['connection']->prepare("SELECT 'PDF_Location' FROM 'contactor_numbers' WHERE 'Catalog_No' LIKE CONCAT('%',?,'%')");
+        $query->bind_param('s',$cat_num);
+        $query->execute();
+        $query->bind_result($location);
+        while($query->fetch()){
+            return $location;
+        }
+    }
+
     function print_filtered_list($array_str){
         $array = json_decode($array_str);
         echo '<ul id="matched_nums">';
         for($i = 0; $i < sizeof($array); $i++){
-            echo '<li id = "'.$array[$i].'"><a id="data-sheet-link" data-bs-target="#popup-window-three" data-bs-toggle="modal" data-bs-dismiss="modal" onclick="assign_info('.strval($array[$i]).')">'.$array[$i].'</a></li>';
-
+            echo '<li><a id = "'.$array[$i].'" data-bs-target="#popup-window-three" data-bs-toggle="modal" data-bs-dismiss="modal" onclick="assign_info(this.id);">'.$array[$i].'</a></li>';
         }
         echo '</ul>';
     }
