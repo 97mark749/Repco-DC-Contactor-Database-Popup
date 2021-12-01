@@ -82,8 +82,7 @@ iframe{
   bottom: 0;
   border-radius: 5px;
   border: 1px solid black;
-  height: 95%;
-  /*min-height: 31.25em !important;*/
+  min-height: 31.25em !important;
   margin: 1em 0;
   z-index: 999;
   width:100%;

@@ -60,9 +60,8 @@
         print_filtered_list($_SESSION['filtered_array']);
     }
 
-    if(ISSET($_GET['retrieve_num'])){
-        echo json_encode($_SESSION['selected_num']);
-        //echo json_encode('192.168.5.5');
+    if(ISSET($_POST['number'])){
+        get_data_sheet_location($_POST['number']);
     }
 
     function insertSeriesDropdown($info){
@@ -496,12 +495,14 @@
     }
 
     function get_data_sheet_location($cat_num){
-        $query = $GLOBALS['connection']->prepare("SELECT 'PDF_Location' FROM 'contactor_numbers' WHERE 'Catalog_No' LIKE CONCAT('%',?,'%')");
+        $query = $GLOBALS['connection']->prepare("SELECT `PDF_Location` FROM `contactor_numbers` WHERE `Catalog_No` LIKE CONCAT('%',?,'%')") or die(mysqli_error($GLOBALS['connection']));
         $query->bind_param('s',$cat_num);
         $query->execute();
+        $query->store_result();
         $query->bind_result($location);
         while($query->fetch()){
-            return $location;
+            // should return a string in the form of '/docs/...'
+            echo json_encode($location);
         }
     }
 

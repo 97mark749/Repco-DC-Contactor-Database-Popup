@@ -1,6 +1,7 @@
 <?php 
         require("header.php");
         require_once('config.php');
+        
     ?>
 
     <!-- Modals -->
@@ -106,8 +107,8 @@
                     <h5 class="modal-title" id="data-sheet-title"><!-- Assigned By jQuery --></h5>
                     <a class="modal_close btn-close" id = "close-data-sheet-x" aria-label="Close"></a>
                 </div>
-                <div class="modal-body" id="cross-ref-body">
-                    <iframe src="docs/ds303_data_sheet.pdf"></iframe>
+                <div class="modal-body" id="data-sheet-body">
+                    <!-- Will Be Populated Through Ajax -->
                 </div>
                 <div class="modal-footer" id='cross-ref-footer'>
                     <!-- Create a new button class for this -->
