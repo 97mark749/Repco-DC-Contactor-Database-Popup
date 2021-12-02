@@ -48,7 +48,7 @@
     </div>
 
 
-    <div class="modal" id="popup-window-two" data-bs-backdrop= "static" aria-hidden="true" aria-labelledby="ModalToggleLabel2" tabindex="-1">
+    <div class="modal" id="popup-window-two" data-bs-backdrop= "static" aria-hidden="true" aria-labelledby="ModalLabel2" tabindex="-1">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
@@ -110,8 +110,12 @@
                 <div class="modal-body" id="data-sheet-body">
                     <!-- Will Be Populated Through Ajax -->
                 </div>
-                <div class="modal-footer" id='cross-ref-footer'>
+                <div class="modal-footer" id='data-sheet-footer'>
                     <!-- Create a new button class for this -->
+                    <span>
+                        <label>View Our Replacement: </label>
+                        <button class = "btn" id="data-sheet-nav-btn" href="#"><i id="data-sheet-nav-arrow" class="material-icons">east</i></button>
+                    </span>
                     <button type="button" id = 'close-data-sheet' class="btn btn-sm btn-dark" >Close</button>
                 </div>
             </div>

@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Oct 29, 2021 at 07:43 AM
--- Server version: 5.7.35-cll-lve
--- PHP Version: 7.3.27
+-- Host: localhost
+-- Generation Time: Dec 01, 2021 at 10:34 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,22 +24,65 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `bulletin_7400_contactors`
+--
+
+CREATE TABLE `bulletin_7400_contactors` (
+  `Catalog_No` varchar(32) NOT NULL,
+  `Series` varchar(16) NOT NULL,
+  `NEMA_Size` int(1) NOT NULL,
+  `Type` text NOT NULL,
+  `Blowout_Coil_Rating` int(3) NOT NULL,
+  `Power_Pole_Configuration` varchar(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bulletin_7400_contactors`
+--
+
+INSERT INTO `bulletin_7400_contactors` (`Catalog_No`, `Series`, `NEMA_Size`, `Type`, `Blowout_Coil_Rating`, `Power_Pole_Configuration`) VALUES
+('74U12', 'Bulletin 7400', 2, 'KD', 50, '1NO'),
+('74U121', 'Bulletin 7400', 2, 'KS', 50, '1NC'),
+('74U121E', 'Bulletin 7400', 2, 'KS', 25, '1NC'),
+('74U122', 'Bulletin 7400', 2, 'KD', 50, '1NO'),
+('74U12D', 'Bulletin 7400', 2, 'KD', 15, '1NO'),
+('74U12E', 'Bulletin 7400', 2, 'KD', 25, '1NO'),
+('74U13', 'Bulletin 7400', 3, 'KD', 100, '1NO'),
+('74U131', 'Bulletin 7400', 3, 'KS', 100, '1NC'),
+('74U14', 'Bulletin 7400', 4, 'KD', 150, '1NO'),
+('74U141', 'Bulletin 7400', 4, 'KS', 150, '1NC'),
+('74U15', 'Bulletin 7400', 5, 'KD', 300, '1NO'),
+('74U151', 'Bulletin 7400', 5, 'KS', 300, '1NC'),
+('74U22', 'Bulletin 7400', 2, 'KD', 50, '2NO'),
+('74U22D', 'Bulletin 7400', 2, 'KD', 15, '2NO'),
+('74U22E', 'Bulletin 7400', 2, 'KS', 25, '2NO');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `c80auxiliary_contact_location`
 --
 
 CREATE TABLE `c80auxiliary_contact_location` (
   `Symbol` char(1) NOT NULL,
-  `Value` varchar(64) NOT NULL
+  `Value` varchar(64) NOT NULL,
+  `Size_2` int(1) NOT NULL,
+  `Size_3` int(1) NOT NULL,
+  `Size_4` int(1) NOT NULL,
+  `Size_5` int(1) NOT NULL,
+  `Size_6` int(1) NOT NULL,
+  `Size_6A` int(1) NOT NULL,
+  `Size_8` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `c80auxiliary_contact_location`
 --
 
-INSERT INTO `c80auxiliary_contact_location` (`Symbol`, `Value`) VALUES
-('A', 'Side Mounted - Right or Left'),
-('B', 'Bottom Mounted (w/LH and/or RH Interlock)'),
-('N', 'None');
+INSERT INTO `c80auxiliary_contact_location` (`Symbol`, `Value`, `Size_2`, `Size_3`, `Size_4`, `Size_5`, `Size_6`, `Size_6A`, `Size_8`) VALUES
+('A', 'Side Mounted - Right or Left', 1, 0, 0, 0, 0, 0, 0),
+('B', 'Bottom Mounted (w/LH and/or RH Interlock)', 1, 1, 1, 1, 1, 1, 1),
+('N', 'None', 1, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -50,7 +92,7 @@ INSERT INTO `c80auxiliary_contact_location` (`Symbol`, `Value`) VALUES
 
 CREATE TABLE `c80blowout_coil_rating` (
   `Symbol` char(1) NOT NULL,
-  `Value` varchar(5) NOT NULL,
+  `Value` varchar(16) NOT NULL,
   `Size_2` int(1) NOT NULL,
   `Size_3` int(1) NOT NULL,
   `Size_4` int(1) NOT NULL,
@@ -65,16 +107,16 @@ CREATE TABLE `c80blowout_coil_rating` (
 --
 
 INSERT INTO `c80blowout_coil_rating` (`Symbol`, `Value`, `Size_2`, `Size_3`, `Size_4`, `Size_5`, `Size_6`, `Size_6A`, `Size_8`) VALUES
-('C', '5', 1, 0, 0, 0, 0, 0, 0),
-('D', '10', 1, 0, 0, 0, 0, 0, 0),
-('F', '25', 1, 0, 0, 0, 0, 0, 0),
-('G', '50', 1, 0, 0, 0, 0, 0, 0),
-('H', '100', 0, 1, 0, 0, 0, 0, 0),
-('J', '150', 0, 0, 1, 0, 0, 0, 0),
-('K', '300', 0, 0, 0, 1, 0, 0, 0),
-('L', '600', 0, 0, 0, 0, 1, 0, 0),
-('M', '810', 0, 0, 0, 0, 0, 1, 0),
-('N', '1350', 0, 0, 0, 0, 0, 0, 1),
+('C', '5 AMP', 1, 0, 0, 0, 0, 0, 0),
+('D', '10 AMP', 1, 0, 0, 0, 0, 0, 0),
+('F', '25 AMP', 1, 0, 0, 0, 0, 0, 0),
+('G', '50 AMP', 1, 0, 0, 0, 0, 0, 0),
+('H', '100 AMP', 0, 1, 0, 0, 0, 0, 0),
+('J', '150 AMP', 0, 0, 1, 0, 0, 0, 0),
+('K', '300 AMP', 0, 0, 0, 1, 0, 0, 0),
+('L', '600 AMP', 0, 0, 0, 0, 1, 0, 0),
+('M', '810 AMP', 0, 0, 0, 0, 0, 1, 0),
+('N', '1350 AMP', 0, 0, 0, 0, 0, 0, 1),
 ('X', 'None', 1, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
@@ -296,7 +338,7 @@ INSERT INTO `c82auxiliary_contact_location` (`Symbol`, `Value`, `Size_2`, `Size_
 
 CREATE TABLE `c82blowout_coil_rating` (
   `Symbol` char(1) NOT NULL,
-  `Value` varchar(4) NOT NULL,
+  `Value` varchar(16) NOT NULL,
   `Size_2` int(1) NOT NULL,
   `Size_3` int(1) NOT NULL,
   `Size_4` int(1) NOT NULL,
@@ -310,15 +352,15 @@ CREATE TABLE `c82blowout_coil_rating` (
 --
 
 INSERT INTO `c82blowout_coil_rating` (`Symbol`, `Value`, `Size_2`, `Size_3`, `Size_4`, `Size_5`, `Size_6`, `Size_6A`) VALUES
-('C', '5', 1, 0, 0, 0, 0, 0),
-('D', '10', 1, 0, 0, 0, 0, 0),
-('F', '25', 1, 1, 0, 0, 0, 0),
-('G', '50', 1, 1, 0, 0, 0, 0),
-('H', '100', 0, 1, 0, 0, 0, 0),
-('J', '150', 0, 0, 1, 0, 0, 0),
-('K', '300', 0, 0, 0, 1, 0, 0),
-('L', '600', 0, 0, 0, 0, 1, 0),
-('M', '810', 0, 0, 0, 0, 0, 1),
+('C', '5 AMP', 1, 0, 0, 0, 0, 0),
+('D', '10 AMP', 1, 0, 0, 0, 0, 0),
+('F', '25 AMP', 1, 1, 0, 0, 0, 0),
+('G', '50 AMP', 1, 1, 0, 0, 0, 0),
+('H', '100 AMP', 0, 1, 0, 0, 0, 0),
+('J', '150 AMP', 0, 0, 1, 0, 0, 0),
+('K', '300 AMP', 0, 0, 0, 1, 0, 0),
+('L', '600 AMP', 0, 0, 0, 0, 1, 0),
+('M', '810 AMP', 0, 0, 0, 0, 0, 1),
 ('X', 'None', 1, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
@@ -524,48 +566,64 @@ CREATE TABLE `contactor_numbers` (
   `Catalog_No` varchar(32) NOT NULL,
   `Manufacturer` text NOT NULL,
   `Series` varchar(16) NOT NULL,
-  `Repco_Replacement_Link` longtext NOT NULL
+  `Repco_Replacement_Link` longtext NOT NULL,
+  `PDF_Location` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `contactor_numbers`
 --
 
-INSERT INTO `contactor_numbers` (`Catalog_No`, `Manufacturer`, `Series`, `Repco_Replacement_Link`) VALUES
-('C80DC121A11', 'Cutler Hammer', 'C80', 'https://www.repcoinc.com/other/10923H11-Cutler-Hammer-Kit-PC0006-omsd.html'),
-('C80DC211B32', 'Cutler Hammer', 'C80', 'https://www.repcoinc.com/other/119463-Cutler-Hammer-Mechanical-Interlock-PC0029-omsd.html'),
-('C80EH141A11', 'Cutler Hammer', 'C80', 'https://www.repcoinc.com/other/12-235-Cutler-Hammer-Groove-Pins-PC0034-omsd.html'),
-('C80EH423B44', 'Cutler Hammer', 'C80', 'https://www.repcoinc.com/other/13-1369-4-Cutler-Hammer-Shaft-7-PC0053-omsd.html'),
-('C82DC1213A02', 'Cutler Hammer', 'C82', 'https://www.repcoinc.com/other/13-3186-1-Cutler-Hammer-Roll-Pin-PC0100-omsd.html'),
-('C82DH1111A02', 'Cutler Hammer', 'C82', 'https://www.repcoinc.com/other/13-3883-3-Cutler-Hammer-Insulation-Assembly-PC0148-omsd.html'),
-('C82EH1231B01', 'Cutler Hammer', 'C82', 'https://www.repcoinc.com/other/13-4762-Cutler-Hammer-Groove-Pins-PC0175-omsd.html'),
-('C82JL1131B03', 'Cutler Hammer', 'C82', 'https://www.repcoinc.com/other/13-734-Cutler-Hammer-Adjusting-Pin-PC0201-omsd.html'),
-('DS303A1B01XEA002XH', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303A2B01XFA002XK', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303A2C01FXA002XN', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303A2C01FXA022XK', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/273A2425G1_Contactor_GE_DS303A6_DS303A7-ecmsd.html'),
-('DS303A2C02FXA022XK', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303A2D01FFA002XH', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5637G1_General_Electric_Electrical_Contactor_DS303A3-ecmsd.html'),
-('DS303A3A01GXA003XH', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303A3A01GXA021XH', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303A3B01XGA002XK', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303A3C01GXA002XN', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5614G1_Electrical_Contact_GE_DS303A1_DS303A2-ecmsd.html'),
-('DS303A3C01GXA003XF', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303A3C01GXA003XJ', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303A3D01GGA003XF', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303A4A01HXA002XJ', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303A4A01HXA002XL', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303A4B01XHA002XF', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303A4B01XHA003XH', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303A5A01JXA002XH', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303A5A01JXA003XH', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303A5A01JXA010XF', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303A5A01JXA022XH', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303A5C01JXA003XG', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303A6A01KXA003XG', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303A7A01LXA002XF', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303B2A01FXA013XK', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html'),
-('DS303B3A01GXA002XF', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html');
+INSERT INTO `contactor_numbers` (`Catalog_No`, `Manufacturer`, `Series`, `Repco_Replacement_Link`, `PDF_Location`) VALUES
+('74U12', 'Clark', 'Bulletin 7400', 'http://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('74U121', 'Clark', 'Bulletin 7400', 'http://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('74U121E', 'Clark', 'Bulletin 7400', 'http://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('74U122', 'Clark', 'Bulletin 7400', 'http://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('74U12D', 'Clark', 'Bulletin 7400', 'http://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('74U12E', 'Clark', 'Bulletin 7400', 'http://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('74U13', 'Clark', 'Bulletin 7400', 'http://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('74U131', 'Clark', 'Bulletin 7400', 'http://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('74U14', 'Clark', 'Bulletin 7400', 'http://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('74U141', 'Clark', 'Bulletin 7400', 'http://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('74U15', 'Clark', 'Bulletin 7400', 'http://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('74U151', 'Clark', 'Bulletin 7400', 'http://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('74U22', 'Clark', 'Bulletin 7400', 'http://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('74U22D', 'Clark', 'Bulletin 7400', 'http://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('74U22E', 'Clark', 'Bulletin 7400', 'http://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('C80DC121A11', 'Cutler Hammer', 'C80', 'https://www.repcoinc.com/other/10923H11-Cutler-Hammer-Kit-PC0006-omsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('C80DC211B32', 'Cutler Hammer', 'C80', 'https://www.repcoinc.com/other/119463-Cutler-Hammer-Mechanical-Interlock-PC0029-omsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('C80EH141A11', 'Cutler Hammer', 'C80', 'https://www.repcoinc.com/other/12-235-Cutler-Hammer-Groove-Pins-PC0034-omsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('C80EH423B44', 'Cutler Hammer', 'C80', 'https://www.repcoinc.com/other/13-1369-4-Cutler-Hammer-Shaft-7-PC0053-omsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('C82DC1213A02', 'Cutler Hammer', 'C82', 'https://www.repcoinc.com/other/13-3186-1-Cutler-Hammer-Roll-Pin-PC0100-omsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('C82DH1111A02', 'Cutler Hammer', 'C82', 'https://www.repcoinc.com/other/13-3883-3-Cutler-Hammer-Insulation-Assembly-PC0148-omsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('C82EH1231B01', 'Cutler Hammer', 'C82', 'https://www.repcoinc.com/other/13-4762-Cutler-Hammer-Groove-Pins-PC0175-omsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('C82JL1131B03', 'Cutler Hammer', 'C82', 'https://www.repcoinc.com/other/13-734-Cutler-Hammer-Adjusting-Pin-PC0201-omsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A1B01XEA002XH', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A2B01XFA002XK', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A2C01FXA002XN', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A2C01FXA022XK', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/273A2425G1_Contactor_GE_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A2C02FXA022XK', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A2D01FFA002XH', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5637G1_General_Electric_Electrical_Contactor_DS303A3-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A3A01GXA003XH', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A3A01GXA021XH', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A3B01XGA002XK', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A3C01GXA002XN', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5614G1_Electrical_Contact_GE_DS303A1_DS303A2-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A3C01GXA003XF', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A3C01GXA003XJ', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A3D01GGA003XF', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A4A01HXA002XJ', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A4A01HXA002XL', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A4B01XHA002XF', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A4B01XHA003XH', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A5A01JXA002XH', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A5A01JXA003XH', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A5A01JXA010XF', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A5A01JXA022XH', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A5C01JXA003XG', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A6A01KXA003XG', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303A7A01LXA002XF', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303B2A01FXA013XK', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('DS303B3A01GXA002XF', 'General Electric', 'DS303', 'https://www.repcoinc.com/contacts/259A5562G1_General_Electric_Contactors_DS303A6_DS303A7-ecmsd.html', 'RC100003_1P_NO_Data_Sheet.pdf');
 
 -- --------------------------------------------------------
 
@@ -662,7 +720,7 @@ CREATE TABLE `ds303blowout_coil_rating` (
 
 INSERT INTO `ds303blowout_coil_rating` (`Symbol`, `Value`, `Size_1`, `Size_2`, `Size_3`, `Size_4`, `Size_5`, `Size_6`, `Size_7`) VALUES
 ('A', 'Less Blowout', 1, 1, 1, 1, 1, 1, 1),
-('B', '2 Amp', 1, 0, 0, 0, 0, 0, 0),
+('B', '2 AMP', 1, 0, 0, 0, 0, 0, 0),
 ('C', '5 AMP', 1, 1, 0, 0, 0, 0, 0),
 ('D', '10 AMP', 1, 1, 0, 0, 0, 0, 0),
 ('E', '25 AMP', 1, 1, 1, 0, 0, 0, 0),
@@ -853,8 +911,8 @@ INSERT INTO `ds303contact_pole_configuration` (`Symbol`, `Value`, `Size_1`, `Siz
 ('A', '1NO', 1, 1, 1, 1, 1, 1, 1),
 ('B', '1NC', 1, 1, 1, 1, 1, 0, 0),
 ('C', '2NO', 0, 1, 1, 1, 1, 0, 0),
-('D', '1NO/1NC', 1, 1, 1, 1, 1, 0, 0),
-('E', '2NO/2NC', 0, 1, 1, 1, 1, 0, 0),
+('D', '1NO / 1NC', 1, 1, 1, 1, 1, 0, 0),
+('E', '2NO / 1NC', 0, 1, 1, 1, 1, 0, 0),
 ('F', '2NO / 2NC', 0, 1, 1, 0, 0, 0, 0),
 ('G', '1NC WITH HOLDING COIL', 1, 1, 1, 1, 1, 0, 0),
 ('J', '1NO/1NC WITH HOLDING COIL', 1, 1, 1, 1, 1, 0, 0),
@@ -1019,8 +1077,8 @@ INSERT INTO `ds303_contactors` (`Catalog_No`, `Series`, `Voltage`, `NEMA_Size`, 
 --
 
 CREATE TABLE `series_tables` (
-  `Series_Name` varchar(16) NOT NULL,
-  `Table_Name` varchar(16) NOT NULL
+  `Series_Name` varchar(32) NOT NULL,
+  `Table_Name` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1028,6 +1086,7 @@ CREATE TABLE `series_tables` (
 --
 
 INSERT INTO `series_tables` (`Series_Name`, `Table_Name`) VALUES
+('Bulletin 7400', 'bulletin_7400_contactors'),
 ('C80', 'c80_contactors'),
 ('C82', 'c82_contactors'),
 ('DS303', 'ds303_contactors');
@@ -1035,6 +1094,12 @@ INSERT INTO `series_tables` (`Series_Name`, `Table_Name`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `bulletin_7400_contactors`
+--
+ALTER TABLE `bulletin_7400_contactors`
+  ADD PRIMARY KEY (`Catalog_No`);
 
 --
 -- Indexes for table `c80auxiliary_contact_location`
