@@ -39,6 +39,7 @@
 
     if(isset($_GET['valid'])){format_navigation();}
     if(isset($_GET['website_nav'])){echo $_SESSION['link'];}
+    if(isset($_GET['nav'])){echo assign_http(strval($_GET['nav']));}
 
     function get_table_name($series_name){
         

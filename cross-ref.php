@@ -64,6 +64,10 @@
         get_data_sheet_location($_POST['number']);
     }
 
+    if(isset($_GET['nav'])){
+        echo getLink(strval($_GET['nav']));
+    }
+
     function insertSeriesDropdown($info){
         /*
         $query = $GLOBALS['connection']->prepare("SELECT DISTINCT Series FROM contactor_numbers WHERE Manufacturer LIKE CONCAT('%',?,'%')") or die(mysqli_error($GLOBALS['connection']));
@@ -207,7 +211,7 @@
             return $result;
         }
     }
-
+    
     function getSymbol($table_name, $value){ //passes 'series', 'position', 'value'
             $tb_name = strtolower($_SESSION['prop_1'].$table_name);
             /*$query = $GLOBALS['connection']->prepare("SELECT Symbol FROM ? WHERE Value LIKE CONCAT('%',?,'%')") or die(mysqli_error($GLOBALS['connection']));
@@ -513,5 +517,16 @@
             echo '<li><a id = "'.$array[$i].'" data-bs-target="#popup-window-three" data-bs-toggle="modal" data-bs-dismiss="modal" onclick="assign_info(this.id);">'.$array[$i].'</a></li>';
         }
         echo '</ul>';
+    }
+
+    function getLink($parameter){
+        $query = $GLOBALS['connection']->prepare('SELECT Repco_Replacement_Link FROM contactor_numbers WHERE Catalog_No LIKE CONCAT("%",?,"%")') or die(mysqli_error($GLOBALS['connection']));
+        $query->bind_param('s', $parameter);
+        $query->execute();
+        $query->store_result();
+        $query->bind_result($link);
+        while($query->fetch()){
+            echo $link;
+        }
     }
 ?>

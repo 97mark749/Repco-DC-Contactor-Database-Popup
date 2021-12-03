@@ -1,3 +1,5 @@
+var selectedID = "";
+
 $(document).ready(function(){
     $('#close-data-sheet').click(function(){
         $('#popup-window-three').modal('hide');
@@ -13,6 +15,7 @@ $(document).ready(function(){
 });
 
 function assign_info(id){
+    selectedID = String(id);
     $('#data-sheet-title').html("Contactor No. <u>" + id + "</u>");
     $.ajax({
         type: "POST",
@@ -31,7 +34,7 @@ function navToReplacement(){
     $.ajax({
         type: "GET",
         url: "cross-ref.php",
-        data: {nav: 'getRepeplacement'},
+        data: {nav: selectedID},
         success: function(data){
             window.location.assign(data);
         }

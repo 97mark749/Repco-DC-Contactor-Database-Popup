@@ -892,7 +892,7 @@ strong{
   letter-spacing: 0.025rem;
 }
 #matched_nums li:active{
-  font-weight: bold;
+  font-weight: 500;
   text-shadow: 1px 1px 6px #474747a9;
   letter-spacing: 0.05rem;
 }
