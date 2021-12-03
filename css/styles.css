@@ -86,6 +86,7 @@ iframe{
   margin: 1em 0;
   z-index: 999;
   width:100%;
+  box-shadow: 1px 1px 3px rgb(0,0,0,0.5);
 }
 #data-sheet-title u{
   font-size: 0.9em;
@@ -684,11 +685,24 @@ iframe{
 #data-sheet-footer{
   justify-content: space-between !important;
 }
-#data-sheet-footer span{
+#data-sheet-footer > div{
   position: relative;
   left: 0.1em;
+  display: flex;
+  -moz-justify-content: space-between;
+  -o-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+  
 }
-#data-sheet-footer span > button{
+#data-sheet-footer > div > p{
+  position: relative;
+  top: 0.19em;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgb(153,0,0,0.20);
+}
+#data-sheet-footer > div > i{
+  text-align: center;
   background: #990000;
   color: #fff;
   -moz-box-shadow: 1px 1px 3px rgb(0,0,0,0.5);
@@ -699,28 +713,32 @@ iframe{
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
-  height: 1.25em;
-  width: 1.8em;
+  height: 1em;
+  width: 1.5em;
   position: relative;
   right: -0.5em;
+  -ms-transition-property: background, transform;
+  -ms-transition-duration: 150ms;
+  -ms-transition-timing-function: ease-in-out;
+  -o-transition-property: background, transform;
+  -o-transition-duration: 150ms;
+  -o-transition-timing-function: ease-in-out;
   transition-property: background, transform;
-  transition-duration: 200ms;
+  transition-duration: 150ms;
   transition-timing-function: ease-in-out;
 }
-#data-sheet-footer span > button:hover{
+#data-sheet-footer > div > i:hover{
   background: #7a0000;
+  cursor: pointer;
 }
-#data-sheet-footer span > button:active{
+#data-sheet-footer div > i:active{
+  -ms-transform: scale(0.95);
+  -ms-transform-origin: center;
+  -o-transform: scale(0.95);
+  -o-transform-origin: center;
   transform: scale(0.95);
-}
-#data-sheet-footer span > button > i{
-  position: relative;
-  font-size: 18px;
-  right: 0.4em;
-  bottom: 0.3em;
-  transition-property: transform;
-  transition-duration: 200ms;
-  transition-timing-function: ease-in-out;
+  transform-origin: center;
+  background: #990000;
 }
 /** Modal Footer Properties **/
 .modal-footer{

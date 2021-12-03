@@ -112,10 +112,10 @@
                 </div>
                 <div class="modal-footer" id='data-sheet-footer'>
                     <!-- Create a new button class for this -->
-                    <span>
-                        <label>View Our Replacement: </label>
-                        <button class = "btn" id="data-sheet-nav-btn" href="#"><i id="data-sheet-nav-arrow" class="material-icons">east</i></button>
-                    </span>
+                    <div>
+                        <p>View Our Replacement: </p>
+                        <i id="data-sheet-nav-arrow" class="material-icons" onclick="navToReplacement()">east</i>
+                    </div>
                     <button type="button" id = 'close-data-sheet' class="btn btn-sm btn-dark" >Close</button>
                 </div>
             </div>

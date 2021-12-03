@@ -26,3 +26,14 @@ function assign_info(id){
         }
     });
 }
+
+function navToReplacement(){
+    $.ajax({
+        type: "GET",
+        url: "cross-ref.php",
+        data: {nav: 'getRepeplacement'},
+        success: function(data){
+            window.location.assign(data);
+        }
+    });
+}
