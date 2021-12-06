@@ -40,6 +40,7 @@ function load_data(type, cat_num_str){
 function submit_search(e){
     e.preventDefault();
     cont_num = $("#search").val();
+    
     $.ajax({
         type: "GET",
         url: "search.php",

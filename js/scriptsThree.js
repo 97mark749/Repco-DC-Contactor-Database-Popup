@@ -16,7 +16,7 @@ $(document).ready(function(){
 
 function assign_info(id){
     selectedID = String(id);
-    $('#data-sheet-title').html("Contactor No. <u>" + id + "</u>");
+    $('#data-sheet-title').html("Contactor No.<br><u>" + id + "</u>");
     $.ajax({
         type: "POST",
         url: 'cross-ref.php',

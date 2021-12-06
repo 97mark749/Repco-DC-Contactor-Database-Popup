@@ -39,7 +39,6 @@
 
     if(isset($_GET['valid'])){format_navigation();}
     if(isset($_GET['website_nav'])){echo $_SESSION['link'];}
-    if(isset($_GET['nav'])){echo assign_http(strval($_GET['nav']));}
 
     function get_table_name($series_name){
         
@@ -100,7 +99,7 @@
 
 
     function retrieve_contactor_values($catalog_num, $table_name){
-        $query = $GLOBALS['connection']->prepare("SELECT * FROM $table_name WHERE Catalog_No LIKE CONCAT('%',?,'%')");
+        /*$query = $GLOBALS['connection']->prepare("SELECT * FROM $table_name WHERE Catalog_No LIKE CONCAT('%',?,'%')") or die(mysqli_error($GLOBALS['connection']));
         $query->bind_param('s', $catalog_num);
         $query->execute();
         //$query->store_result();
@@ -111,9 +110,9 @@
             return $row;
         }
         else{
-            exit;
+            printf("Error!");
         }
-        /*
+        */
         $query = mysqli_query($GLOBALS['connection'],"SELECT * FROM $table_name WHERE Catalog_No LIKE '%$catalog_num%'");
         $count = mysqli_num_rows($query);
         if($count == 0){
@@ -123,7 +122,6 @@
             $row = mysqli_fetch_array($query);
             return $row;
         }
-        */
     }
 
     function format_content($headers, $values){
