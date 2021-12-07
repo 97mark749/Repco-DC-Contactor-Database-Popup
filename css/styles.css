@@ -66,6 +66,23 @@ input, select {
 input:focus, textarea:focus, select:focus, button:focus{
     outline: none !important;
 }
+.tooltip-inner{
+  background-color: #990000 !important;
+  -moz-box-shadow: 1px 1px 5px rgb(0,0,0,0.7) !important;
+  -ms-box-shadow: 1px 1px 5px rgb(0,0,0,0.7) !important;
+  -o-box-shadow: 1px 1px 5px rgb(0,0,0,0.7) !important;
+  box-shadow: 1px 1px 5px rgb(0,0,0,0.7) !important;
+}
+.tooltip.bs-tooltip-top .tooltip-arrow::before {
+  border-top-color: #990000 !important;
+}
+.tooltip.bs-tooltip-top .tooltip-arrow::after{
+  -moz-box-shadow: 1px 1px 5px rgb(0,0,0,0.7) !important;
+  -ms-box-shadow: 1px 1px 5px rgb(0,0,0,0.7) !important;
+  -o-box-shadow: 1px 1px 5px rgb(0,0,0,0.7) !important;
+  box-shadow: 1px 1px 5px rgb(0,0,0,0.7) !important;
+}
+
 
 .btn{
   -moz-box-shadow: 1px 1px 3px rgb(0,0,0,0.7) !important;
@@ -140,7 +157,7 @@ iframe{
 .main-container{
     -moz-display: flex;
     -o-display: flex;
-    -ms-display: flexl;
+    -ms-display: flex;
     -webkit-display: flex;
     display: flex;
     background-color: aliceblue;
@@ -636,24 +653,8 @@ iframe{
 }
 
 /** Modal Submit Button **/
-.submit-btn{
-    background-color: #990000 !important;
-    border: None !important;
-    font-family: 'Average Sans', 'sans-serif';
-    color: white;
+#submit{
     margin-right: 0.4rem;
-    -ms-transition-property: background-color;
-    -ms-transition-duration: 200ms;
-    -ms-transition-timing-function: ease-in-out;
-    -o-transition-property: background-color;
-    -o-transition-duration: 200ms;
-    -o-transition-timing-function: ease-in-out;
-    transition-property: background-color;
-    transition-duration: 200ms;
-    transition-timing-function: ease-in-out;
-}
-.submit-btn:hover{
-    background-color: #7A0000 !important;
 }
 
 /** Modal Header Properties **/
@@ -681,9 +682,6 @@ iframe{
     right: 22px;
     width: 0.5em !important;
     height: 0.5em !important;
-}
-.submit-btn:active, .btn-close:active {
-    color: white;
 }
 #click-txt{
   margin: 0;
@@ -778,6 +776,28 @@ iframe{
     flex-flow: row nowrap;
     padding: 0;
     margin: 0;
+}
+.footer-btn{
+  font-family: 'Average Sans', 'sans-serif';
+  color: #fff !important;
+  border-color: #212529 !important;
+  background-color: #212529 !important;
+  -ms-transition-property: background-color,border-color,transform;
+  -ms-transition-duration: 200ms,200ms,100ms;
+  -ms-transition-timing-function: ease-in-out;
+  -o-transition-property: background-color,border-color,transform;
+  -o-transition-duration: 200ms,200ms,100ms;
+  -o-transition-timing-function: ease-in-out;
+  transition-property: background-color,border-color,transform;
+  transition-duration: 200ms,200ms,100ms;
+  transition-timing-function: ease-in-out;
+}
+.footer-btn:hover{
+  background-color: #990000 !important;
+  border-color: #990000 !important;
+}
+.footer-btn:active{
+  transform: scale(0.97);
 }
 .insert-box{
     letter-spacing: 0.05em;

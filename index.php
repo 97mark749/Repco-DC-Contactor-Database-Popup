@@ -38,8 +38,8 @@
                             </div>
                         </div>
                         <div class="footer-btn-group">
-                            <button type="button" id ='submit' class="btn btn-sm btn-danger submit-btn" onClick="validate_replacement()" disabled>Submit</button>
-                            <button type="button" id = 'close' onclick="clear_form()" class="btn btn-dark btn-sm" >Close</button>
+                            <button type="button" id ='submit' class="btn btn-sm btn-danger footer-btn tt" data-bs-toggle = "tooltip" data-bs-placement = "top" data-bs-offset = '[0,7]' data-bs-trigger = 'hover' data-bs-html = "true" title = "<b>Verify</b> Input<br><b>Before</b> Searching!" onClick="validate_replacement()" disabled>Search</button>
+                            <button type="button" id = 'close' onclick="clear_form()" class="btn btn-sm footer-btn" >Close</button>
                         </div>
                     </div>
                 </form>
@@ -90,10 +90,10 @@
                 </div>
                 <div class="modal-footer" id='cross-ref-footer'>
                     <!-- Create a new button class for this -->
-                    <button type="button" id = 'submit-search' class = "btn btn-sm btn-dark" onclick="print_filtered_nums()" onpaste="validate_input()" disabled>Submit</button>
-                    <button type="button" id = 'search-switch-btn'  class="btn btn-sm btn-dark" data-bs-target="#popup-window-one" data-bs-toggle="modal" onclick="reset_form()">Go Back</button>
-                    <button type="button" id = 'reset-form-btn'  class="btn btn-sm btn-dark" onclick="reset_form()">Reset</button>
-                    <button type="button" id = 'close-cross-ref'  class="btn btn-sm btn-dark"  onclick="reset_form()">Close</button>
+                    <button type="button" id = 'submit-search' class = "btn btn-sm footer-btn tt" onclick="print_filtered_nums()" data-bs-toggle = "tooltip" data-bs-placement = "top" data-bs-offset = '[0,7]' data-bs-trigger = 'hover' data-bs-html = "true" title = "<b>Verify</b> Selections <b>Before</b> Submitting!" disabled >Submit</button>
+                    <button type="button" id = 'search-switch-btn'  class="btn btn-sm footer-btn" data-bs-target="#popup-window-one" data-bs-toggle="modal" onclick="reset_form()">Go Back</button>
+                    <button type="button" id = 'reset-form-btn'  class="btn btn-sm footer-btn tt" data-bs-toggle = "tooltip" data-bs-placement = "top" data-bs-offset = '[0,7]' data-bs-trigger = 'hover' data-bs-html = "true" title = "Are You Sure? " onclick="reset_form()">Reset</button>
+                    <button type="button" id = 'close-cross-ref'  class="btn btn-sm footer-btn"  onclick="reset_form()">Close</button>
                 </div>
             </div>
         </div>
@@ -116,7 +116,7 @@
                         <p>View Our Replacement: </p>
                         <i id="data-sheet-nav-arrow" class="material-icons" onclick="navToReplacement()">east</i>
                     </div>
-                    <button type="button" id = 'close-data-sheet' class="btn btn-sm btn-dark" >Close</button>
+                    <button type="button" id = 'close-data-sheet' class="btn btn-sm footer-btn" >Close</button>
                 </div>
             </div>
         </div>
@@ -132,7 +132,9 @@
             </button>
         </form>
     </div>
-    </body>
+
+
+
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- jQuery UI library -->
@@ -145,7 +147,12 @@
     <script type="text/javascript" src="js/autocomplete.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    
     <script>
-        
+        const tooltips = document.querySelectorAll('.tt');
+        tooltips.forEach(t => {
+            new bootstrap.Tooltip(t);
+        })
     </script>
+    </body>
     </html> 
