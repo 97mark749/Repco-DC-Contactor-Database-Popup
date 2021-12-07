@@ -66,6 +66,13 @@ input, select {
 input:focus, textarea:focus, select:focus, button:focus{
     outline: none !important;
 }
+.tooltip{
+  -webkit-transition-delay: 100ms;
+  -moz-transition-delay: 100ms;
+  -ms-transition-delay: 100ms;
+  -o-transition-delay: 100ms;
+  transition-delay: 100ms;
+}
 .tooltip-inner{
   background-color: #990000 !important;
   -moz-box-shadow: 1px 1px 5px rgb(0,0,0,0.7) !important;
