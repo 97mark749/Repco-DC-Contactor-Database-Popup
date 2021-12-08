@@ -13,8 +13,8 @@
                     <a class="modal_close btn-close" id = "close-search-x" onclick="clear_form()" aria-label="Close"></a>
                 </div>
                 <div class="modal-switch">
-                    <h6 id="modal-switch-txt">Don't Know Your Contactor Number Click
-                    <a id="modal-switch-btn" data-bs-target="#popup-window-two" data-bs-toggle="modal">Here</a>
+                    <h6 id="modal-switch-txt">Use Our Contactor Builder
+                        <i id="modal-switch-btn" class = "material-icons" data-bs-target="#popup-window-two" data-bs-toggle="modal">engineering</i>
                     </h6>
                 </div>
                 <form id="form" class="basic-form">
@@ -139,11 +139,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- jQuery UI library -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
     <script type="text/javascript" src="js/scriptsOne.js"></script>
     <script type="text/javascript" src="js/scriptsTwo.js"></script>
     <script type="text/javascript" src="js/scriptsThree.js"></script>
-
+    
     <script type="text/javascript" src="js/autocomplete.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>

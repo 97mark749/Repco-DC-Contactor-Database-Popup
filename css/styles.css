@@ -390,18 +390,48 @@ iframe{
   justify-content: flex-start !important;
 }
 #modal-switch-txt{
+  -moz-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
+  -ms-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
+  -o-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
+  box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
+  background-color:#990000;
+  border: none;
+  color:#fff;
   font-size: 14px !important;
   padding: 0;
   margin: 0;
 }
-#modal-switch-btn, .btn-results{
+#modal-switch-btn{
+  height: 1.5em !important;
+  width: 1.5em !important;
+  font-size: 22px;
   font-weight: bolder;
-  color: #990000;
-  padding: 0;
-  margin: 0 0 0 0.10em;
+  color: white;
+  text-align:center;
+  border-radius: 10px;
+  margin: 0 0.5rem 0 0.5rem !important;
+  padding: 0.25rem !important;
+  text-shadow: 1.3px 2px 2px rgba(59, 62, 95, 0.8), 
+    1.5px 2px 8px rgba(153, 0, 0, 0.623);
+  -ms-transition-property:background-color,box-shadow,transform;
+  -ms-transition-duration: 200ms;
+  -ms-transition-timing-function: ease-in-out;
+  -o-transition-property:background-color,box-shadow,transform;
+  -o-transition-duration: 200ms;
+  -o-transition-timing-function: ease-in-out;
+  transition-property:background-color,box-shadow,transform;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
 }
-#modal-switch-btn:hover, .btn-results:hover{
-  color: #212529;
+#modal-switch-btn:hover{
+  background-color: rgb(146, 146, 146, 0.25);
+  box-shadow: 0 4px 20px 0px rgb(0,0,0,0.14),
+              0 7px 10px -5px rgba(0,0,0,0.225);
+  cursor: pointer !important;
+}
+#modal-switch-btn:active{
+  background-color:transparent;
+  transform: scale(0.97);
 }
 #cross-ref-header{
   margin: 1rem 1rem 1rem 0;
@@ -558,7 +588,7 @@ iframe{
 }
 .card-header h6{
   position: relative;
-  bottom:0.15em;
+  /*bottom:0.15em;*/
   font-family: 'Fjalla One', 'sans-serif';
   font-size: 20;
 
@@ -644,15 +674,6 @@ iframe{
 .results-box p{
   margin: 0;
   padding: 0;
-}
-.modal-switch-btn{
-  height: 1.5em !important;
-  padding: 0 0.25rem 0 0.25rem !important;
-  margin: 0 0.5rem 0 0.5rem !important;
-}
-.btn-results{
-    height: 1.5em !important;
-    text-decoration: none;
 }
 
 #click-txt, #website_nav, #repReplace{
@@ -789,19 +810,23 @@ iframe{
   color: #fff !important;
   border-color: #212529 !important;
   background-color: #212529 !important;
-  -ms-transition-property: background-color,border-color,transform;
-  -ms-transition-duration: 200ms,200ms,100ms;
+  -ms-transition-property: background-color,border-color,transform,box-shadow;
+  -ms-transition-duration: 200ms,200ms,100ms,100ms;
   -ms-transition-timing-function: ease-in-out;
-  -o-transition-property: background-color,border-color,transform;
-  -o-transition-duration: 200ms,200ms,100ms;
+  -o-transition-property: background-color,border-color,transform,box-shadow;
+  -o-transition-duration: 200ms,200ms,100ms,100ms;
   -o-transition-timing-function: ease-in-out;
-  transition-property: background-color,border-color,transform;
-  transition-duration: 200ms,200ms,100ms;
+  transition-property: background-color,border-color,transform,box-shadow;
+  transition-duration: 200ms,200ms,100ms,100ms;
   transition-timing-function: ease-in-out;
 }
 .footer-btn:hover{
   background-color: #990000 !important;
   border-color: #990000 !important;
+  -moz-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
+  -ms-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
+  -o-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
+  box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
 }
 .footer-btn:active{
   transform: scale(0.97);
@@ -1040,7 +1065,7 @@ body {
       -o-flex-basis: 100%;
       flex-basis: 100%;
     }
-    #modal-switch-txt, #modal-switch-btn, .results-container{
+    #modal-switch-txt, .results-container{
         font-size: 1rem !important;
     }
     #modal-switch-txt{
@@ -1057,9 +1082,6 @@ body {
         left: 2em;
         width: 10em;
         z-index: 1;
-    }
-    #modal-switch-btn:hover, .btn-results:hover{
-        cursor: pointer !important;
     }
     #matched_nums li:hover{
         transform-origin:center;
@@ -1388,7 +1410,7 @@ body {
         box-shadow:inset 0 0 1px #000000;
     }
   
-    #modal-switch-txt, #modal-switch-btn, .results-container{
+    #modal-switch-txt, .results-container{
         font-size: 1rem !important;
     }
     #modal-switch-txt{
@@ -1408,9 +1430,6 @@ body {
         left: 2.5em;
         width: 10em;
         z-index: 1;
-    }
-    #modal-switch-btn:hover, .btn-results:hover{
-        cursor: pointer !important;
     }
     .results-container{
         position: absolute;
@@ -1525,7 +1544,7 @@ body {
         -ms-box-shadow:inset 0 0 1px #000000;
         box-shadow:inset 0 0 1px #000000;
     }
-    #modal-switch-txt, #modal-switch-btn{
+    #modal-switch-txt{
         font-size: 1.1rem !important;
     }
     #modal-switch-txt{
@@ -1541,9 +1560,6 @@ body {
         -moz-box-shadow: 0.5px 1.5px 4px 0 rgba(0,0,0,0.5);
         -ms-box-shadow: 0.5px 1.5px 4px 0 rgba(0,0,0,0.5);
         box-shadow: 0.5px 1.5px 4px 0 rgba(0,0,0,0.5);
-    }
-    #modal-switch-btn:hover, .btn-results:hover{
-        cursor: pointer !important;
     }
     .modal-switch{
         position:absolute !important;
