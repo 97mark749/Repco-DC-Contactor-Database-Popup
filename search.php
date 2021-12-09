@@ -130,7 +130,7 @@
         }
     }
     function format_navigation(){
-        echo "<p id='click-txt'>Click <a class='btn-results' id = 'website_nav'>Here</a> To View Our Repco Replacement!</p>";
+        echo "<p id='click-txt'>View Our Repco Replacement</p><i class='material-icons' id = 'website_nav'>login</i>";
     }
 
     function assign_http($parameter){

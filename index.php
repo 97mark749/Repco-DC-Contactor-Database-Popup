@@ -13,9 +13,8 @@
                     <a class="modal_close btn-close" id = "close-search-x" onclick="clear_form()" aria-label="Close"></a>
                 </div>
                 <div class="modal-switch">
-                    <h6 id="modal-switch-txt">Use Our Contactor Builder
-                        <i id="modal-switch-btn" class = "material-icons" data-bs-target="#popup-window-two" data-bs-toggle="modal">engineering</i>
-                    </h6>
+                    <h6 id="modal-switch-txt">Use Our Contactor Builder</h6>
+                    <i id="modal-switch-btn" class = "material-icons" data-bs-target="#popup-window-two" data-bs-toggle="modal">engineering</i>
                 </div>
                 <form id="form" class="basic-form">
                     <div class="modal-body">
