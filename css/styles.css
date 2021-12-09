@@ -80,10 +80,14 @@ input:focus, textarea:focus, select:focus, button:focus{
   -o-box-shadow: 1px 1px 5px rgb(0,0,0,0.7) !important;
   box-shadow: 1px 1px 5px rgb(0,0,0,0.7) !important;
 }
-.tooltip.bs-tooltip-top .tooltip-arrow::before {
+.tooltip.bs-tooltip-top .tooltip-arrow::before{
   border-top-color: #990000 !important;
 }
-.tooltip.bs-tooltip-top .tooltip-arrow::after{
+.tooltip.left .tooltip-arrow::before{
+  border-left-color: #990000 !important;
+}
+.tooltip.bs-tooltip-top .tooltip-arrow::after, 
+.tooltip.bs-tooltip-right .tooltip-arrow::after{
   -moz-box-shadow: 1px 1px 5px rgb(0,0,0,0.7) !important;
   -ms-box-shadow: 1px 1px 5px rgb(0,0,0,0.7) !important;
   -o-box-shadow: 1px 1px 5px rgb(0,0,0,0.7) !important;
@@ -239,10 +243,10 @@ iframe{
   -ms-display: flex;
   -o-display: flex;
   display: flex;
-  -moz-flex-flow: row wrap;
-  -ms-flex-flow: row wrap;
-  -o-flex-flow: row wrap;
-  flex-flow: row wrap;
+  -moz-flex-flow: column wrap;
+  -ms-flex-flow: column wrap;
+  -o-flex-flow: column wrap;
+  flex-flow: column wrap;
   height: 6.5em;
   padding: 1.5rem 0.5rem 1.5rem 0.5rem;
   margin: 0;
@@ -392,7 +396,7 @@ iframe{
   -ms-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
   -o-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
   box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
-  border-radius: 0.25rem;
+  border-radius: 10px;
   background-color:#990000;
   border: none;
   height: 5.5em !important;
@@ -435,14 +439,14 @@ iframe{
   transition-timing-function: ease-in-out;
 }
 #modal-switch-btn:hover, #website_nav:hover{
-  background-color: rgb(146, 146, 146, 0.25);
+  background-color: rgba(190, 188, 188, 0.25);
   box-shadow: 0 4px 20px 0px rgb(0,0,0,0.14),
               0 7px 10px -5px rgba(0,0,0,0.225);
   cursor: pointer !important;
 }
-#modal-switch-btn:active{
+#modal-switch-btn:active,#website_nav:active{
   background-color:transparent;
-  transform: scale(0.97);
+  transform: scale(0.95);
 }
 #cross-ref-header{
   margin: 1rem 1rem 1rem 0;
@@ -674,16 +678,16 @@ iframe{
     box-sizing: border-box;
     -webkit-display: inline-flex;
     display: inline-flex;
-    -moz-flex-flow: row wrap;
-    -ms-flex-flow: row wrap;
-    -o-flex-flow: row wrap;
-    flex-flow: row wrap;
+    -moz-flex-flow: column wrap;
+    -ms-flex-flow: column wrap;
+    -o-flex-flow: column wrap;
+    flex-flow: column wrap;
     font-family: 'Average Sans', 'sans-serif';
     -moz-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
     -ms-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
     -o-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
     box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
-    border-radius: 0.25rem;
+    border-radius: 10px;
     background-color:#990000;
     border: none;
     color:#fff;
@@ -1535,21 +1539,31 @@ body {
         box-shadow:inset 0 0 1px #000000;
     }
     #modal-switch-txt{
+        width: 5em;
         font-size: 1.1rem !important;
-        padding: 0.5em 0 0.5em 0.5em;
+        padding: 0.5em 0 0.5em 0.25em;
     }
     .modal-switch{
-        position:absolute !important;
-        left: 34.25em;
-        top: 5.5em;
+        position: absolute !important;
+        left: 34.26em;
+        top: 4.5em;
         z-index: 1;
-
+        width: 13.45em !important
+    }
+    #modal-switch-btn{
+      position: relative;
+      top: 0.5em;
+      right: -0.75em;
+      padding: 0.35em 0.25em 0.25em 0.25em !important;
+      font-size: 30px !important;
+      height: 1.75em !important;
+      width: 1.75em !important;
     }
     .results-container{
         font-size: 1.1rem !important;
         position: absolute;
         left: 31.6em;
-        bottom: 2em;
+        bottom: 2.5em;
     }
     .results-box{
         font-size: 1.1rem !important;
@@ -1558,8 +1572,22 @@ body {
         -ms-display: none;
         -o-display: none;
         display: none;
-        width: 96.5%;        
+        width: 12.2em;        
         padding: 0.4em 0 0.75em 0.6em;
+        height: 5.25em !important;
+    }
+    #website_nav{
+      width: 1.75em !important;
+      height: 1.75em !important;
+      position: relative;
+      top: -2em;
+      right: -4.325em;
+      font-size: 30px;
+      padding: 0.35em 0.25em 0.25em 0.25em !important;
+    }
+    #click-txt{
+      width:6.5em !important;
+      margin: 0.15em 0 0 0.5em;
     }
     #suggestions{
         width: 98% !important;
