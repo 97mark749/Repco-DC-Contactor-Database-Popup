@@ -247,7 +247,6 @@ iframe{
   -ms-flex-flow: column wrap;
   -o-flex-flow: column wrap;
   flex-flow: column wrap;
-  height: 6.5em;
   padding: 1.5rem 0.5rem 1.5rem 0.5rem;
   margin: 0;
 }
@@ -685,6 +684,7 @@ iframe{
     font-size: 14px !important;
     padding: 0;
     margin: 0;
+    height: 6em;
 }
 .results-box p{
   margin: 0;
@@ -1037,8 +1037,6 @@ body {
       align-content:center !important;
       color: white !important;
     }
-
-
     
     .table-row{
       -ms-flex-flow: row wrap !important;
@@ -1066,13 +1064,6 @@ body {
       padding-bottom: 0;
       margin: 0 0 0.5em 0;
     }
-    .results-box{
-      -moz-flex-flow: row wrap-reverse;
-      -ms-flex-flow: row wrap-reverse;
-      -o-flex-flow: row wrap-reverse;
-      flex-flow: row wrap-reverse;
-      overflow: hidden;
-    }
     .searchbox-ctr{
       -moz-flex-basis: 100%;
       -ms-flex-basis: 100%;
@@ -1088,8 +1079,23 @@ body {
       height: 5.25em !important;
     }
     #modal-switch-txt{
-        padding: 0.5em 0 0.5em 0.5em;
-        font-size: 16px !important;
+      position: relative;
+      top: 0.3em;
+      left: -0.5em;
+      padding: 0.5em 0 0.5em 0.5em;
+      font-size: 16px !important;
+      width: 5em !important;
+    }
+    #modal-switch-btn, #website_nav{
+      position: relative;
+      width: 1.75em !important;
+      height: 1.75em !important;
+      font-size: 25px;
+      padding:0.55rem 0.625rem 0.65rem 0.625rem !important;
+    }
+    #modal-switch-btn{
+      top: 0.9em;
+      right: -0.5em;
     }
     #matched_nums li:hover{
         transform-origin:center;
@@ -1097,19 +1103,29 @@ body {
     .results-container{
         position: absolute;
         z-index: 1;
-        bottom: 0.48em;
-        right: 2em;
+        bottom: -1.3em;
+        right: 2.5em;
     }
     .results-box{
-        font-size: 16px !important;
-        width: 11em !important;
-        height: 5.25em !important;
-        -webkit-display: none;
-        -moz-display: none;
-        -ms-display: none;
-        -o-display: none;
-        display: none;
-        padding: 0.4em 0 0.75em 0.6em;
+      overflow: hidden;
+      font-size: 16px !important;
+      width: 11em !important;
+      height: 5.25em !important;
+      -webkit-display: none;
+      -moz-display: none;
+      -ms-display: none;
+      -o-display: none;
+      display: none;
+      padding: 0.4em 0 0.75em 0.6em;
+    }
+    #click-txt{
+      width: 5em;
+      position: relative;
+      top: 0.3em;
+    }
+    #website_nav{
+      bottom: 1.75em;
+      left: 4em;
     }
     #suggestions{
       width: 93.8%;
@@ -1177,10 +1193,11 @@ body {
       #modal-switch-txt{
         font-size: 18px !important;
       }
+      .results-container{
+        position: absolute;
+        top: 1em;
+      }
       .results-box{
-        position:absolute;
-        right: 0;
-        bottom: 1.35em;
         width:17em !important;
         height: 4.5em !important;
       }
@@ -1426,33 +1443,46 @@ body {
       position: relative;
       font-size: 25px;
       top:0.9em;
-      right: 0.15em;
+      right: 0;
       width: 1.75em !important;
       height: 1.75em !important;
       padding: 0.6rem 0.625rem 0.625rem 0.625rem !important;
     }
     .modal-switch{
       position:absolute;
-      bottom: 6.5em;
+      bottom: 6.55em;
       left: 2.5em;
       width: 10em;
       z-index: 1;
     }
+    
     .results-container{
         position: absolute;
         z-index: 1;
-        bottom: 2.255em;
-        right: 2.5em;
+        bottom: 0.35em;
+        right: 3em;
     }
     .results-box{
         font-size: 1rem !important;
         width: 10em;
-        height: 5.5em;
+        height: 5.5em !important;
         display: none;
         padding: 0.4em 0 0.75em 0.6em;
     }
     #click-txt{
+      position: relative;
+      top: 0.4em;
+      left: 0.35em;
       width: 4em !important;
+    }
+    #website_nav{
+      width: 1.75em !important;
+      height: 1.75em !important;
+      font-size: 25px;
+      position: relative;
+      top: -1.725em;
+      left: 3.5em;
+      padding: 0.6rem 0.625rem 0.625rem 0.625rem !important;
     }
     #modalOne-footer{
         position: relative;
@@ -1569,7 +1599,7 @@ body {
         font-size: 1.1rem !important;
         position: absolute;
         left: 31.6em;
-        bottom: 2.5em;
+        bottom: 1.25em;
     }
     .results-box{
         font-size: 1.1rem !important;
