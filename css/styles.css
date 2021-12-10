@@ -1182,16 +1182,24 @@ body {
             margin-bottom: 0.6em;
         }
       .modal-switch{
-          height: 4.5em !important;
           position:absolute;
           margin: auto;
           top: 14.35em;
           left: 0;
           right: 0;
-          width:17em !important;
+          width: 6em !important;
+          height: 6em !important;
+          border-radius: 50% !important;
+      }
+      #modal-switch-txt, #click-txt{
+        font-size: 16px !important;
       }
       #modal-switch-txt{
-        font-size: 18px !important;
+        position: relative;
+        top: 0.75em;
+        left: -1.1em;
+        width: 6em !important;
+        text-align: center;
       }
       .results-container{
         position: absolute;
