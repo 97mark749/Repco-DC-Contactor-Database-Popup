@@ -1,19 +1,19 @@
-<?php
-    
+<?php 
     include('config.php');
     session_start();
 
     if(ISSET($_POST['selectManufacturer'])){
-        $manufacturer = preg_replace("#[^0-9a-z]#i "," ", $_POST['selectManufacturer']);     
+        $manufacturer = preg_replace("#[^0-9a-z]#i "," ", $_POST['selectManufacturer']); 
+        $_SESSION['man'] = $manufacturer;    
         insertSeriesDropdown($manufacturer);
     }
 
     if(ISSET($_POST['selectSeries'])){
-        $series = preg_replace("#[^0-9a-z]#i ","", $_POST['selectSeries']);
+        $temp = str_replace(" ","_", $_POST['selectSeries']);
+        $series = preg_replace("#[^0-9a-z_]#i ","", $temp);
         $_SESSION['prop_1'] = $series;
         $dropdowns = retrieveDropdowns($series);
         insertDropdowns($series,$dropdowns);
-
     }
     
     if(ISSET($_POST['property'])){
@@ -21,18 +21,23 @@
         $target_value = $_POST['property'][1];
         $table_name = $_POST['property'][2];
 
-        //passes 'position', 'value'
-        if($target_value != 'None'){$recorded_symbol = getSymbol($table_name,$target_value);}
-        else{$recorded_symbol = 'None';}
-        set_symbol($target_property, $recorded_symbol); //sets symbol session
+        switch($_SESSION['man']){
+            case "Clark":
+                
+                break;
+            default:
+                //passes 'position', 'value'
+                if($target_value != 'None'){$recorded_symbol = getSymbol($table_name,$target_value);}
+                else{$recorded_symbol = 'None';}
+                set_symbol($target_property, $recorded_symbol); //sets symbol session
 
-        //encodes and converts array to string for filtered list of catalog numbers based on total recorded symbols
-        $_SESSION['filtered_array'] = json_encode(filter_catalog_numbers());
-        
-        if($table_name == 'NEMA_Size'){
-            echo $target_value; //sends value back to JS File
-        }
-        
+                //encodes and converts array to string for filtered list of catalog numbers based on total recorded symbols
+                $_SESSION['filtered_array'] = json_encode(filter_catalog_numbers());
+                break;
+            }
+            if($table_name == 'NEMA_Size'){
+                echo $target_value; //sends value back to JS File
+            }
     }
 
     if(ISSET($_POST['filter'])){
@@ -41,6 +46,7 @@
     }
 
     if(ISSET($_POST['cancel'])){
+        $_SESSION['man'] = Null;
         $_SESSION['prop_1'] = Null;
         $_SESSION['prop_2'] = Null;
         $_SESSION['prop_3'] = Null;
@@ -143,14 +149,14 @@
     }
 
     function insertOptions($db, $table_name){
-            $sql = "SELECT DISTINCT Value FROM $table_name";
-            
-            $query = mysqli_query($db, $sql) or print(mysqli_error($db));
-            if(mysqli_num_rows($query)){
-                while($labels = mysqli_fetch_array($query)){
-                    echo '<option value="'.$labels['Value'].'" class="dropdown-item">'.$labels['Value'].'</option>';
-                }
+        $sql = "SELECT DISTINCT Value FROM $table_name";
+        
+        $query = mysqli_query($db, $sql) or print(mysqli_error($db));
+        if(mysqli_num_rows($query)){
+            while($labels = mysqli_fetch_array($query)){
+                echo '<option value="'.$labels['Value'].'" class="dropdown-item">'.$labels['Value'].'</option>';
             }
+        }
     }
 
     function getFilteredValues($value){
@@ -185,8 +191,14 @@
                     mysqli_close($GLOBALS['connection']);
                     return json_encode(array($a1, $a2, $a3));
                     break;
-                default:
+                case 'Bulletin_7400':
+                    $a1 = get_options_by_size($GLOBALS['connection'],'property3', 'bulletin_7400blowout_coil_rating', $size_col);
+                    $a2 = get_options_by_size($GLOBALS['connection'], 'property8', 'bulletin_7400power_pole_configuration', $size_col);
+                    mysqli_close($GLOBALS['connection']);
+                    return json_encode(array($a1, $a2));
                     break;
+            
+                default: break;    
             }
         }
         else{
