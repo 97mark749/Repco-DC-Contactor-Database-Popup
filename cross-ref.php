@@ -23,7 +23,7 @@
 
         switch($_SESSION['man']){
             case "Clark":
-                
+                $_SESSION['filtered_array'] = json_encode(filter_catalog_numbers());
                 break;
             default:
                 //passes 'position', 'value'
@@ -192,8 +192,8 @@
                     return json_encode(array($a1, $a2, $a3));
                     break;
                 case 'Bulletin_7400':
-                    $a1 = get_options_by_size($GLOBALS['connection'],'property3', 'bulletin_7400blowout_coil_rating', $size_col);
-                    $a2 = get_options_by_size($GLOBALS['connection'], 'property8', 'bulletin_7400power_pole_configuration', $size_col);
+                    $a1 = get_options_by_size($GLOBALS['connection'],'property4', 'bulletin_7400blowout_coil_rating', $size_col);
+                    $a2 = get_options_by_size($GLOBALS['connection'], 'property5', 'bulletin_7400power_pole_configuration', $size_col);
                     mysqli_close($GLOBALS['connection']);
                     return json_encode(array($a1, $a2));
                     break;
