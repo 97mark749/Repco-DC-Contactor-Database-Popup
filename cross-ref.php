@@ -503,6 +503,56 @@
                         array_push($printed_list, strval($all_cat_nums[$i][0]));
                     }
                     break;
+                case 'Bulletin 7400':
+                    // Since this Contactor is not based on Symbol recognition you must query the chosen specs for all possible matches.
+                    // Query each of the valid Session Variables 2,3,4,5.
+                    
+                    if(ISSET($_SESSION['prop_2']) && !ISSET($_SESSION['prop_3']) && !ISSET($_SESSION['prop_4']) && !ISSET($_SESSION['prop_5'])){
+                        //only one property selected
+                        $sql = "SELECT `Catalog_No` FROM `bulletin_7400_contactors` WHERE `NEMA_Size` LIKE concat('%',?,'%')" or die(mysqli_error($GLOBALS['connection']));
+                        $query = $GLOBALS['connection']->prepare($sql) or die(mysqli_error($GLOBALS['connection']));
+                        $query->bind_param('s',$_SESSION['prop_2']);
+                        $query->execute();
+                        $query->store_result();
+                        $query->bind_results($results);
+                        while($query->fetch()){
+                            array_push($printed_list,strval($results));
+                        }
+                    }if(ISSET($_SESSION['prop_2']) && ISSET($_SESSION['prop_3']) && !ISSET($_SESSION['prop_4']) && !ISSET($_SESSION['prop_5'])){
+                        //only two properties selected
+                        $sql = "SELECT  `Catalog_No` FROM `bulletin_7400_contactors` WHERE `NEMA_Size` LIKE concat('%',?,'%') AND `Type` LIKE concat('%',?,'%')"  or die(mysqli_error($GLOBALS['connection']));
+                        $query = $GLOBALS['connection']->prepare($sql) or die(mysqli_error($GLOBALS['connection']));
+                        $query->bind_param('ss',$_SESSION['prop_2'],$_SESSION['prop_3']);
+                        $query->execute();
+                        $query->store_result();
+                        $query->bind_results($results);
+                        while($query->fetch()){
+                            array_push($printed_list,strval($results));
+                        }
+                    }if(ISSET($_SESSION['prop_2']) && ISSET($_SESSION['prop_3']) && ISSET($_SESSION['prop_4']) && !ISSET($_SESSION['prop_5'])){
+                        //only three properties selected
+                        $sql = "SELECT `Catalog_No` FROM `bulletin_7400_contactors` WHERE `NEMA_Size` LIKE concat('%',?,'%') AND `Type` LIKE concat('%',?,'%') AND `Blowout_Coil_Rating` LIKE concat('%',?,'%')"  or die(mysqli_error($GLOBALS['connection']));
+                        $query = $GLOBALS['connection']->prepare($sql) or die(mysqli_error($GLOBALS['connection']));
+                        $query->bind_param('sss',$_SESSION['prop_2'],$_SESSION['prop_3'],$_SESSION['prop_4']);
+                        $query->execute();
+                        $query->store_result();
+                        $query->bind_results($results);
+                        while($query->fetch()){
+                            array_push($printed_list,strval($results));
+                        }
+                    }if(ISSET($_SESSION['prop_2']) && ISSET($_SESSION['prop_3']) && ISSET($_SESSION['prop_4']) && ISSET($_SESSION['prop_5'])){
+                        //all four properties selected
+                        $sql = "SELECT `Catalog_No` FROM `bulletin_7400_contactors` WHERE `NEMA_Size` LIKE concat('%',?,'%') AND `Type` LIKE concat('%',?,'%') AND `Blowout_Coil_Rating` LIKE concat('%',?,'%') AND `Power_Pole_Configuration` LIKE concat('%',?,'%')"  or die(mysqli_error($GLOBALS['connection']));
+                        $query = $GLOBALS['connection']->prepare($sql) or die(mysqli_error($GLOBALS['connection']));
+                        $query->bind_param('ssss',$_SESSION['prop_2'],$_SESSION['prop_3'],$_SESSION['prop_4'],$_SESSION['prop_5']);
+                        $query->execute();
+                        $query->store_result();
+                        $query->bind_results($results);
+                        while($query->fetch()){
+                            array_push($printed_list,strval($results));
+                        }
+                    }
+                    break;
                 default: break;
             }
         }

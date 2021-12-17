@@ -79,7 +79,6 @@ function filter_options(size){
         success: function(data){
             let array = JSON.parse(data);
             for(let i = 0; i < array.length; i++){
-                alert(array[i]);
                 checkExists(array[i]);
             }
         }
@@ -88,7 +87,6 @@ function filter_options(size){
 
 function checkExists(array){
     $('#'+array[0]+' > option').each(function(){
-        alert(array[0]+"---" +this.value);
         //for each option in the dropdown selected, check if the option exists in the selected size array
         if(jQuery.inArray(this.value,array) === -1){
             // If option is not inside the selected size array --> Disable the option selection
