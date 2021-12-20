@@ -15,7 +15,6 @@ $(document).ready(function(){
 });
 
 function assign_info(id){
-    selectedID = String(id);
     $('#data-sheet-title').html("Contactor No.<br><u>" + id + "</u>");
     $.ajax({
         type: "POST",
@@ -25,8 +24,9 @@ function assign_info(id){
             // Needed to make this a literal hard coded input.
             // Prewrote thhe initial file location
             // SubStringed the '..' from the POSTed link
-            $('#data-sheet-body').html('<iframe src="/repco-dc-contactor-database-popup/docs/' + String(JSON.parse(data)) + '"></iframe>');
+            $('#data-sheet-body').html('<iframe src="/repco-dc-contactor-database-popup/docs/' + jQuery.parseJSON(data) + '"></iframe>');
         }
+        
     });
 }
 

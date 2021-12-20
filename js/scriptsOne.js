@@ -79,7 +79,8 @@ function validate_replacement(temp){
                     $('.results-box').hide();
                     document.getElementById("form").reset();
                 }
-                else{$("#repcoResult").html(data); get_link();
+                else{
+                    $("#repcoResult").html(data); get_link();
                 }
             }
         });

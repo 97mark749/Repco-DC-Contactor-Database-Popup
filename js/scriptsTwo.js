@@ -77,7 +77,7 @@ function filter_options(size){
         url: 'cross-ref.php',
         data: {filter: size},
         success: function(data){
-            let array = JSON.parse(data);
+            let array = jQuery.parseJSON(data);
             for(let i = 0; i < array.length; i++){
                 checkExists(array[i]);
             }
