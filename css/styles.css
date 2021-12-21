@@ -947,7 +947,7 @@ iframe{
   background-color:rgba(153, 0, 0, 1);  
   pointer-events: painted;
   transition-property: transform, font-size;
-  transition-duration: 200ms;
+  transition-duration: 100ms, 200ms;
   transition-timing-function: ease-in-out;
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
 }
@@ -959,7 +959,7 @@ iframe{
   color: #FFFFFF;
   text-shadow: 0 1px 0 #CCCCCC, 0 3px 0 rgb(0,0,0,0.8);
   position: relative;
-  top: 0.155em;
+  top: 0.1em;
   transition-property: text-shadow;
   transition-duration: 250ms;
   transition-timing-function: ease-in-out;
@@ -1127,6 +1127,12 @@ body {
       top: 0.15em;
       left: -2em;
     }
+    .search-icon:focus + .insert-box{
+      width: 55% !important;
+    }
+    .insert-box:focus{
+      width:55% !important;
+    }
     .table-container{
         height:13.75em;
     }
@@ -1188,6 +1194,7 @@ body {
       padding: 0.5em 0 0.5em 0.5em;
       font-size: 16px !important;
       width: 5em !important;
+      text-shadow: none !important;
     }
     #modal-switch-btn, #website_nav{
       position: relative;
@@ -1221,7 +1228,7 @@ body {
       padding: 0.4em 0 0.75em 0.6em;
     }
     #click-txt{
-
+      text-shadow: none !important;
       width: 5em;
       position: relative;
       top: 0.3em;
@@ -1231,9 +1238,9 @@ body {
       left: 4em;
     }
     #suggestions{
-      width: 93.8%;
-      left: 1em;
-      bottom: 6em !important;
+      width: 55% !important;
+      left: -0.25em !important;
+      bottom: 0 !important;
       max-height: 6em !important;
       z-index: 999;
     }
@@ -1396,7 +1403,7 @@ body {
         left: -0.2em;
         width: 5em !important;
         text-align: center;
-        font-size: 16px !important;
+        font-size: 15px !important;
       }
       #website_nav{
         position: absolute;
@@ -1516,63 +1523,6 @@ body {
           padding-right: 0 !important;
         }
       }
-        /* =================================================================
-        Width's of: 321px < n < 351px
-      ================================================================*/
-      @media screen and (min-width: 20.063em) and (max-width: 21.938em){
-        #suggestions{
-          width: 89.5% !important;
-        }
-      }
-        /* =================================================================
-        Width's of: 352px < n < 368px
-      ================================================================*/
-      @media screen and (min-width: 22em) and (max-width: 23em){
-        #suggestions{
-          width: 90.5% !important;
-        }
-      }
-        /* =================================================================
-        Width's of: 321px < n < 394px
-      ================================================================*/
-      @media screen and (min-width: 20.063em) and (max-width: 24.625em){
-        #suggestions{
-          width: 91% !important;
-        }
-      }
-        /* =================================================================
-        Width's of: 395px < n < 419px
-      ================================================================*/
-      @media screen and (min-width: 24.688em) and (max-width: 26.188em){
-        #suggestions{
-          width: 91.6% !important;
-        }
-      }
-        /* =================================================================
-        Width's of: 420 < n < 450
-      ================================================================*/
-      @media screen and (min-width: 26.25em) and (max-width: 28.125em){
-        #suggestions{
-          width: 92.2% !important;
-        }
-      }
-      /* =================================================================
-          Width's of: 451px < n < 500
-        ================================================================*/
-    @media screen and (min-width: 28.188em) and (max-width: 31.25em){
-      #suggestions{
-        width: 92.9% !important;
-      }
-    }
-      /* =================================================================
-        Width's of: 501px < n < 526px
-      ================================================================*/
-    @media screen and (min-width: 31.313em) and (max-width: 32.875em){
-      #suggestions{
-        width: 93.5% !important;
-      }
-    }
-    
   }
   
 
@@ -1626,12 +1576,11 @@ body {
         z-index: 1;
         height: 14.75em;
     }
-    .insert-box{
-       /* width: 98.5%;
-        -moz-box-shadow:inset 0 0 1px #000000;
-        -o-box-shadow:inset 0 0 1px #000000;
-        -ms-box-shadow:inset 0 0 1px #000000;
-        box-shadow:inset 0 0 1px #000000;*/
+    .search-icon:focus + .insert-box{
+      width: 60% !important;
+    }
+    .insert-box:focus{
+      width:60% !important;
     }
     #modal-switch-txt{
         position: relative;
@@ -1696,9 +1645,9 @@ body {
         right: 0.25em;
     }
     #suggestions{
-        width: 97.5% !important;
-        right: 0.4em;
-        bottom: 2.2em;
+        width: 60% !important;
+        left: 2.5em;
+        bottom: 1em;
         z-index:999;
     }
     #arrow, #arrow + span{
@@ -1768,13 +1717,6 @@ body {
         -ms-box-shadow:inset 0 0 2px #000000;
         box-shadow:inset 0 0 2px #000000;
         width: 65%;
-    }
-    .insert-box{
-        /*width: 98.5%;
-        -o-box-shadow:inset 0 0 1px #000000;
-        -moz-box-shadow:inset 0 0 1px #000000;
-        -ms-box-shadow:inset 0 0 1px #000000;
-        box-shadow:inset 0 0 1px #000000;*/
     }
     #modal-switch-txt{
         width: 5em;
@@ -1856,9 +1798,9 @@ body {
       margin: 0.15em 0 0 0.5em;
     }
     #suggestions{
-        width: 98% !important;
-        right: 0.75em;
-        bottom: 2.4em;
+        width: 69.5% !important;
+        right: 9.75em;
+        bottom: 1.25em;
     }
     .basic-form, .modal-content{
         min-height: 21.7em !important;
@@ -1952,6 +1894,9 @@ body {
 *:hover{
   outline: solid 1px blue;
 }*/
+.modal-dialog-scrollable .modal-body{
+  overflow-y: hidden;
+}
 input[type=text]{
   padding-bottom: 0.25em;
   font-size: 16px;

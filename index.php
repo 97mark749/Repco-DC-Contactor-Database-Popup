@@ -33,7 +33,7 @@
                         <div class="searchbox-ctr">
                             <div>
                                 <div class=" search-icon" tabindex="1"><i id ="search-me" class="material-icons">search</i></div>
-                                <input id = 'search' class="toggle-item insert-box" onkeyup="validate_input()" type="text" placeholder="Insert Contactor Number Here">
+                                <input id = 'search' class="toggle-item insert-box" onkeyup="validate_input()" type="text" placeholder="Insert OEM Number">
                                 <div id="suggestions">
                                     <!-- Values inserted Via AJAX -->
                                 </div>
