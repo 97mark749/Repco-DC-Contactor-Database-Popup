@@ -1,11 +1,74 @@
-<?php 
-        require("header.php");
-        require_once('config.php');
-        
-    ?>
 
-    <!-- Modals -->
-    <div class="modal" id="popup-window-one" data-bs-backdrop= "static" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+
+<?php 
+    require("header.php");
+    require_once('config.php');    
+?>
+
+    <div class="ctr">
+        <nav class="navbar sticky-top navbar-expand-lg">
+            <div class="container-fluid">
+                <img class="nav-logo" src="img/nav-brand.png">
+                <button class="navbar-toggler" id = 'navbar-toggler' type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="material-icons nav-toggler-icon" id="nav-toggler-icon">menu</span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="create_account.php">Create Account</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#" name='open_search' action="start_conn()" data-bs-toggle="modal" data-bs-target="#popup-window-one">Contactor Search</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline" id="login-search-btn" type="submit"><span class="material-icons">search</span></button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+            <!-- 
+            -->
+            <h1 id="welcome" class="login-welcome">Welcome To Magnify LifeStyle Tracking</h1>
+            <div class="form-ctr" id="form-ctr">
+                <form class="login-form" action="" Method="POST">
+                    <div class="alt-login-ctr">
+                        <h2 class="login-header">Login Here</h2>
+                        <div class="socialMedia-login-ctr">
+                            <i class="fab fa-facebook sm-img" id='facebook'></i>
+                            <i class="fab fa-linkedin sm-img" id='linkedin'></i>
+                            <i class="fab fa-twitter sm-img" id='twitter'></i>
+                            <i class="fab fa-google sm-img" id='google'></i>
+                        </div>
+                    </div>
+                    <span class="or">OR BE TRADITIONAL</span>
+                    <div id="username-ctr" class="input-ctr">
+                        <!--<label class="login-label">Username:</label>-->
+                        <input id = "username" type="text" class="login-input" placeholder="Username..."></input>
+                        <span class="underline"></span>
+                    </div>
+                    <div id="password-ctr" class="input-ctr">
+                        <!--<label class="login-label">Password:</label>-->
+                        <input id="pass" type="password" class="login-input" placeholder="Password..."></input>
+                        <span class="underline"></span>
+                    </div>
+                    <button type="submit" id="login-submit" class="btn submit-button">LET'S GO</button>
+                    <div class="options-login">
+                        <p id="forget-password" class="options">Forget <a id ="forget-password-link" href="">Password?</a></p>
+                        <p id="help" class="options">Help</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+<!-- Modals -->
+<div class="modal" id="popup-window-one" data-bs-backdrop= "static" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
@@ -143,6 +206,7 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
+
     <script type="text/javascript" src="js/scriptsOne.js"></script>
     <script type="text/javascript" src="js/scriptsTwo.js"></script>
     <script type="text/javascript" src="js/scriptsThree.js"></script>

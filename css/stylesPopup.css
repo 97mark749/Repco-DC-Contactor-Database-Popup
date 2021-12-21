@@ -719,37 +719,6 @@ iframe{
     text-rendering: optimizeLegibility;
     padding:0;
 }
-/*
-.modal-title::before{
-  content: "";
-  position: absolute;
-  top: 0.85em;
-  left: 14em;
-  width:1em;
-  height: 0.75em;
-  clip-path: polygon(0 26%, 55% 26%, 55% 0, 100% 50%, 55% 100%, 55% 75%, 0 75%);
-  transform: rotate(270deg);
-  border-radius: 0;
-  background: #990000;
-  box-shadow: none;
-  z-index: 1;
-
-}
-.modal-title::after{
-  content: "";
-  position: absolute;
-  top: 0.85em;
-  left: 13.5em;
-  width:1em;
-  height: 0.75em;
-  clip-path: polygon(0 26%, 55% 26%, 55% 0, 100% 50%, 55% 100%, 55% 75%, 0 75%);
-  transform: rotate(90deg);
-  border-radius: 0;
-  background: black;
-  box-shadow: none;
-  z-index: 1;
-}*/
-/* btn-close Override */
 .btn-close{
     position: absolute;
     font-family: 'Average Sans', 'sans-serif';
@@ -894,17 +863,10 @@ iframe{
     letter-spacing: 0.05em;
     outline: none;
     border:none;
-    /*background-color: rgb(207, 207, 207, 0.5);
-    border: solid #cccccc 1px;
-    border-radius: 5px;*/
     -moz-align-self: center !important;
     -ms-align-self: center !important;
     -o-align-self: center !important;
     align-self: center !important;
-    /*-moz-flex-basis: 90%;
-    -ms-flex-basis: 90%;
-    -o-flex-basis: 90%;
-    flex-basis: 90%;*/
     padding-left: 0.5rem;
     font-size: 14px;
     width: 0%;
@@ -912,27 +874,27 @@ iframe{
     top:-0.45em !important;
     left: 2.5em;
     transition: all 500ms cubic-bezier(0,0.110, 0.35, 2) !important;
-    /*-moz-box-shadow: 0 1px 3px rgb(0,0,0,0.3) !important;
-    -ms-box-shadow: 0 1px 3px rgb(0,0,0,0.3) !important;
-    -o-box-shadow: 0 1px 3px rgb(0,0,0,0.3) !important;
-    box-shadow: 0 1px 3px rgb(0,0,0,0.3) !important;*/
+    opacity:0;
 }
 .insert-box::placeholder{
   margin-bottom: 0.5em;
 }
 .search-icon:focus + .insert-box{
+  opacity:1;
   width:70% !important;
   border-radius: 0 !important;
   background: transparent !important;
   border-bottom: 1px solid rgba(153, 0, 0, 1) !important;
 }
 .insert-box:focus{
+  opacity: 1;
   width:70% !important;
   border-radius: 0 !important;
   background: transparent !important;
   border-bottom: 1px solid rgba(153, 0, 0, 1) !important;
 }
 .search-icon{
+  cursor: pointer;
   text-align: center;
   border: none;
   border-radius: 50%;
@@ -1171,11 +1133,6 @@ body {
       margin: 0 0 0.5em 0;
     }
     .searchbox-ctr{
-      /*
-      -moz-flex-basis: 100%;
-      -ms-flex-basis: 100%;
-      -o-flex-basis: 100%;
-      flex-basis: 100%;*/
       width:fit-content;
       position:relative;
     }
@@ -1839,10 +1796,9 @@ body {
         max-width: 50%;
         height: 14em !important;
         border: 2px;
-        -o-box-shadow: 0.5px 1.5px 4px 0 rgba(0,0,0,0.5); 
-        -moz-box-shadow: 0.5px 1.5px 4px 0 rgba(0,0,0,0.5);
-        -ms-box-shadow: 0.5px 1.5px 4px 0 rgba(0,0,0,0.5);
-        box-shadow: 0.5px 1.5px 4px 0 rgba(0,0,0,0.5);
+        -o-box-shadow: 0px 7.5px 10px -5px #000000, 0px 7px 4px 2px rgba(0,0,0,0) !important; 
+      -ms-box-shadow: 0px 7.5px 10px -5px #000000, 0px 7px 4px 2px rgba(0,0,0,0) !important; 
+      box-shadow: 0px 7.5px 10px -5px #000000, 0px 7px 4px 2px rgba(0,0,0,0) !important;
     }
     #cross-ref-header{
         color:#740000;
@@ -1864,9 +1820,6 @@ body {
     }
     .dropdown-button{
         border: rgba(223, 223, 223, 0.8) solid 1.25px !important;
-    }
-    .dropdown-button:hover,.dropdown-button-man:hover{
-        font-weight:600;
     }
     #matched_nums{
         position: relative;
