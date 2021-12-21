@@ -31,13 +31,16 @@
 
                     <div class="modal-footer" id="modalOne-footer">
                         <div class="searchbox-ctr">
-                            <input id = 'search' class="toggle-item insert-box" onkeyup="validate_input()" type="text" placeholder="Insert Contactor Number Here">
-                            <div id="suggestions">
-                                <!-- Values inserted Via AJAX -->
+                            <div>
+                                <div class=" search-icon" tabindex="1"><i id ="search-me" class="material-icons">search</i></div>
+                                <input id = 'search' class="toggle-item insert-box" onkeyup="validate_input()" type="text" placeholder="Insert Contactor Number Here">
+                                <div id="suggestions">
+                                    <!-- Values inserted Via AJAX -->
+                                </div>
                             </div>
                         </div>
                         <div class="footer-btn-group">
-                            <button type="button" id ='submit' class="btn btn-sm btn-danger footer-btn tt" data-bs-toggle = "tooltip" data-bs-placement = "left" data-bs-offset = '[0,7]' data-bs-trigger = 'hover' data-bs-html = "true" title = "<b>Verify</b> Input<br><b>Before</b> Searching!" onClick="validate_replacement()" disabled>Search</button>
+                            <button type="button" id ='submit' class="btn btn-sm btn-danger footer-btn tt" data-bs-toggle = "tooltip" data-bs-placement = "left" data-bs-offset = '[0,7]' data-bs-trigger = 'hover' data-bs-html = "true" title = "<b>Verify</b> Input<br><b>Before</b> Searching!" onClick="validate_replacement()" disabled>Submit</button>
                             <button type="button" id = 'close' onclick="clear_form()" class="btn btn-sm footer-btn" >Close</button>
                         </div>
                     </div>

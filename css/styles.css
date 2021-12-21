@@ -391,16 +391,18 @@ iframe{
   -ms-justify-content: flex-start !important;
   -o-justify-content: flex-start !important;
   justify-content: flex-start !important;
-  -moz-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
-  -ms-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
-  -o-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
-  box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
+  -o-box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0,0,0,0) !important; 
+  -ms-box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0,0,0,0) !important;
+  -moz-box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0,0,0,0) !important; 
+  box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0,0,0,0) !important;
   border-radius: 10px;
   background-color:#990000;
   border: none;
   height: 5.5em !important;
 }
 #modal-switch-txt{
+  letter-spacing: 0.05em;
+  text-shadow: #474747 2px 2px 1px !important;
   color:#fff;
   font-size: 14px !important;
   padding: 0;
@@ -426,9 +428,10 @@ iframe{
   -o-transition-timing-function: ease-in-out;
   transition-property:background-color,box-shadow,transform;
   transition-duration: 200ms;
-  transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out, ease-in-out, ease-in;
 }
 #modal-switch-btn:hover, #website_nav:hover{
+  transform: scale(1.08);
   background-color: rgba(190, 188, 188, 0.25);
   box-shadow: 0 4px 20px 0px rgb(0,0,0,0.14),
               0 7px 10px -5px rgba(0,0,0,0.225);
@@ -673,10 +676,10 @@ iframe{
     -o-flex-flow: column wrap;
     flex-flow: column wrap;
     font-family: 'Average Sans', 'sans-serif';
-    -moz-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
-    -ms-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
-    -o-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
-    box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
+    -o-box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0,0,0,0) !important; 
+    -ms-box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0,0,0,0) !important;
+    -moz-box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0,0,0,0) !important; 
+    box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0,0,0,0) !important;
     border-radius: 10px;
     background-color:#990000;
     border: none;
@@ -756,6 +759,8 @@ iframe{
     height: 0.5em !important;
 }
 #click-txt{
+  letter-spacing: 0.05em;
+  text-shadow: #474747 2px 2px 1px !important;
   margin: 0;
   padding:0;
 }
@@ -875,35 +880,98 @@ iframe{
 .footer-btn:active{
   transform: scale(0.97);
 }
-.insert-box{
-    letter-spacing: 0.05em;
-    background-color: rgb(207, 207, 207, 0.5);
-    border: solid #cccccc 1px;
-    border-radius: 5px;
-    -moz-align-self: center !important;
-    -ms-align-self: center !important;
-    -o-align-self: center !important;
-    align-self: center !important;
-    -moz-flex-basis: 90%;
-    -ms-flex-basis: 90%;
-    -o-flex-basis: 90%;
-    flex-basis: 90%;
-    height:1.75rem;
-    padding-left: 0.5rem;
-    font-size: 14px;
-    width: 100%;
-    -moz-box-shadow: 0 1px 3px rgb(0,0,0,0.3) !important;
-    -ms-box-shadow: 0 1px 3px rgb(0,0,0,0.3) !important;
-    -o-box-shadow: 0 1px 3px rgb(0,0,0,0.3) !important;
-    box-shadow: 0 1px 3px rgb(0,0,0,0.3) !important;
-}
 .searchbox-ctr{
   -moz-flex-basis: 90%;
   -ms-flex-basis: 90%;
   -o-flex-basis: 90%;
   flex-basis: 90%;
-  width: 100%;
+  width: fit-content;
 }
+.searchbox-ctr + div{
+  max-width: 60% !important;
+}
+.insert-box{
+    letter-spacing: 0.05em;
+    outline: none;
+    border:none;
+    /*background-color: rgb(207, 207, 207, 0.5);
+    border: solid #cccccc 1px;
+    border-radius: 5px;*/
+    -moz-align-self: center !important;
+    -ms-align-self: center !important;
+    -o-align-self: center !important;
+    align-self: center !important;
+    /*-moz-flex-basis: 90%;
+    -ms-flex-basis: 90%;
+    -o-flex-basis: 90%;
+    flex-basis: 90%;*/
+    padding-left: 0.5rem;
+    font-size: 14px;
+    width: 0%;
+    position:absolute;
+    top:-0.45em !important;
+    left: 2.5em;
+    transition: all 500ms cubic-bezier(0,0.110, 0.35, 2) !important;
+    /*-moz-box-shadow: 0 1px 3px rgb(0,0,0,0.3) !important;
+    -ms-box-shadow: 0 1px 3px rgb(0,0,0,0.3) !important;
+    -o-box-shadow: 0 1px 3px rgb(0,0,0,0.3) !important;
+    box-shadow: 0 1px 3px rgb(0,0,0,0.3) !important;*/
+}
+.insert-box::placeholder{
+  margin-bottom: 0.5em;
+}
+.search-icon:focus + .insert-box{
+  width:70% !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  border-bottom: 1px solid rgba(153, 0, 0, 1) !important;
+}
+.insert-box:focus{
+  width:70% !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  border-bottom: 1px solid rgba(153, 0, 0, 1) !important;
+}
+.search-icon{
+  text-align: center;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  outline: none;
+  position:absolute;
+  top: -0.6em;
+  left: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color:rgba(153, 0, 0, 1);  
+  pointer-events: painted;
+  transition-property: transform, font-size;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+}
+.search-icon i{
+  border-radius: 50%;
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  color: #FFFFFF;
+  text-shadow: 0 1px 0 #CCCCCC, 0 3px 0 rgb(0,0,0,0.8);
+  position: relative;
+  top: 0.155em;
+  transition-property: text-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in-out;
+}
+.search-icon i:hover{
+  text-shadow: 0 1px 0 #CCCCCC, 0 3px 0 rgb(0,0,0,0.8), 0 4px 3px rgb(0,0,0,0.8);
+}
+.search-icon:active{
+  transform: scale(1.05);
+}
+
+
 strong{
   color:#7a0000; 
   padding: 0 0.08em 0 0;
@@ -1095,10 +1163,13 @@ body {
       margin: 0 0 0.5em 0;
     }
     .searchbox-ctr{
+      /*
       -moz-flex-basis: 100%;
       -ms-flex-basis: 100%;
       -o-flex-basis: 100%;
-      flex-basis: 100%;
+      flex-basis: 100%;*/
+      width:fit-content;
+      position:relative;
     }
     .modal-switch{
       position:absolute;
@@ -1148,6 +1219,7 @@ body {
       padding: 0.4em 0 0.75em 0.6em;
     }
     #click-txt{
+
       width: 5em;
       position: relative;
       top: 0.3em;
@@ -1211,17 +1283,17 @@ body {
             margin-bottom: 0.6em;
         }
       .modal-switch{
-          background:rgb(175, 175, 175, 0.15) !important;
-          position:absolute;
-          margin: auto;
-          top: 40.5%;
-          right: 50%;
-          width: 6em !important;
-          height: 4em !important;
-          border-radius: 10% 10% 35% 35% !important;
-          box-shadow: 1px 1.75px 3px 0 rgb(17, 17, 17,0.65),
-                      -1px 1.75px 3px 0 rgb(17, 17, 17,0.65),
-                      0 -0.5px 2px rgb(17,17,17,0.65) !important;
+        background:rgb(175, 175, 175, 0.15) !important;
+        position:absolute;
+        margin: auto;
+        top: 40.5%;
+        right: 50%;
+        width: 6em !important;
+        height: 4em !important;
+        border-radius: 10% 10% 35% 35% !important;
+        box-shadow: 1px 1.75px 3px 0 rgb(17, 17, 17,0.65),
+                    -1px 1.75px 3px 0 rgb(17, 17, 17,0.65),
+                    0 -0.5px 2px rgb(17,17,17,0.65) !important;
       }
       #modal-switch-txt{
         position: relative;
@@ -1553,11 +1625,11 @@ body {
         height: 14.75em;
     }
     .insert-box{
-        width: 98.5%;
+       /* width: 98.5%;
         -moz-box-shadow:inset 0 0 1px #000000;
         -o-box-shadow:inset 0 0 1px #000000;
         -ms-box-shadow:inset 0 0 1px #000000;
-        box-shadow:inset 0 0 1px #000000;
+        box-shadow:inset 0 0 1px #000000;*/
     }
     #modal-switch-txt{
         position: relative;
@@ -1696,11 +1768,11 @@ body {
         width: 65%;
     }
     .insert-box{
-        width: 98.5%;
+        /*width: 98.5%;
         -o-box-shadow:inset 0 0 1px #000000;
         -moz-box-shadow:inset 0 0 1px #000000;
         -ms-box-shadow:inset 0 0 1px #000000;
-        box-shadow:inset 0 0 1px #000000;
+        box-shadow:inset 0 0 1px #000000;*/
     }
     #modal-switch-txt{
         width: 5em;
@@ -1712,7 +1784,24 @@ body {
         left: 34.26em;
         top: 4.5em;
         z-index: 1;
-        width: 13.45em !important
+        width: 13.45em !important;
+        -o-transition-property: transform, box-shadow;
+        -o-transition-duration: 200ms, 300ms;
+        -o-transition-timing-function: ease-in-out;
+        -ms-transition-property: transform, box-shadow;
+        -ms-transition-duration: 200ms, 300ms;
+        -ms-transition-timing-function: ease-in-out;
+        transition-property: transform, box-shadow;
+        transition-duration: 200ms, 300ms;
+        transition-timing-function: ease-in-out;
+    }
+    .modal-switch:hover, .results-box:hover{
+      -ms-transform: scale(1.02);
+      -o-transform: scale(1.02);
+      transform: scale(1.02);
+      -o-box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0,0,0,0) !important; 
+      -ms-box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0,0,0,0) !important; 
+      box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0,0,0,0) !important;
     }
     #modal-switch-btn{
       position: relative;
@@ -1739,17 +1828,28 @@ body {
         width: 12.2em;        
         padding: 0.4em 0 0.75em 0.6em;
         height: 5.25em !important;
+        -o-transition-property: transform, box-shadow;
+        -o-transition-duration: 200ms, 300ms;
+        -o-transition-timing-function: ease-in-out;
+        -ms-transition-property: transform, box-shadow;
+        -ms-transition-duration: 200ms, 300ms;
+        -ms-transition-timing-function: ease-in-out;
+        transition-property: transform, box-shadow;
+        transition-duration: 200ms, 300ms;
+        transition-timing-function: ease-in-out;
     }
     #website_nav{
       width: 1.75em !important;
       height: 1.75em !important;
       position: relative;
-      top: -2em;
+      top: -1.25em;
       right: -4.325em;
       font-size: 30px;
       padding: 0.35em 0.25em 0.25em 0.25em !important;
     }
     #click-txt{
+      position: relative;
+      top: 0.65em;
       width:6.5em !important;
       margin: 0.15em 0 0 0.5em;
     }
@@ -1850,6 +1950,10 @@ body {
 *:hover{
   outline: solid 1px blue;
 }*/
+input[type=text]{
+  padding-bottom: 0.25em;
+  font-size: 16px;
+}
 
 ::-webkit-scrollbar {
   display: none;

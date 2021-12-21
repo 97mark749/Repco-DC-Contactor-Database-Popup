@@ -6,7 +6,6 @@ $(document).ready(function(){
         $('#popup-window-one').modal('hide');
     });
 });
-
 let temp = "None";
 
 
@@ -110,4 +109,4 @@ function validate_input() {
     else { document.getElementById('submit').disabled = false;}
 }
 
-    
+console.log();
