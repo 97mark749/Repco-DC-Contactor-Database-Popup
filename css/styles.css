@@ -1119,11 +1119,13 @@ body {
       justify-content: flex-end;
     }
     .insert-box{
-      -moz-flex-basis: 100% !important;
-      -ms-flex-basis: 100% !important;
-      -o-flex-basis: 100% !important;
-      flex-basis: 100% !important;
+      top: 0.6em !important;
+      left: -0.4em;
       margin: 0 0 0.75em 0;
+    }
+    .search-icon{
+      top: 0.15em;
+      left: -2em;
     }
     .table-container{
         height:13.75em;
