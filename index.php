@@ -9,24 +9,28 @@
         <nav class="navbar sticky-top navbar-expand-lg">
             <div class="container-fluid">
                 <img class="nav-logo" src="img/nav-brand.png">
-                <button class="navbar-toggler" id = 'navbar-toggler' type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" id = 'navbar-toggler' type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="material-icons nav-toggler-icon" id="nav-toggler-icon">menu</span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <div class="collapse navbar-collapse" id="navbarToggler">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="create_account.php">Create Account</a>
+                            <a class="nav-link active" aria-current="page" href="../repco-dc-contactor-database-popup/index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="#">About</a>
                         </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#" name='open_search' action="start_conn()" data-bs-toggle="modal" data-bs-target="#popup-window-one">Contactor Search</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Our Tools</a>
+                            <ul class="dropdown-menu dd-menu-nav" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item dd-item-nav" href="#" name='open_search' action="start_conn()" data-bs-toggle="modal" data-bs-target="#popup-window-one">Contactor Lookup</a></li>
+                                <li><a class="dropdown-item dd-item-nav" href="#">Repco's Website</a></li>
+                            </ul>
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline" id="login-search-btn" type="submit"><span class="material-icons">search</span></button>
+                        <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+                        <button class="btn" id="login-search-btn" type="submit"><span class="material-icons">search</span></button>
                     </form>
                 </div>
             </div>
@@ -210,7 +214,10 @@
     <script type="text/javascript" src="js/scriptsOne.js"></script>
     <script type="text/javascript" src="js/scriptsTwo.js"></script>
     <script type="text/javascript" src="js/scriptsThree.js"></script>
-    
+    <script type="text/javascript" src="js/navbar.js"></script>
+    <script type="text/javascript" src="js/loginScripts.js"></script>
+
+
     <script type="text/javascript" src="js/autocomplete.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>

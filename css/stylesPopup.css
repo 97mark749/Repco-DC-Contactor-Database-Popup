@@ -660,10 +660,6 @@ iframe{
 .dropdown-item{
   padding: 0.25rem 0.50rem 0.25rem 0.50rem;
 }
-.dropdown-item:hover{
-  background-color: #990000 !important;
-  color: white;
-}
 /** Properties for "Click here for Repco's Replacement" Line **/
 .results-box{
     -ms-box-sizing: border-box;
