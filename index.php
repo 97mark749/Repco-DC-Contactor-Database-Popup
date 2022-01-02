@@ -6,22 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/f520d024f2.js" crossorigin="anonymous"></script>
-    
-    <link rel="stylesheet" href="css/stylesIndex.css">
+    <link rel="stylesheet" href="css/reformat.css">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Welcome</title>
 </head>
 <body>
     <section>
         <header class="blurred-bg">
             <img class="header-logo" src="img/nav-brand.png">
+            <h1>Explore The Possibilities</h1>
+
         </header>
         <video src="mp4/mountains.mp4" autoplay loop muted></video>
         <section class = "container">
-            <!-- 
-                <nav class="navbar sticky-top">
+            <div class="label-box"><h2 class="label">MENU</h2></div>
+            <nav class="navbar sticky-top">
                 <div class="container-fluid">
                     <button class="navbar-toggler" id = 'navbar-toggler' type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="material-icons nav-toggler-icon" id="nav-toggler-icon">menu</span>
+                        <i class="material-icons nav-toggler-icon" id="nav-toggler-icon">menu</i>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarToggler">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -42,7 +44,8 @@
                     </div>
                 </div>
             </nav>
-            -->
+
+
             <div class="userActions-ctr">
                 <div class="card" data-tilt data-tilt-glare data-tilt-max-glare="0.4" data-tilt-scale="1.1">
                     <div class="card-body">
@@ -71,6 +74,7 @@
 
 
     <script type="text/javascript" src="js/vanilla-tilt.js"></script>
+    <script type="text/javascript" src="js/navbar.js"></script>
     <script type="text/javascript">
         VanillaTilt.init(document.querySelector(".card"), {
             max: 25,

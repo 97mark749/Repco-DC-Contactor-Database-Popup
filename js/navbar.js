@@ -1,4 +1,4 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
   // This will fire when document is ready:
   $(window).resize(function() {
       // This will fire each time the window is resized:
@@ -6,7 +6,7 @@ $(document).ready(function() {
           // if larger or equal 755px...
           /*$('.navbar-toggler').on('click',function(){
             $('.form-ctr').toggleClass('dimmed', 200);
-          }); */
+          }); 
       }else {
           // if smaller than 755px...
           $('.navbar-toggler').on('click',function(){
@@ -15,3 +15,6 @@ $(document).ready(function() {
       }
   }).resize(); // This will simulate a resize to trigger the initial run.
 });
+
+*/
+
