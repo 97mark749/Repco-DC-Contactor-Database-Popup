@@ -1,5 +1,6 @@
 <?php
     include('config.php');
+    error_reporting(E_ALL);
     // will take the users inputted text and print out all catalog numbers that contain the typed in text.
     if(!empty($_POST['keyword'])){
         $query = $connection->prepare("SELECT Catalog_No FROM contactor_numbers WHERE Catalog_No Like CONCAT(?,'%')") or die(mysqli_error($connection));
@@ -15,7 +16,7 @@
             while($query->fetch()){
                 // $txt = 'TYPED_IN_TEXT + rest_of_cat_number'
                 $txt = strtoupper('<strong>'.$val.'</strong>'.substr($cat_num,strlen($val)));
-                echo '<li onclick="selectNumber('.strval(($cat_num)).')" id="'.$cat_num.'">'.$txt.'</li>';
+                echo '<li onclick="selectNumber(_'.strval(($cat_num)).')" id="_'.$cat_num.'">'.$txt.'</li>';
             }
             echo '</ul>';
             $query->close();

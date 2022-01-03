@@ -26,6 +26,7 @@ $(document).click(function(){
 
 
 function selectNumber(val){
+    //alert(val.innerHTML);
     $('#search').val(val.innerHTML.replace('<strong>','').replace('</strong>',''));
     $('#suggestions').hide();
 }

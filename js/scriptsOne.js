@@ -25,20 +25,9 @@ try{
     console.log("Search Not Successful.")
 }
 
-function load_data(type, cat_num_str){
-    $.ajax({
-        type: "POST",
-        url: "search.php",
-        data:{type:cat_num_str},
-        success: function(data){
-
-        }
-    });
-}
-
 function submit_search(e){
     e.preventDefault();
-    cont_num = $("#search").val();
+    var cont_num = String($("#search").val());
     
     $.ajax({
         type: "GET",

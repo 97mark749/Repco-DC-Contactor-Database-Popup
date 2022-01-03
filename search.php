@@ -126,6 +126,7 @@
 
     function format_content($headers, $values){
         for($i=0; $i<sizeof($headers);$i++){
+            
             echo "<div class='table-row'><div class='table-item-header'>".$headers[$i]."</div><div class='table-item'>".$values[$i]."</div></div>";
         }
     }
