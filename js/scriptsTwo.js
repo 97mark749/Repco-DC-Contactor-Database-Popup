@@ -52,7 +52,10 @@ function filter_search(text){
         url: 'cross-ref.php',
         data: {property: [text, value, name]},
         success: function(data){
+            alert(data);
+            // (data) returns value of size of contactor
             switch(text){
+                // enables the next dropdown
                 case 'property2':enable('submit-search');enable('property3');enable('optProp3');break;
                 case 'property3':enable('property4');enable('optProp4');break;
                 case 'property4':enable('property5');enable('optProp5');break;
@@ -64,6 +67,7 @@ function filter_search(text){
                 default:break;
             }
             if(data !== ''){
+                // if the size selector is not null (current slection)
                 filter_options(data);
             }
         }

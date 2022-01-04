@@ -1,4 +1,6 @@
 <?php 
+
+    error_reporting(E_ALL);
     include('config.php');
     session_start();
 
@@ -20,9 +22,13 @@
         $target_property = $_POST['property'][0];
         $target_value = $_POST['property'][1];
         $table_name = $_POST['property'][2];
-
         switch($_SESSION['man']){
             case "Clark":
+                // Records the selected property each time the value is selected in a dropdown...
+                // This is different than the below default as the default sets a symbol... This sets the value
+                if($target_value != 'None'){set_symbol($target_property,$target_value);
+                }
+                else{set_symbol($target_property,'None');}
                 $_SESSION['filtered_array'] = json_encode(filter_catalog_numbers());
                 break;
             default:
@@ -320,12 +326,45 @@
     function filter_catalog_numbers(){
         // Group all session variables into an associative array and index them into
         // Note that some positions may be 'Null' so keep that in mind
-        $series = $_SESSION['prop_1'];
+
+        // Inner Function
+        function get_value($table_name,$prop_value, $col_name, $cat_num){
+            $sql = "SELECT $col_name FROM $table_name WHERE `Catalog_No` LIKE concat('%',?,'%')" or die(mysqli_error($GLOBALS['connection']));
+            $query = $GLOBALS['connection']->prepare($sql) or die(mysqli_error($GLOBALS['connection']));
+            $query->bind_param('s',$cat_num);
+            $query->execute();
+            $query->store_result();
+            $query->bind_result($results);
+            while($query->fetch()){
+                // If the conditions are met and it exist return True
+                if($results == $prop_value){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+        }
+        function get_values($table_name,$cat_num){
+            // Select the entire row and return all the values in an array
+            $sql = "SELECT * FROM $table_name WHERE `Catalog_No` LIKE CONCAT('%',?,'%')";
+            $query = $GLOBALS['connection']->prepare($sql);
+            $query->bind_param("s", $cat_num);
+            $query->execute();
+            $result = $query->get_result();
+
+            while($row = $result->fetch_array()){
+                return $row;
+            }
+        }
+
+
+        
         $printed_list = array();
         //If exists...
-        if(ISSET($series)){
-            $all_cat_nums = get_catalog_numbers($series);
-            switch($series){
+        if(ISSET($_SESSION['prop_1'])){
+            $all_cat_nums = get_catalog_numbers($_SESSION['prop_1']);
+            switch($_SESSION['prop_1']){
                 case 'DS303':
                     // Will utilize 9 properties [prop_1 --> prop_9]
                     // Checks if each exists
@@ -443,7 +482,7 @@
                 case 'C82':
                     // Will utilize 10 properties [prop_1 --> prop_10]
                     // Checks if each exists
-
+                    
                     for($i = 0; $i < sizeof($all_cat_nums); $i++){
                         if(ISSET($_SESSION['prop_2'])){
                             //position [3,1]
@@ -503,56 +542,52 @@
                         array_push($printed_list, strval($all_cat_nums[$i][0]));
                     }
                     break;
-                case 'Bulletin 7400':
+                case 'Bulletin_7400':
                     // Since this Contactor is not based on Symbol recognition you must query the chosen specs for all possible matches.
                     // Query each of the valid Session Variables 2,3,4,5.
-                    
-                    if(ISSET($_SESSION['prop_2']) && !ISSET($_SESSION['prop_3']) && !ISSET($_SESSION['prop_4']) && !ISSET($_SESSION['prop_5'])){
-                        //only one property selected
-                        $sql = "SELECT `Catalog_No` FROM `bulletin_7400_contactors` WHERE `NEMA_Size` LIKE concat('%',?,'%')" or die(mysqli_error($GLOBALS['connection']));
-                        $query = $GLOBALS['connection']->prepare($sql) or die(mysqli_error($GLOBALS['connection']));
-                        $query->bind_param('s',$_SESSION['prop_2']);
-                        $query->execute();
-                        $query->store_result();
-                        $query->bind_results($results);
-                        while($query->fetch()){
-                            array_push($printed_list,strval($results));
+                    for($i = 0; $i < sizeof($all_cat_nums); $i++){
+                        // For each
+                        // If Property is set, check if current cat number 
+                        // (1) has the property value 
+                        // (2) if YES continue to next IF, if NO Break current loop iteration
+                        $info = get_values('bulletin_7400_contactors',$all_cat_nums[$i][0]);
+                        if(ISSET($_SESSION['prop_2'])){
+                            /*if(get_value('bulletin_7400_contactors',$_SESSION['prop_2'],'NEMA_Size',$all_cat_nums[$i][0]) == false){
+                                continue;
+                            }*/
+                            if(strcmp($info[2],$_SESSION['prop_2']) !=0){
+                                continue;
+                            }
                         }
-                    }if(ISSET($_SESSION['prop_2']) && ISSET($_SESSION['prop_3']) && !ISSET($_SESSION['prop_4']) && !ISSET($_SESSION['prop_5'])){
-                        //only two properties selected
-                        $sql = "SELECT  `Catalog_No` FROM `bulletin_7400_contactors` WHERE `NEMA_Size` LIKE concat('%',?,'%') AND `Type` LIKE concat('%',?,'%')"  or die(mysqli_error($GLOBALS['connection']));
-                        $query = $GLOBALS['connection']->prepare($sql) or die(mysqli_error($GLOBALS['connection']));
-                        $query->bind_param('ss',$_SESSION['prop_2'],$_SESSION['prop_3']);
-                        $query->execute();
-                        $query->store_result();
-                        $query->bind_results($results);
-                        while($query->fetch()){
-                            array_push($printed_list,strval($results));
+                        if(ISSET($_SESSION['prop_3'])){
+                            /*if(get_value('bulletin_7400_contactors',$_SESSION['prop_3'],'Type',$all_cat_nums[$i][0]) == false){
+                                continue;
+                            }*/
+                            if(strcmp($info[3],$_SESSION['prop_3']) !=0){
+                                continue;
+                            }
                         }
-                    }if(ISSET($_SESSION['prop_2']) && ISSET($_SESSION['prop_3']) && ISSET($_SESSION['prop_4']) && !ISSET($_SESSION['prop_5'])){
-                        //only three properties selected
-                        $sql = "SELECT `Catalog_No` FROM `bulletin_7400_contactors` WHERE `NEMA_Size` LIKE concat('%',?,'%') AND `Type` LIKE concat('%',?,'%') AND `Blowout_Coil_Rating` LIKE concat('%',?,'%')"  or die(mysqli_error($GLOBALS['connection']));
-                        $query = $GLOBALS['connection']->prepare($sql) or die(mysqli_error($GLOBALS['connection']));
-                        $query->bind_param('sss',$_SESSION['prop_2'],$_SESSION['prop_3'],$_SESSION['prop_4']);
-                        $query->execute();
-                        $query->store_result();
-                        $query->bind_results($results);
-                        while($query->fetch()){
-                            array_push($printed_list,strval($results));
+                        if(ISSET($_SESSION['prop_4'])){
+                            /*if(get_value('bulletin_7400_contactors',$_SESSION['prop_4'],'Blowout_Coil_Rating',$all_cat_nums[$i][0]) == false){
+                                continue;
+                            }*/
+                            if(strcmp($info[4],$_SESSION['prop_4']) !=0){
+                                continue;
+                            }
                         }
-                    }if(ISSET($_SESSION['prop_2']) && ISSET($_SESSION['prop_3']) && ISSET($_SESSION['prop_4']) && ISSET($_SESSION['prop_5'])){
-                        //all four properties selected
-                        $sql = "SELECT `Catalog_No` FROM `bulletin_7400_contactors` WHERE `NEMA_Size` LIKE concat('%',?,'%') AND `Type` LIKE concat('%',?,'%') AND `Blowout_Coil_Rating` LIKE concat('%',?,'%') AND `Power_Pole_Configuration` LIKE concat('%',?,'%')"  or die(mysqli_error($GLOBALS['connection']));
-                        $query = $GLOBALS['connection']->prepare($sql) or die(mysqli_error($GLOBALS['connection']));
-                        $query->bind_param('ssss',$_SESSION['prop_2'],$_SESSION['prop_3'],$_SESSION['prop_4'],$_SESSION['prop_5']);
-                        $query->execute();
-                        $query->store_result();
-                        $query->bind_results($results);
-                        while($query->fetch()){
-                            array_push($printed_list,strval($results));
+                        if(ISSET($_SESSION['prop_5'])){
+                            /*if(get_value('bulletin_7400_contactors',$_SESSION['prop_5'],'Power_Pole_Configuration',$all_cat_nums[$i][0]) == false){
+                                continue;
+                            }*/
+                            if(strcmp($info[5],$_SESSION['prop_5']) !=0){
+                                continue;
+                            }
                         }
+                        // if no broken conditional statements push to filtered list!
+                        array_push($printed_list, strval($all_cat_nums[$i][0]));
                     }
                     break;
+
                 default: break;
             }
         }
