@@ -52,7 +52,6 @@ function filter_search(text){
         url: 'cross-ref.php',
         data: {property: [text, value, name]},
         success: function(data){
-            alert(data);
             // (data) returns value of size of contactor
             switch(text){
                 // enables the next dropdown

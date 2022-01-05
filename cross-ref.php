@@ -26,9 +26,9 @@
             case "Clark":
                 // Records the selected property each time the value is selected in a dropdown...
                 // This is different than the below default as the default sets a symbol... This sets the value
-                if($target_value != 'None'){set_symbol($target_property,$target_value);
-                }
-                else{set_symbol($target_property,'None');}
+                if($target_value != 'None'){set_symbol($target_property,$target_value);}
+                else{set_symbol($target_property,'None');} // if the value is 'No Value'
+
                 $_SESSION['filtered_array'] = json_encode(filter_catalog_numbers());
                 break;
             default:
@@ -268,7 +268,7 @@
                 default: break;
             }
         }
-        else{
+        else{ // Delete the session value...
             switch($target_property){
                 // Deletes the Symbol Session Record if $recorded_symbol is 'None'
                 case 'property2': deleteSymbol('prop_2'); break;
@@ -545,6 +545,7 @@
                 case 'Bulletin_7400':
                     // Since this Contactor is not based on Symbol recognition you must query the chosen specs for all possible matches.
                     // Query each of the valid Session Variables 2,3,4,5.
+                    
                     for($i = 0; $i < sizeof($all_cat_nums); $i++){
                         // For each
                         // If Property is set, check if current cat number 
@@ -555,32 +556,32 @@
                             /*if(get_value('bulletin_7400_contactors',$_SESSION['prop_2'],'NEMA_Size',$all_cat_nums[$i][0]) == false){
                                 continue;
                             }*/
-                            if(strcmp($info[2],$_SESSION['prop_2']) !=0){
-                                continue;
+                            if(strcmp($info[2],strval($_SESSION['prop_2'])) !=0){
+                                continue; // skip this catalog number (No match)
                             }
                         }
                         if(ISSET($_SESSION['prop_3'])){
                             /*if(get_value('bulletin_7400_contactors',$_SESSION['prop_3'],'Type',$all_cat_nums[$i][0]) == false){
                                 continue;
                             }*/
-                            if(strcmp($info[3],$_SESSION['prop_3']) !=0){
-                                continue;
+                            if(strcmp($info[3],strval($_SESSION['prop_3'])) !=0){
+                                continue; // skip this catalog number (No match)
                             }
                         }
                         if(ISSET($_SESSION['prop_4'])){
                             /*if(get_value('bulletin_7400_contactors',$_SESSION['prop_4'],'Blowout_Coil_Rating',$all_cat_nums[$i][0]) == false){
                                 continue;
                             }*/
-                            if(strcmp($info[4],$_SESSION['prop_4']) !=0){
-                                continue;
+                            if(strcmp($info[4],strval($_SESSION['prop_4'])) !=0){
+                                continue; // skip this catalog number (No match)
                             }
                         }
                         if(ISSET($_SESSION['prop_5'])){
                             /*if(get_value('bulletin_7400_contactors',$_SESSION['prop_5'],'Power_Pole_Configuration',$all_cat_nums[$i][0]) == false){
                                 continue;
                             }*/
-                            if(strcmp($info[5],$_SESSION['prop_5']) !=0){
-                                continue;
+                            if(strcmp($info[5],strval($_SESSION['prop_5']))!=0){
+                                continue; // skip this catalog number (No match)
                             }
                         }
                         // if no broken conditional statements push to filtered list!
