@@ -148,7 +148,7 @@
                 echo '</select></div>';
             }
     }
-
+    
     function insertOptions($db, $table_name){
         $sql = "SELECT DISTINCT Value FROM $table_name";
         

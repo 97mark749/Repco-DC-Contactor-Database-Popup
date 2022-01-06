@@ -92,6 +92,7 @@ function filter_search(text){
                 // if the size selector is not null (current slection)
                 filter_options(data);
             }
+        
         }
     });
     
