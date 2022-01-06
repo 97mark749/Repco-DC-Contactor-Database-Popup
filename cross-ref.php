@@ -53,7 +53,6 @@
         $_SESSION['man'] = $_SESSION['prop_1'] = $_SESSION['prop_2'] = $_SESSION['prop_3'] = $_SESSION['prop_4'] = $_SESSION['prop_5'] = $_SESSION['prop_6'] = $_SESSION['prop_7'] = $_SESSION['prop_8'] = $_SESSION['prop_9'] = $_SESSION['prop_10'] = $_SESSION['filtered_array'] = $_SESSION['link'] = Null;
     }
     
-
     if(ISSET($_POST['print_nums'])){
         print_filtered_list($_SESSION['filtered_array']);
     }
