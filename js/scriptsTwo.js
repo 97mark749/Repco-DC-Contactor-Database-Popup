@@ -13,7 +13,6 @@ $(document).ready(function(){
     });
 });
 
-
 function set_dropdowns(){
     let select = document.getElementById('selectManufacturer');
     let value = select.options[select.selectedIndex].value;
@@ -65,6 +64,30 @@ function filter_search(text){
                 case 'property9':enable('property10');enable('optProp10');break;
                 default:break;
             }
+            // Another AJAX Call to delete Session logs
+            // Sends the property Name to start iterating through then returns the 
+            $.ajax({
+                type: "POST",
+                url: 'cross-ref.php',
+                datatype: 'json',
+                data: {position: text.substring(text.length-1)}, // passes the position property to php server
+                success: function(data){
+                    // returns number of dropdowns
+                    var pos = JSON.parse(data);
+                    var new_pos = text.substring(text.length-1); // last position
+                    console.log(pos + ' ' + new_pos);
+                    try{
+                        for(let i = new_pos + 1; i <= pos; i++){
+                            $('#property'+new_pos).html("hello");
+                            //while the property exists
+                            //$('#property'+i+' option:selected').removeAttr('selected');
+                        }
+                    }
+                    catch(e){
+                        console.log("Something is Wrong: " + e);
+                    }
+                }
+            });
             if(data !== ''){
                 // if the size selector is not null (current slection)
                 filter_options(data);

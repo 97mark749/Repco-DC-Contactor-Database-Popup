@@ -28,20 +28,18 @@
                 // This is different than the below default as the default sets a symbol... This sets the value
                 if($target_value != 'None'){set_symbol($target_property,$target_value);}
                 else{set_symbol($target_property,'None');} // if the value is 'No Value'
-
-                $_SESSION['filtered_array'] = json_encode(filter_catalog_numbers());
                 break;
             default:
                 //passes 'position', 'value'
                 if($target_value != 'None'){$recorded_symbol = getSymbol($table_name,$target_value);}
                 else{$recorded_symbol = 'None';}
                 set_symbol($target_property, $recorded_symbol); //sets symbol session
-
-                //encodes and converts array to string for filtered list of catalog numbers based on total recorded symbols
-                $_SESSION['filtered_array'] = json_encode(filter_catalog_numbers());
                 break;
             }
+            //encodes and converts array to string for filtered list of catalog numbers based on total recorded symbols
+            $_SESSION['filtered_array'] = json_encode(filter_catalog_numbers()); 
             if($table_name == 'NEMA_Size'){
+                // if Size is chosen... Reset the remaining the sssion values and dropdowns
                 echo $target_value; //sends value back to JS File
             }
     }
@@ -52,19 +50,7 @@
     }
 
     if(ISSET($_POST['cancel'])){
-        $_SESSION['man'] = Null;
-        $_SESSION['prop_1'] = Null;
-        $_SESSION['prop_2'] = Null;
-        $_SESSION['prop_3'] = Null;
-        $_SESSION['prop_4'] = Null;
-        $_SESSION['prop_5'] = Null;
-        $_SESSION['prop_6'] = Null;
-        $_SESSION['prop_7'] = Null;
-        $_SESSION['prop_8'] = Null;
-        $_SESSION['prop_9'] = Null;
-        $_SESSION['prop_10'] = Null;
-        $_SESSION['filtered_array'] = Null;
-        $_SESSION['link'] = Null;
+        $_SESSION['man'] = $_SESSION['prop_1'] = $_SESSION['prop_2'] = $_SESSION['prop_3'] = $_SESSION['prop_4'] = $_SESSION['prop_5'] = $_SESSION['prop_6'] = $_SESSION['prop_7'] = $_SESSION['prop_8'] = $_SESSION['prop_9'] = $_SESSION['prop_10'] = $_SESSION['filtered_array'] = $_SESSION['link'] = Null;
     }
     
 
@@ -80,6 +66,14 @@
         echo getLink(strval($_GET['nav']));
     }
 
+    if(ISSET($_POST['position'])){
+        // return the property name to jQuery to reset the dropdown position
+        for($i = $_POST['position'] + 1; $i <= $_SESSION['num_of_selectors']; $i++){//for eavery session var beginning at i until size of dropdowns have been reached...
+            $_SESSION['prop_'.$i] = null;
+        }
+        echo json_encode($_SESSION['num_of_selectors']);
+    }
+    
     function insertSeriesDropdown($info){
         /*
         $query = $GLOBALS['connection']->prepare("SELECT DISTINCT Series FROM contactor_numbers WHERE Manufacturer LIKE CONCAT('%',?,'%')") or die(mysqli_error($GLOBALS['connection']));
@@ -137,15 +131,16 @@
     }
 
     function insertDropdowns($series, $dd_Headers){
+            $_SESSION['num_of_selectors'] = sizeof($dd_Headers);
             for($i=2; $i<sizeof($dd_Headers);$i++){
                 //replaces underscores in headers with spaces / Creates dropdowns
                 $mod_header = str_replace(" ", "_",$dd_Headers[$i]);
                 $tagged_tb_name = strtolower(strval($series.$mod_header));
                 if($i == 2){
-                    echo'<div class="dropdown-area"><label class="dropdown-label">'.$dd_Headers[$i].':</label><select id="property'.$i.'" name="'.$mod_header.'"class="btn dropdown-btn dropdown-toggle dropdown-button" data-bs-toggle="dropdown" data-bs-display="static" aria-expand="false" onchange="filter_search(this.id)"><option value="none" selected disabled hidden>Click Here</option>';
+                    echo'<div class="dropdown-area"><label class="dropdown-label">'.$dd_Headers[$i].':</label><select id="property'.$i.'" name="'.$mod_header.'"class="btn dropdown-btn dropdown-toggle dropdown-button" data-bs-toggle="dropdown" data-bs-display="static" aria-expand="false" onchange="filter_search(this.id);"><option value="none" selected disabled hidden>Click Here</option>';
                     echo '<option id="optProp'.$i.'" value="None" class="dropdown-item">No Value</option>';
                 }else{
-                    echo'<div class="dropdown-area"><label class="dropdown-label">'.$dd_Headers[$i].':</label><select id="property'.$i.'" name="'.$mod_header.'"class="btn dropdown-btn dropdown-toggle dropdown-button" data-bs-toggle="dropdown" data-bs-display="static" aria-expand="false" onchange="filter_search(this.id)" disabled><option value="none" selected disabled hidden>Click Here</option>';
+                    echo'<div class="dropdown-area"><label class="dropdown-label">'.$dd_Headers[$i].':</label><select id="property'.$i.'" name="'.$mod_header.'"class="btn dropdown-btn dropdown-toggle dropdown-button" data-bs-toggle="dropdown" data-bs-display="static" aria-expand="false" onchange="filter_search(this.id);" disabled><option value="none" selected disabled hidden>Click Here</option>';
                     echo '<option id="optProp'.$i.'" value="None" class="dropdown-item">No Value</option>';
                 }
                 insertOptions($GLOBALS['connection'], $tagged_tb_name); // Inserts options into the created dropdown
@@ -553,35 +548,19 @@
                         // (2) if YES continue to next IF, if NO Break current loop iteration
                         $info = get_values('bulletin_7400_contactors',$all_cat_nums[$i][0]);
                         if(ISSET($_SESSION['prop_2'])){
-                            /*if(get_value('bulletin_7400_contactors',$_SESSION['prop_2'],'NEMA_Size',$all_cat_nums[$i][0]) == false){
-                                continue;
-                            }*/
-                            if(strcmp($info[2],strval($_SESSION['prop_2'])) !=0){
-                                continue; // skip this catalog number (No match)
+                            if(strcmp($info[2],strval($_SESSION['prop_2'])) !=0){continue; // skip this catalog number (No match)
                             }
                         }
                         if(ISSET($_SESSION['prop_3'])){
-                            /*if(get_value('bulletin_7400_contactors',$_SESSION['prop_3'],'Type',$all_cat_nums[$i][0]) == false){
-                                continue;
-                            }*/
-                            if(strcmp($info[3],strval($_SESSION['prop_3'])) !=0){
-                                continue; // skip this catalog number (No match)
+                            if(strcmp($info[3],strval($_SESSION['prop_3'])) !=0){continue; // skip this catalog number (No match)
                             }
                         }
                         if(ISSET($_SESSION['prop_4'])){
-                            /*if(get_value('bulletin_7400_contactors',$_SESSION['prop_4'],'Blowout_Coil_Rating',$all_cat_nums[$i][0]) == false){
-                                continue;
-                            }*/
-                            if(strcmp($info[4],strval($_SESSION['prop_4'])) !=0){
-                                continue; // skip this catalog number (No match)
+                            if(strcmp($info[4],strval($_SESSION['prop_4'])) !=0){continue; // skip this catalog number (No match)
                             }
                         }
                         if(ISSET($_SESSION['prop_5'])){
-                            /*if(get_value('bulletin_7400_contactors',$_SESSION['prop_5'],'Power_Pole_Configuration',$all_cat_nums[$i][0]) == false){
-                                continue;
-                            }*/
-                            if(strcmp($info[5],strval($_SESSION['prop_5']))!=0){
-                                continue; // skip this catalog number (No match)
+                            if(strcmp($info[5],strval($_SESSION['prop_5']))!=0){continue; // skip this catalog number (No match)
                             }
                         }
                         // if no broken conditional statements push to filtered list!
@@ -610,11 +589,14 @@
 
     function print_filtered_list($array_str){
         $array = json_decode($array_str);
-        echo '<ul id="matched_nums">';
+        /*echo '<ul id="matched_nums">';
         for($i = 0; $i < sizeof($array); $i++){
             echo '<li><a id = "'.$array[$i].'" data-bs-target="#popup-window-three" data-bs-toggle="modal" data-bs-dismiss="modal" onclick="assign_info(this.id);">'.$array[$i].'</a></li>';
         }
-        echo '</ul>';
+        echo '</ul>';*/
+        echo '<pre>';
+        var_dump($_SESSION);
+        echo '</pre>';
     }
 
     function getLink($parameter){
