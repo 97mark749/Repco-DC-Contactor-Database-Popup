@@ -589,14 +589,11 @@
 
     function print_filtered_list($array_str){
         $array = json_decode($array_str);
-        /*echo '<ul id="matched_nums">';
+        echo '<ul id="matched_nums">';
         for($i = 0; $i < sizeof($array); $i++){
             echo '<li><a id = "'.$array[$i].'" data-bs-target="#popup-window-three" data-bs-toggle="modal" data-bs-dismiss="modal" onclick="assign_info(this.id);">'.$array[$i].'</a></li>';
         }
-        echo '</ul>';*/
-        echo '<pre>';
-        var_dump($_SESSION);
-        echo '</pre>';
+        echo '</ul>';
     }
 
     function getLink($parameter){

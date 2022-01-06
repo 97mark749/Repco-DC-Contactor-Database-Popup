@@ -74,17 +74,17 @@ function filter_search(text){
                 success: function(data){
                     // returns number of dropdowns
                     var pos = JSON.parse(data);
-                    var new_pos = text.substring(text.length-1); // last position
-                    console.log(pos + ' ' + new_pos);
+                    var new_pos = parseInt(text.substring(text.length-1)) + 1; // last position + 1
                     try{
-                        for(let i = new_pos + 1; i <= pos; i++){
-                            $('#property'+new_pos).html("hello");
+                        while(new_pos <= data){
+                            $('#property'+new_pos).get(0).selectedIndex = 0;
+                            new_pos+=1;
                             //while the property exists
                             //$('#property'+i+' option:selected').removeAttr('selected');
                         }
                     }
                     catch(e){
-                        console.log("Something is Wrong: " + e);
+                        console.log("Something is Wrong -->" + e);
                     }
                 }
             });
