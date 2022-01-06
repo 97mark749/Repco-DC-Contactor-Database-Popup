@@ -71,6 +71,7 @@
         for($i = $_POST['position'] + 1; $i <= $_SESSION['num_of_selectors']; $i++){//for eavery session var beginning at i until size of dropdowns have been reached...
             $_SESSION['prop_'.$i] = null;
         }
+        filter_catalog_numbers(); // Update the results
         echo json_encode($_SESSION['num_of_selectors']);
     }
     
