@@ -68,9 +68,9 @@
     if(ISSET($_POST['position'])){
         // return the property name to jQuery to reset the dropdown position
         for($i = $_POST['position'] + 1; $i <= $_SESSION['num_of_selectors']; $i++){//for eavery session var beginning at i until size of dropdowns have been reached...
-            $_SESSION['prop_'.$i] = null;
+            deleteSymbol('prop_'.$i); //deletes the session variable so it does not exist and comes up as !ISSET in the filtering refresh
         }
-        filter_catalog_numbers(); // Update the results
+        $_SESSION['filtered_array'] = json_encode(filter_catalog_numbers()); 
         echo json_encode($_SESSION['num_of_selectors']);
     }
     
@@ -593,7 +593,6 @@
         for($i = 0; $i < sizeof($array); $i++){
             echo '<li><a id = "'.$array[$i].'" data-bs-target="#popup-window-three" data-bs-toggle="modal" data-bs-dismiss="modal" onclick="assign_info(this.id);">'.$array[$i].'</a></li>';
         }
-        echo '</ul>';
     }
 
     function getLink($parameter){

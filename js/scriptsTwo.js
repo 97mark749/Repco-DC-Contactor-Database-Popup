@@ -42,7 +42,7 @@ function set_remaining_dropdowns(){
 }
 
 function filter_search(text){
-    let select = document.getElementById(text);
+    let select = document.getElementById(text.toString());
     let name = select.getAttribute("name");
     let value = select.options[select.selectedIndex].value;
     //sends request to process the property clicked on by user from id 'text' --> POST method passes 'value' to PHP
@@ -77,7 +77,7 @@ function filter_search(text){
                     var new_pos = parseInt(text.substring(text.length-1)) + 1; // last position + 1
                     try{
                         while(new_pos <= data){
-                            $('#property'+new_pos).get(0).selectedIndex = 0;
+                            $('#property'+new_pos.toString()).get(0).selectedIndex = 0;
                             new_pos+=1;
                             //while the property exists
                             //$('#property'+i+' option:selected').removeAttr('selected');
