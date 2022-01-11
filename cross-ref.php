@@ -23,7 +23,7 @@
         $target_value = $_POST['property'][1];
         $table_name = $_POST['property'][2];
         switch($_SESSION['man']){
-            case "Clark":
+            case "Clark": case "BCH":
                 // Records the selected property each time the value is selected in a dropdown...
                 // This is different than the below default as the default sets a symbol... This sets the value
                 if($target_value != 'None'){set_symbol($target_property,$target_value);}
@@ -38,7 +38,7 @@
             }
             //encodes and converts array to string for filtered list of catalog numbers based on total recorded symbols
             $_SESSION['filtered_array'] = json_encode(filter_catalog_numbers()); 
-            if($table_name == 'NEMA_Size'){
+            if($table_name == 'NEMA_Size' || $table_name == 'Size'){
                 // if Size is chosen... Reset the remaining the sssion values and dropdowns
                 echo $target_value; //sends value back to JS File
             }
@@ -198,10 +198,11 @@
                     mysqli_close($GLOBALS['connection']);
                     return json_encode(array($a1, $a2));
                     break;
-                case 'type 900':
-                    $a1 = get_options_by_size($GLOBALS['connection'], 'property5', 'type_900_mill_dutyblowout_coil_rating', $size_col);
+                case 'Type_900_Mill_Duty':
+                    $a1 = get_options_by_size($GLOBALS['connection'], 'property3', 'type_900_mill_dutypoles', $size_col);
+                    $a2 = get_options_by_size($GLOBALS['connection'], 'property5', 'type_900_mill_dutyblowout_coil_rating', $size_col);
                     mysqli_close($GLOBALS['connection']);
-                    return json_encode(array($a1));
+                    return json_encode(array($a1, $a2));
                     break;
             
                 default: break;    
@@ -573,13 +574,13 @@
                     }
                     break;
                     
-                case 'Type_900':
+                case 'Type_900_Mill_Duty':
                     for($i = 0; $i < sizeof($all_cat_nums); $i++){
                         // For each
                         // If Property is set, check if current cat number 
                         // (1) has the property value 
                         // (2) if YES continue to next IF, if NO Break current loop iteration
-                        $info = get_values('bulletin_7400_contactors',$all_cat_nums[$i][0]);
+                        $info = get_values('type_900_mill_duty_contactors',$all_cat_nums[$i][0]);
                         if(ISSET($_SESSION['prop_2'])){
                             if(strcmp($info[2],strval($_SESSION['prop_2'])) !=0){continue; // skip this catalog number (No match)
                             }
@@ -626,6 +627,11 @@
         for($i = 0; $i < sizeof($array); $i++){
             echo '<li><a id = "'.$array[$i].'" data-bs-target="#popup-window-three" data-bs-toggle="modal" data-bs-dismiss="modal" onclick="assign_info(this.id);">'.$array[$i].'</a></li>';
         }
+        /*
+        echo '<pre>';
+        var_dump($_SESSION);
+        echo '</pre>';
+        */
     }
 
     function getLink($parameter){

@@ -81,7 +81,7 @@
                                 <option id='GeneralElectricSelector' value="General Electric" class="dropdown-item">General Electric</option>
                                 <option id='CutlerHammerSelector' value="Cutler Hammer" class="dropdown-item">Cutler Hammer</option>
                                 <option id='ClarkSelector' value="Clark" class="dropdown-item">Clark</option>
-                                <option id='BCHSelector' value="BCH" class="dropdown-item">BCH Mill Duty</option>
+                                <option id='BCHSelector' value="BCH" class="dropdown-item">BCH</option>
                             </select>
                             <select id="selectSeries" class="btn dropdown-btn dropdown-toggle dropdown-button" data-bs-toggle="dropdown" data-bs-display="static" aria-expand="false" onchange="set_remaining_dropdowns()" required disabled>
                                 <!-- Will Be Populated From php Document -->

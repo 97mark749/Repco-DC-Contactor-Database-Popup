@@ -15,7 +15,7 @@ $(document).ready(function(){
             if(event.keyCode === 13){submit_search(event);}
         });
     }catch(error){
-        console.log("Something is Wrong --> \n\n" + e + " --> \n\nAt Line: "+ e.line);
+        console.log("Something is Wrong --> \n\n" + e.message + " --> \n\nAt Line: "+ e.line);
     }
 });
 
@@ -67,7 +67,7 @@ function validate_replacement(temp){
             }
         });
     }catch(e){
-        console.log("Something is Wrong --> \n\n" + e + " --> \n\nAt Line: "+ e.line);    }
+        console.log("Something is Wrong --> \n\n" + e.message + " --> \n\nAt Line: "+ e.line);    }
 }
 
 function get_link(){

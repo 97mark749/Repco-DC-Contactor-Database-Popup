@@ -68,7 +68,7 @@ function filter_search(text){
                     }
                 }
                 catch(e){
-                    console.log("Something is Wrong --> \n\n" + e + " --> \n\nAt Line: "+ e.line);
+                    console.log("Something is Wrong --> \n\n" + e.message + " --> \n\nAt Line: "+ e.line);
                 }
                 // Another AJAX Call to delete Session logs
                 // Sends the property Name to start iterating through then returns the 
@@ -84,14 +84,14 @@ function filter_search(text){
                             var new_pos = parseInt(text.substring(text.length-1)) + 1; // last position + 1
                         
                             while(new_pos <= data){
-                                $('#property'+new_pos.toString()).get(0).selectedIndex = 0;
+                                $("#property"+new_pos.toString()).get(0).selectedIndex = 0;
                                 new_pos+=1;
                                 //while the property exists
                                 //$('#property'+i+' option:selected').removeAttr('selected');
                             }
                         }
                         catch(e){
-                            console.log("Something is Wrong --> \n\n" + e + " --> \n\nAt Line: "+ e.line);
+                            console.log("Something is Wrong --> \n\n" + e.message + " --> \n\nAt Line: "+ e.line);
                         }
                     }
                 });
@@ -108,6 +108,7 @@ function filter_search(text){
 }
 
 function filter_options(size){
+    alert(size);
     $.ajax({
         type: 'POST',
         url: 'cross-ref.php',
@@ -120,7 +121,7 @@ function filter_options(size){
                 }
             }
             catch(e){
-                console.log("Something is Wrong --> \n\n" + e + " --> \n\nAt Line: "+ e.line);            }
+                console.log("Something is Wrong --> \n\n" + e.message + " --> \n\nAt Line: "+ e.line);            }
         }
     });
 }
@@ -148,7 +149,7 @@ function print_filtered_nums(){
                 $('#results-body').html(data);
             }
             catch(e){
-                console.log("Something is Wrong --> \n\n" + e + " --> \n\nAt Line: "+ e.line);
+                console.log("Something is Wrong --> \n\n" + e.message + " --> \n\nAt Line: "+ e.line);
             }
         }
     });
