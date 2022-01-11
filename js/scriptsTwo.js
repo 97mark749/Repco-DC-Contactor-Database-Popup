@@ -68,7 +68,7 @@ function filter_search(text){
                     }
                 }
                 catch(e){
-                    console.log("Something is Wrong (Inside Function) --> " + e);
+                    console.log("Something is Wrong --> \n\n" + e + " --> \n\nAt Line: "+ e.line);
                 }
                 // Another AJAX Call to delete Session logs
                 // Sends the property Name to start iterating through then returns the 
@@ -91,7 +91,7 @@ function filter_search(text){
                             }
                         }
                         catch(e){
-                            console.log("Something is Wrong --> " + e);
+                            console.log("Something is Wrong --> \n\n" + e + " --> \n\nAt Line: "+ e.line);
                         }
                     }
                 });
@@ -103,8 +103,7 @@ function filter_search(text){
             }
         });
     }catch(e){
-        console.log('There was an error/Exception (outer-function): ' +e);
-    }
+        console.log("Something is Wrong --> \n\n" + e + " --> \n\nAt Line: "+ e.line);    }
     
 }
 
@@ -121,8 +120,7 @@ function filter_options(size){
                 }
             }
             catch(e){
-                console.log("Something is Wrong --> " + e);
-            }
+                console.log("Something is Wrong --> \n\n" + e + " --> \n\nAt Line: "+ e.line);            }
         }
     });
 }
@@ -150,7 +148,7 @@ function print_filtered_nums(){
                 $('#results-body').html(data);
             }
             catch(e){
-                console.log("Something is Wrong --> " + e);
+                console.log("Something is Wrong --> \n\n" + e + " --> \n\nAt Line: "+ e.line);
             }
         }
     });

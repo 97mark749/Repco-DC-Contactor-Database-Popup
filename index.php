@@ -55,7 +55,7 @@
                             </div>
                         </div>
                         <div class="footer-btn-group">
-                            <button type="button" id ='submit' class="btn btn-sm btn-danger footer-btn tt" data-bs-toggle = "tooltip" data-bs-placement = "left" data-bs-offset = '[0,7]' data-bs-trigger = 'hover' data-bs-html = "true" title = "<b>Verify</b> Input<br><b>Before</b> Searching!" onClick="validate_replacement()" disabled>Submit</button>
+                            <button type="button" id ='submit' class="btn btn-sm btn-danger footer-btn tt" data-bs-toggle = "tooltip" data-bs-placement = "left" data-bs-offset = '[0,7]' data-bs-trigger = 'hover' data-bs-html = "true" title = "<b>Verify</b> Input<br><b>Before</b> Searching!" disabled>Submit</button>
                             <button type="button" id = 'close' onclick="clear_form()" class="btn btn-sm footer-btn" >Close</button>
                         </div>
                     </div>

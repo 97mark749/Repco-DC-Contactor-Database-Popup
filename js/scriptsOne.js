@@ -1,29 +1,23 @@
-$(document).ready(function(){
-    $('#close').click(function(){
-        $('#popup-window-one').modal('hide');
-    });
-    $('#close-search-x').click(function(){
-        $('#popup-window-one').modal('hide');
-    });
-});
 let temp = "None";
 
-
-try{
-    $(document).ready(function(){
-        $("#submit").click(function(e){submit_search(e);});
-    });
-}catch(error){
-    console.log("Submit Button Will Not Work.")
-}
-
-try{
-    $(document).on('keypress', function(event){
-        if(event.keyCode === 13){submit_search(event);}
-    });
-}catch(error){
-    console.log("Search Not Successful.")
-}
+$(document).ready(function(){
+    try{
+        $('#close').click(function(){
+            $('#popup-window-one').modal('hide');
+        });
+        $('#close-search-x').click(function(){
+            $('#popup-window-one').modal('hide');
+        });
+        $(document).ready(function(){
+            $("#submit").click(function(e){submit_search(e);});
+        });
+        $(document).on('keypress', function(event){
+            if(event.keyCode === 13){submit_search(event);}
+        });
+    }catch(error){
+        console.log("Something is Wrong --> \n\n" + e + " --> \n\nAt Line: "+ e.line);
+    }
+});
 
 function submit_search(e){
     e.preventDefault();
@@ -73,8 +67,7 @@ function validate_replacement(temp){
             }
         });
     }catch(e){
-        
-    }
+        console.log("Something is Wrong --> \n\n" + e + " --> \n\nAt Line: "+ e.line);    }
 }
 
 function get_link(){
