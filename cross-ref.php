@@ -198,6 +198,11 @@
                     mysqli_close($GLOBALS['connection']);
                     return json_encode(array($a1, $a2));
                     break;
+                case 'type 900':
+                    $a1 = get_options_by_size($GLOBALS['connection'], 'property5', 'type_900_mill_dutyblowout_coil_rating', $size_col);
+                    mysqli_close($GLOBALS['connection']);
+                    return json_encode(array($a1));
+                    break;
             
                 default: break;    
             }
@@ -567,7 +572,35 @@
                         array_push($printed_list, strval($all_cat_nums[$i][0]));
                     }
                     break;
-
+                    
+                case 'Type_900':
+                    for($i = 0; $i < sizeof($all_cat_nums); $i++){
+                        // For each
+                        // If Property is set, check if current cat number 
+                        // (1) has the property value 
+                        // (2) if YES continue to next IF, if NO Break current loop iteration
+                        $info = get_values('bulletin_7400_contactors',$all_cat_nums[$i][0]);
+                        if(ISSET($_SESSION['prop_2'])){
+                            if(strcmp($info[2],strval($_SESSION['prop_2'])) !=0){continue; // skip this catalog number (No match)
+                            }
+                        }
+                        if(ISSET($_SESSION['prop_3'])){
+                            if(strcmp($info[3],strval($_SESSION['prop_3'])) !=0){continue; // skip this catalog number (No match)
+                            }
+                        }
+                        if(ISSET($_SESSION['prop_4'])){
+                            if(strcmp($info[4],strval($_SESSION['prop_4'])) !=0){continue; // skip this catalog number (No match)
+                            }
+                        }
+                        if(ISSET($_SESSION['prop_5'])){
+                            if(strcmp($info[5],strval($_SESSION['prop_5']))!=0){continue; // skip this catalog number (No match)
+                            }
+                        }
+                        // if no broken conditional statements push to filtered list!
+                        array_push($printed_list, strval($all_cat_nums[$i][0]));
+                    }
+                    break;
+                
                 default: break;
             }
         }

@@ -42,59 +42,69 @@ function set_remaining_dropdowns(){
 }
 
 function filter_search(text){
-    let select = document.getElementById(text.toString());
-    let name = select.getAttribute("name");
-    let value = select.options[select.selectedIndex].value;
-    //sends request to process the property clicked on by user from id 'text' --> POST method passes 'value' to PHP
-    $.ajax({
-        type:'POST',
-        url: 'cross-ref.php',
-        data: {property: [text, value, name]},
-        success: function(data){
-            // (data) returns value of size of contactor
-            switch(text){
-                // enables the next dropdown
-                case 'property2':enable('submit-search');enable('property3');enable('optProp3');break;
-                case 'property3':enable('property4');enable('optProp4');break;
-                case 'property4':enable('property5');enable('optProp5');break;
-                case 'property5':enable('property6');enable('optProp6');break;
-                case 'property6':enable('property7');enable('optProp7');break;
-                case 'property7':enable('property8');enable('optProp8');break;
-                case 'property8':enable('property9');enable('optProp9');break;
-                case 'property9':enable('property10');enable('optProp10');break;
-                default:break;
-            }
-            // Another AJAX Call to delete Session logs
-            // Sends the property Name to start iterating through then returns the 
-            $.ajax({
-                type: "POST",
-                url: 'cross-ref.php',
-                datatype: 'json',
-                data: {position: text.substring(text.length-1)}, // passes the position property to php server
-                success: function(data){
-                    // returns number of dropdowns
-                    var pos = JSON.parse(data);
-                    var new_pos = parseInt(text.substring(text.length-1)) + 1; // last position + 1
-                    try{
-                        while(new_pos <= data){
-                            $('#property'+new_pos.toString()).get(0).selectedIndex = 0;
-                            new_pos+=1;
-                            //while the property exists
-                            //$('#property'+i+' option:selected').removeAttr('selected');
-                        }
-                    }
-                    catch(e){
-                        console.log("Something is Wrong -->" + e);
+    try{
+        let select = document.getElementById(text.toString());
+        let name = select.getAttribute("name");
+        let value = select.options[select.selectedIndex].value;
+        //sends request to process the property clicked on by user from id 'text' --> POST method passes 'value' to PHP
+        $.ajax({
+            type:'POST',
+            url: 'cross-ref.php',
+            data: {property: [text, value, name]},
+            success: function(data){
+                try{
+                    // (data) returns value of size of contactor
+                    switch(text){
+                        // enables the next dropdown
+                        case 'property2':enable('submit-search');enable('property3');enable('optProp3');break;
+                        case 'property3':enable('property4');enable('optProp4');break;
+                        case 'property4':enable('property5');enable('optProp5');break;
+                        case 'property5':enable('property6');enable('optProp6');break;
+                        case 'property6':enable('property7');enable('optProp7');break;
+                        case 'property7':enable('property8');enable('optProp8');break;
+                        case 'property8':enable('property9');enable('optProp9');break;
+                        case 'property9':enable('property10');enable('optProp10');break;
+                        default:break;
                     }
                 }
-            });
-            if(data !== ''){
-                // if the size selector is not null (current slection)
-                filter_options(data);
+                catch(e){
+                    console.log("Something is Wrong (Inside Function) --> " + e);
+                }
+                // Another AJAX Call to delete Session logs
+                // Sends the property Name to start iterating through then returns the 
+                $.ajax({
+                    type: "POST",
+                    url: 'cross-ref.php',
+                    datatype: 'json',
+                    data: {position: text.substring(text.length-1)}, // passes the position property to php server
+                    success: function(data){
+                        try{
+                            // returns number of dropdowns
+                            var pos = JSON.parse(data);
+                            var new_pos = parseInt(text.substring(text.length-1)) + 1; // last position + 1
+                        
+                            while(new_pos <= data){
+                                $('#property'+new_pos.toString()).get(0).selectedIndex = 0;
+                                new_pos+=1;
+                                //while the property exists
+                                //$('#property'+i+' option:selected').removeAttr('selected');
+                            }
+                        }
+                        catch(e){
+                            console.log("Something is Wrong --> " + e);
+                        }
+                    }
+                });
+                if(data !== ''){
+                    // if the size selector is not null (current slection)
+                    filter_options(data);
+                }
+            
             }
-        
-        }
-    });
+        });
+    }catch(e){
+        console.log('There was an error/Exception (outer-function): ' +e);
+    }
     
 }
 
@@ -104,9 +114,14 @@ function filter_options(size){
         url: 'cross-ref.php',
         data: {filter: size},
         success: function(data){
-            let array = jQuery.parseJSON(data);
-            for(let i = 0; i < array.length; i++){
-                checkExists(array[i]);
+            try{
+                let array = jQuery.parseJSON(data);
+                for(let i = 0; i < array.length; i++){
+                    checkExists(array[i]);
+                }
+            }
+            catch(e){
+                console.log("Something is Wrong --> " + e);
             }
         }
     });
@@ -131,7 +146,12 @@ function print_filtered_nums(){
         url: "cross-ref.php",
         data: {print_nums:'Print'},
         success: function(data){
-            $('#results-body').html(data);
+            try{
+                $('#results-body').html(data);
+            }
+            catch(e){
+                console.log("Something is Wrong --> " + e);
+            }
         }
     });
 }
