@@ -875,15 +875,15 @@ iframe{
 .insert-box::placeholder{
   margin-bottom: 0.5em;
 }
-.search-icon:focus + .insert-box{
-  opacity:1;
+.insert-box:focus{
+  opacity: 1;
   width:70% !important;
   border-radius: 0 !important;
   background: transparent !important;
   border-bottom: 1px solid rgba(153, 0, 0, 1) !important;
 }
-.insert-box:focus{
-  opacity: 1;
+.insert-box.open{
+  opacity:1;
   width:70% !important;
   border-radius: 0 !important;
   background: transparent !important;

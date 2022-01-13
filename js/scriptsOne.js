@@ -3,7 +3,9 @@ let temp = "None";
 $(document).ready(function(){
     try{
         $("#submit").click(function(e){submit_search(e);});
-        
+        $('.search-icon').on('click', function(){
+            $('.insert-box').toggleClass('open');
+        });
         $('#close').click(function(){
             $('#popup-window-one').modal('hide');
         });
