@@ -3,17 +3,14 @@ let temp = "None";
 $(document).ready(function(){
     try{
         $("#submit").click(function(e){submit_search(e);});
-        $('.search-icon').on('click', function(){
-            $('.insert-box').toggleClass('open');
+        $('.search-icon').on('click', function(){$('.insert-box').toggleClass('open');
         });
-        $('#close').click(function(){
-            $('#popup-window-one').modal('hide');
+        $('#close').click(function(){$('#popup-window-one').modal('hide');
         });
-        $('#close-search-x').click(function(){
-            $('#popup-window-one').modal('hide');
+        $('#close-search-x').click(function(){$('#popup-window-one').modal('hide');
         });
-        $(document).on('keypress', function(event){
-            if(event.keyCode === 13){submit_search(event);}
+        $()
+        $(document).on('keypress', function(event){if(event.keyCode === 13 ){submit_search(event);}
         });
     }catch(error){
         console.log("Something is Wrong --> \n\n" + e.message + " --> \n\nAt Line: "+ e.line);
@@ -34,16 +31,18 @@ function submit_search(e){
                 $('#errorMessage').html(data);
             }else{
                 $("#result").html(data);
+                //$('.results-box').show();
             }
             validate_replacement(data);
             validate_input();
-            $(".results-box").show();
+            //$(".results-box").show();
         }
     });
 }
 
 function clear_form(){
     document.getElementById("form").reset();
+    $("#search").val() = null;
     $(".results-box").hide();
     $('#result').html("");
     $('#repcoResult').html("");
@@ -64,6 +63,8 @@ function validate_replacement(temp){
                 }
                 else{
                     $("#repcoResult").html(data); get_link();
+                    $(".results-box").show();
+
                 }
             }
         });

@@ -9,12 +9,11 @@ $(document).ready(function(){
                 if(data == "" || data == null){
                     $('#suggestions').hide();
                     $('#click-txt').hide();
-                    $('.results-container').hide();          
+                    $('.results-box').hide();          
                 }
                 else{
                     $('#suggestions').show();
                     $('#suggestions').html(data);
-                    $('.results-container').hide();          
                 }
             }
         });

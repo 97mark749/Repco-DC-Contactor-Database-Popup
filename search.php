@@ -23,14 +23,15 @@
             assign_http($search_query);
             if($search_query != $cat_num){
                 echo 'Please Enter A Valid Catalog Number!';
+            }else{
+                $series = $row['Series'];
+                $db_table = get_table_Name($series);
+                $headers = get_table_headers($db_table);
+                $content = retrieve_contactor_values($cat_num, $db_table);
+                // format_content is not converting to string
+                format_content($headers, $content);
+                $query->close();
             }
-            $series = $row['Series'];
-            $db_table = get_table_Name($series);
-            $headers = get_table_headers($db_table);
-            $content = retrieve_contactor_values($cat_num, $db_table);
-            // format_content is not converting to string
-            format_content($headers, $content);
-            $query->close();
         }
         else{
             echo 'Please Enter A Valid Catalog Number!';

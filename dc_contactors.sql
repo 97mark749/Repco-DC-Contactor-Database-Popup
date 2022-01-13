@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 12, 2022 at 08:47 PM
+-- Generation Time: Jan 13, 2022 at 04:56 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -390,10 +390,10 @@ CREATE TABLE `c80_contactors` (
 --
 
 INSERT INTO `c80_contactors` (`Catalog_No`, `Series`, `NEMA_Size`, `Blowout_Coil_Rating`, `Power_Pole_Configuration`, `Coil_Voltage`, `Type_of_Mounting`, `Auxiliary_Contact_Location`, `LH_Auxiliary_Contacts`, `RH_Auxiliary_Contacts`) VALUES
-('C80DC121A11', 'C80', '2', 5, '1NO', '230V DC', 'Surface, Front of Panel', 'Size 2 Side Mounted', '1NO', '1NO'),
-('C80DC211B32', 'C80', '2', 5, '2NO', '115V DC', 'Surface, Front of Panel', 'Size 2 thr 8 Bottom Mounted w/LH and/or RH Interlock', '1NO-1NC', '2NO'),
-('C80EH141A11', 'C80', '3', 100, '1NO', '1NC', 'Surface, Front of Panel', 'Size 2 Side Mounted', '1NO', '1NO'),
-('C80EH423B44', 'C80', '3', 100, '1NC', '230V DC', 'Elevated, Front of Panel', 'Size 2 thru 8 Bottom Mounted w/LH and/or RH Interlock', '1NC', '1NC');
+('C80DC121A11', 'C80', '2', 5, '1NO', '230V DC', 'Surface, Front of Panel', 'Side Mounted', '1NO', '1NO'),
+('C80DC211B32', 'C80', '2', 5, '2NO', '115V DC', 'Surface, Front of Panel', 'Bottom Mounted w/LH and/or RH Interlock', '1NO-1NC', '2NO'),
+('C80EH141A11', 'C80', '3', 100, '1NO', '1NC', 'Surface, Front of Panel', 'Side Mounted', '1NO', '1NO'),
+('C80EH423B44', 'C80', '3', 100, '1NC', '230V DC', 'Elevated, Front of Panel', 'Bottom Mounted w/LH and/or RH Interlock', '1NC', '1NC');
 
 -- --------------------------------------------------------
 
@@ -644,7 +644,7 @@ CREATE TABLE `c82_contactors` (
 INSERT INTO `c82_contactors` (`Catalog_No`, `Series`, `NEMA_Size`, `Blowout_Coil_Rating`, `Power_Pole_Configuration`, `Closing_Coil_Voltage`, `Type_of_Mounting`, `Hold_Out_Coil`, `Auxiliary_Contact_Location`, `LH_Auxiliary_Contacts`, `RH_Auxiliary_Contacts`) VALUES
 ('C82DC1213A02', 'C82', '2', '5', '1NO', '230 VDC', 'Surface, Front of Panel', 'Elevated Mounting - Front Connected', 'Size 2 Sided Mounted', 'None', '2NO'),
 ('C82DH1111A02', 'C82', '2', '100', '1NO', '115V DC', 'Surface, Front of Panel', 'Surface Mounted - Front Connected', 'Size 2 Sided Mounted', 'None', '2NO'),
-('C82EH1231B01', 'C82', '3', '100', '1NO', '230 VDC', 'Elevated, Front of Panel', 'Size 2 thru 8 Bottom Mounted w/L', 'Size 2 Sided Mounted', 'None', '1NO'),
+('C82EH1231B01', 'C82', '3', '100', '1NO', '230 VDC', 'Elevated, Front of Panel', 'Surface Mounted - Front Connected', 'Size 2 Sided Mounted', 'None', '1NO'),
 ('C82JL1131B03', 'C82', '6', '600', '1NO', '115V DC', 'Elevated, Front of Panel', 'Surface Mounted - Front Connected', 'Size 2 thru 8 Bottom Mounted w/LH and/or RH Interlock', 'None', '1NO-1NC');
 
 -- --------------------------------------------------------

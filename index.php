@@ -144,7 +144,7 @@
     <div class="container-fluid main-container">
         <form class="window-container" method = "post">
             <!-- Button trigger modal -->
-            <button type="button" name='open_search' action="start_conn()" class="popup-btn btn" data-bs-toggle="modal" data-bs-target="#popup-window-one">
+            <button type="button" name='open_search' action="start_conn()" class="popup-btn btn" data-bs-toggle="modal" data-bs-target="#popup-window-one" onclick="clear_form()">
                 <p>Search Contactors</p>
             </button>
         </form>
