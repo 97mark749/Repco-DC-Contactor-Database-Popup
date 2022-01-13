@@ -2,14 +2,13 @@ let temp = "None";
 
 $(document).ready(function(){
     try{
+        $("#submit").click(function(e){submit_search(e);});
+        
         $('#close').click(function(){
             $('#popup-window-one').modal('hide');
         });
         $('#close-search-x').click(function(){
             $('#popup-window-one').modal('hide');
-        });
-        $(document).ready(function(){
-            $("#submit").click(function(e){submit_search(e);});
         });
         $(document).on('keypress', function(event){
             if(event.keyCode === 13){submit_search(event);}

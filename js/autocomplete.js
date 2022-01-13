@@ -8,11 +8,13 @@ $(document).ready(function(){
             success: function(data){
                 if(data == "" || data == null){
                     $('#suggestions').hide();
-                    $('#click-txt').hide();            
+                    $('#click-txt').hide();
+                    $('.results-container').hide();          
                 }
                 else{
                     $('#suggestions').show();
                     $('#suggestions').html(data);
+                    $('.results-container').hide();          
                 }
             }
         });

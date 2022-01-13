@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 01, 2021 at 10:34 PM
+-- Generation Time: Jan 12, 2022 at 08:47 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -24,6 +24,97 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `bulletin_7400blowout_coil_rating`
+--
+
+CREATE TABLE `bulletin_7400blowout_coil_rating` (
+  `Symbol` varchar(0) DEFAULT NULL,
+  `Value` int(3) NOT NULL,
+  `Size_2` int(1) NOT NULL,
+  `Size_3` int(1) NOT NULL,
+  `Size_4` int(1) NOT NULL,
+  `Size_5` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bulletin_7400blowout_coil_rating`
+--
+
+INSERT INTO `bulletin_7400blowout_coil_rating` (`Symbol`, `Value`, `Size_2`, `Size_3`, `Size_4`, `Size_5`) VALUES
+(NULL, 15, 1, 0, 0, 0),
+(NULL, 25, 1, 0, 0, 0),
+(NULL, 50, 1, 0, 0, 0),
+(NULL, 100, 0, 1, 0, 0),
+(NULL, 150, 0, 0, 1, 0),
+(NULL, 300, 0, 0, 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bulletin_7400nema_Size`
+--
+
+CREATE TABLE `bulletin_7400nema_Size` (
+  `Symbol` varchar(0) DEFAULT NULL,
+  `Value` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bulletin_7400nema_Size`
+--
+
+INSERT INTO `bulletin_7400nema_Size` (`Symbol`, `Value`) VALUES
+(NULL, 2),
+(NULL, 3),
+(NULL, 4),
+(NULL, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bulletin_7400power_pole_configuration`
+--
+
+CREATE TABLE `bulletin_7400power_pole_configuration` (
+  `Symbol` varchar(0) DEFAULT NULL,
+  `Value` varchar(3) NOT NULL,
+  `Size_2` int(1) NOT NULL,
+  `Size_3` int(1) NOT NULL,
+  `Size_4` int(1) NOT NULL,
+  `Size_5` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bulletin_7400power_pole_configuration`
+--
+
+INSERT INTO `bulletin_7400power_pole_configuration` (`Symbol`, `Value`, `Size_2`, `Size_3`, `Size_4`, `Size_5`) VALUES
+(NULL, '1NC', 1, 1, 1, 1),
+(NULL, '1NO', 1, 1, 1, 1),
+(NULL, '2NO', 1, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bulletin_7400type`
+--
+
+CREATE TABLE `bulletin_7400type` (
+  `Symbol` varchar(2) NOT NULL,
+  `Value` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bulletin_7400type`
+--
+
+INSERT INTO `bulletin_7400type` (`Symbol`, `Value`) VALUES
+('KD', 'Normally Open (KD)'),
+('KS', 'Normally Closed (KS)');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `bulletin_7400_contactors`
 --
 
@@ -31,7 +122,7 @@ CREATE TABLE `bulletin_7400_contactors` (
   `Catalog_No` varchar(32) NOT NULL,
   `Series` varchar(16) NOT NULL,
   `NEMA_Size` int(1) NOT NULL,
-  `Type` text NOT NULL,
+  `Type` varchar(32) NOT NULL,
   `Blowout_Coil_Rating` int(3) NOT NULL,
   `Power_Pole_Configuration` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -41,21 +132,21 @@ CREATE TABLE `bulletin_7400_contactors` (
 --
 
 INSERT INTO `bulletin_7400_contactors` (`Catalog_No`, `Series`, `NEMA_Size`, `Type`, `Blowout_Coil_Rating`, `Power_Pole_Configuration`) VALUES
-('74U12', 'Bulletin 7400', 2, 'KD', 50, '1NO'),
-('74U121', 'Bulletin 7400', 2, 'KS', 50, '1NC'),
-('74U121E', 'Bulletin 7400', 2, 'KS', 25, '1NC'),
-('74U122', 'Bulletin 7400', 2, 'KD', 50, '1NO'),
-('74U12D', 'Bulletin 7400', 2, 'KD', 15, '1NO'),
-('74U12E', 'Bulletin 7400', 2, 'KD', 25, '1NO'),
-('74U13', 'Bulletin 7400', 3, 'KD', 100, '1NO'),
-('74U131', 'Bulletin 7400', 3, 'KS', 100, '1NC'),
-('74U14', 'Bulletin 7400', 4, 'KD', 150, '1NO'),
-('74U141', 'Bulletin 7400', 4, 'KS', 150, '1NC'),
-('74U15', 'Bulletin 7400', 5, 'KD', 300, '1NO'),
-('74U151', 'Bulletin 7400', 5, 'KS', 300, '1NC'),
-('74U22', 'Bulletin 7400', 2, 'KD', 50, '2NO'),
-('74U22D', 'Bulletin 7400', 2, 'KD', 15, '2NO'),
-('74U22E', 'Bulletin 7400', 2, 'KS', 25, '2NO');
+('74U12', 'Bulletin 7400', 2, 'Normally Open (KD)', 50, '1NO'),
+('74U121', 'Bulletin 7400', 2, 'Normally Closed (KS)', 50, '1NC'),
+('74U121E', 'Bulletin 7400', 2, 'Normally Closed (KS)', 25, '1NC'),
+('74U122', 'Bulletin 7400', 2, 'Normally Open (KD)', 50, '1NO'),
+('74U12D', 'Bulletin 7400', 2, 'Normally Open (KD)', 15, '1NO'),
+('74U12E', 'Bulletin 7400', 2, 'Normally Open (KD)', 25, '1NO'),
+('74U13', 'Bulletin 7400', 3, 'Normally Open (KD)', 100, '1NO'),
+('74U131', 'Bulletin 7400', 3, 'Normally Closed (KS)', 100, '1NC'),
+('74U14', 'Bulletin 7400', 4, 'Normally Open (KD)', 150, '1NO'),
+('74U141', 'Bulletin 7400', 4, 'Normally Closed (KS)', 150, '1NC'),
+('74U15', 'Bulletin 7400', 5, 'Normally Open (KD)', 300, '1NO'),
+('74U151', 'Bulletin 7400', 5, 'Normally Closed (KS)', 300, '1NC'),
+('74U22', 'Bulletin 7400', 2, 'Normally Open (KD)', 50, '2NO'),
+('74U22D', 'Bulletin 7400', 2, 'Normally Open (KD)', 15, '2NO'),
+('74U22E', 'Bulletin 7400', 2, 'Normally Open (KD)', 25, '2NO');
 
 -- --------------------------------------------------------
 
@@ -565,7 +656,7 @@ INSERT INTO `c82_contactors` (`Catalog_No`, `Series`, `NEMA_Size`, `Blowout_Coil
 CREATE TABLE `contactor_numbers` (
   `Catalog_No` varchar(32) NOT NULL,
   `Manufacturer` text NOT NULL,
-  `Series` varchar(16) NOT NULL,
+  `Series` varchar(64) NOT NULL,
   `Repco_Replacement_Link` longtext NOT NULL,
   `PDF_Location` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -590,6 +681,26 @@ INSERT INTO `contactor_numbers` (`Catalog_No`, `Manufacturer`, `Series`, `Repco_
 ('74U22', 'Clark', 'Bulletin 7400', 'http://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
 ('74U22D', 'Clark', 'Bulletin 7400', 'http://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
 ('74U22E', 'Clark', 'Bulletin 7400', 'http://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('912', 'BCH', 'Type 900 Mill Duty', 'https://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('913', 'BCH', 'Type 900 Mill Duty', 'https://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('914', 'BCH', 'Type 900 Mill Duty', 'https://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('915', 'BCH', 'Type 900 Mill Duty', 'https://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('916', 'BCH', 'Type 900 Mill Duty', 'https://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('920', 'BCH', 'Type 900 Mill Duty', 'https://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('921', 'BCH', 'Type 900 Mill Duty', 'https://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('923', 'BCH', 'Type 900 Mill Duty', 'https://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('924', 'BCH', 'Type 900 Mill Duty', 'https://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('925', 'BCH', 'Type 900 Mill Duty', 'https://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('926', 'BCH', 'Type 900 Mill Duty', 'https://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('932', 'BCH', 'Type 900 Mill Duty', 'https://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('933', 'BCH', 'Type 900 Mill Duty', 'https://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('934', 'BCH', 'Type 900 Mill Duty', 'https://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('935', 'BCH', 'Type 900 Mill Duty', 'https://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('936', 'BCH', 'Type 900 Mill Duty', 'https://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('944', 'BCH', 'Type 900 Mill Duty', 'https://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('945', 'BCH', 'Type 900 Mill Duty', 'https://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('952', 'BCH', 'Type 900 Mill Duty', 'https://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
+('988', 'BCH', 'Type 900 Mill Duty', 'https://www.repcoinc.com', 'RC100003_1P_NO_Data_Sheet.pdf'),
 ('C80DC121A11', 'Cutler Hammer', 'C80', 'https://www.repcoinc.com/other/10923H11-Cutler-Hammer-Kit-PC0006-omsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
 ('C80DC211B32', 'Cutler Hammer', 'C80', 'https://www.repcoinc.com/other/119463-Cutler-Hammer-Mechanical-Interlock-PC0029-omsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
 ('C80EH141A11', 'Cutler Hammer', 'C80', 'https://www.repcoinc.com/other/12-235-Cutler-Hammer-Groove-Pins-PC0034-omsd.html', 'RC100003_1P_NO_Data_Sheet.pdf'),
@@ -1078,7 +1189,7 @@ INSERT INTO `ds303_contactors` (`Catalog_No`, `Series`, `Voltage`, `NEMA_Size`, 
 
 CREATE TABLE `series_tables` (
   `Series_Name` varchar(32) NOT NULL,
-  `Table_Name` varchar(32) NOT NULL
+  `Table_Name` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1089,11 +1200,178 @@ INSERT INTO `series_tables` (`Series_Name`, `Table_Name`) VALUES
 ('Bulletin 7400', 'bulletin_7400_contactors'),
 ('C80', 'c80_contactors'),
 ('C82', 'c82_contactors'),
-('DS303', 'ds303_contactors');
+('DS303', 'ds303_contactors'),
+('Type 900 Mill Duty', 'type_900_mill_duty_contactors');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `type_900_mill_dutyblowout_coil_rating`
+--
+
+CREATE TABLE `type_900_mill_dutyblowout_coil_rating` (
+  `Symbol` int(11) DEFAULT NULL,
+  `Value` int(11) NOT NULL,
+  `Size_2` int(11) NOT NULL,
+  `Size_3` int(11) NOT NULL,
+  `Size_4` int(11) NOT NULL,
+  `Size_5` int(11) NOT NULL,
+  `Size_6` int(11) NOT NULL,
+  `Size_6A` int(11) NOT NULL,
+  `Size_8` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `type_900_mill_dutyblowout_coil_rating`
+--
+
+INSERT INTO `type_900_mill_dutyblowout_coil_rating` (`Symbol`, `Value`, `Size_2`, `Size_3`, `Size_4`, `Size_5`, `Size_6`, `Size_6A`, `Size_8`) VALUES
+(NULL, 50, 1, 0, 0, 0, 0, 0, 0),
+(NULL, 100, 0, 1, 0, 0, 0, 0, 0),
+(NULL, 150, 0, 0, 1, 0, 0, 0, 0),
+(NULL, 300, 0, 0, 0, 1, 0, 0, 0),
+(NULL, 600, 0, 0, 0, 0, 1, 0, 0),
+(NULL, 810, 0, 0, 0, 0, 0, 1, 0),
+(NULL, 1350, 0, 0, 0, 0, 0, 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `type_900_mill_dutymain_contact_arrangement`
+--
+
+CREATE TABLE `type_900_mill_dutymain_contact_arrangement` (
+  `Symbol` int(11) DEFAULT NULL,
+  `Value` varchar(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `type_900_mill_dutymain_contact_arrangement`
+--
+
+INSERT INTO `type_900_mill_dutymain_contact_arrangement` (`Symbol`, `Value`) VALUES
+(NULL, '1NC'),
+(NULL, '1NO'),
+(NULL, '1NO ITL');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `type_900_mill_dutypoles`
+--
+
+CREATE TABLE `type_900_mill_dutypoles` (
+  `Symbol` int(11) DEFAULT NULL,
+  `Value` int(1) NOT NULL,
+  `Size_2` int(1) NOT NULL,
+  `Size_3` int(1) NOT NULL,
+  `Size_4` int(1) NOT NULL,
+  `Size_5` int(1) NOT NULL,
+  `Size_6` int(1) NOT NULL,
+  `Size_6A` int(1) NOT NULL,
+  `Size_8` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `type_900_mill_dutypoles`
+--
+
+INSERT INTO `type_900_mill_dutypoles` (`Symbol`, `Value`, `Size_2`, `Size_3`, `Size_4`, `Size_5`, `Size_6`, `Size_6A`, `Size_8`) VALUES
+(NULL, 1, 1, 1, 1, 1, 1, 1, 1),
+(NULL, 2, 1, 0, 1, 1, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `type_900_mill_dutysize`
+--
+
+CREATE TABLE `type_900_mill_dutysize` (
+  `Symbol` int(11) DEFAULT NULL,
+  `Value` varchar(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `type_900_mill_dutysize`
+--
+
+INSERT INTO `type_900_mill_dutysize` (`Symbol`, `Value`) VALUES
+(NULL, '2'),
+(NULL, '3'),
+(NULL, '4'),
+(NULL, '5'),
+(NULL, '6'),
+(NULL, '6A'),
+(NULL, '8');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `type_900_mill_duty_contactors`
+--
+
+CREATE TABLE `type_900_mill_duty_contactors` (
+  `Catalog_No` varchar(16) NOT NULL,
+  `Series` varchar(64) NOT NULL,
+  `Size` varchar(2) NOT NULL,
+  `Poles` int(1) NOT NULL,
+  `Main Contact Arrangement` varchar(15) NOT NULL,
+  `Blowout_Coil_Rating` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `type_900_mill_duty_contactors`
+--
+
+INSERT INTO `type_900_mill_duty_contactors` (`Catalog_No`, `Series`, `Size`, `Poles`, `Main Contact Arrangement`, `Blowout_Coil_Rating`) VALUES
+('912', 'Type 900 Mill Duty', '2', 1, '1NO', 50),
+('913', 'Type 900 Mill Duty', '3', 1, '1NO', 100),
+('914', 'Type 900 Mill Duty', '4', 1, '1NO', 150),
+('915', 'Type 900 Mill Duty', '5', 1, '1NO', 300),
+('916', 'Type 900 Mill Duty', '6', 1, '1NO', 600),
+('920', 'Type 900 Mill Duty', '6A', 1, '1NO', 810),
+('921', 'Type 900 Mill Duty', '6A', 1, '1NO', 810),
+('923', 'Type 900 Mill Duty', '3', 1, '1NC', 100),
+('924', 'Type 900 Mill Duty', '4', 1, '1NC', 150),
+('925', 'Type 900 Mill Duty', '5', 1, '1NC', 300),
+('926', 'Type 900 Mill Duty', '6', 1, '1NC', 600),
+('932', 'Type 900 Mill Duty', '2', 1, '1NO ITL', 50),
+('933', 'Type 900 Mill Duty', '3', 1, '1NO ITL', 100),
+('934', 'Type 900 Mill Duty', '4', 1, '1NO ITL', 150),
+('935', 'Type 900 Mill Duty', '5', 1, '1NO ITL', 300),
+('936', 'Type 900 Mill Duty', '6', 1, '1NO ITL', 600),
+('944', 'Type 900 Mill Duty', '4', 2, '1NO ITL', 150),
+('945', 'Type 900 Mill Duty', '5', 2, '1NO ITL', 300),
+('952', 'Type 900 Mill Duty', '2', 2, '1NO ITL', 50),
+('988', 'Type 900 Mill Duty', '8', 1, '1NO', 1350);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `bulletin_7400blowout_coil_rating`
+--
+ALTER TABLE `bulletin_7400blowout_coil_rating`
+  ADD PRIMARY KEY (`Value`);
+
+--
+-- Indexes for table `bulletin_7400nema_Size`
+--
+ALTER TABLE `bulletin_7400nema_Size`
+  ADD PRIMARY KEY (`Value`);
+
+--
+-- Indexes for table `bulletin_7400power_pole_configuration`
+--
+ALTER TABLE `bulletin_7400power_pole_configuration`
+  ADD PRIMARY KEY (`Value`);
+
+--
+-- Indexes for table `bulletin_7400type`
+--
+ALTER TABLE `bulletin_7400type`
+  ADD PRIMARY KEY (`Symbol`);
 
 --
 -- Indexes for table `bulletin_7400_contactors`
@@ -1280,6 +1558,36 @@ ALTER TABLE `ds303_contactors`
 --
 ALTER TABLE `series_tables`
   ADD PRIMARY KEY (`Series_Name`);
+
+--
+-- Indexes for table `type_900_mill_dutyblowout_coil_rating`
+--
+ALTER TABLE `type_900_mill_dutyblowout_coil_rating`
+  ADD PRIMARY KEY (`Value`);
+
+--
+-- Indexes for table `type_900_mill_dutymain_contact_arrangement`
+--
+ALTER TABLE `type_900_mill_dutymain_contact_arrangement`
+  ADD PRIMARY KEY (`Value`);
+
+--
+-- Indexes for table `type_900_mill_dutypoles`
+--
+ALTER TABLE `type_900_mill_dutypoles`
+  ADD PRIMARY KEY (`Value`);
+
+--
+-- Indexes for table `type_900_mill_dutysize`
+--
+ALTER TABLE `type_900_mill_dutysize`
+  ADD PRIMARY KEY (`Value`);
+
+--
+-- Indexes for table `type_900_mill_duty_contactors`
+--
+ALTER TABLE `type_900_mill_duty_contactors`
+  ADD PRIMARY KEY (`Catalog_No`);
 
 --
 -- AUTO_INCREMENT for dumped tables

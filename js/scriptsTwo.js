@@ -108,7 +108,6 @@ function filter_search(text){
 }
 
 function filter_options(size){
-    alert(size);
     $.ajax({
         type: 'POST',
         url: 'cross-ref.php',
