@@ -27,7 +27,7 @@ function submit_search(e){
         data: {search:cont_num},
         cache: false,
         success: function(data){
-            if(data == 'Please Enter A Valid Catalog Number!'){
+            if(data === 'Please Enter A Valid Catalog Number!'){
                 $('#errorMessage').html(data);
             }else{
                 $("#result").html(data);
@@ -42,7 +42,7 @@ function submit_search(e){
 
 function clear_form(){
     document.getElementById("form").reset();
-    $("#search").val() = null;
+    $(".insert-box").css({opacity: 0});
     $(".results-box").hide();
     $('#result').html("");
     $('#repcoResult').html("");
@@ -56,7 +56,7 @@ function validate_replacement(temp){
             url: 'search.php',
             data:{ valid: "validate"},
             success: function(data){
-                if(temp=='Please Enter A Valid Catalog Number!'){
+                if(temp==='Please Enter A Valid Catalog Number!'){
                     $("#repcoResult").html("");
                     $('.results-box').hide();
                     document.getElementById("form").reset();

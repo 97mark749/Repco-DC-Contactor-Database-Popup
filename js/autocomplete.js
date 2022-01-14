@@ -6,7 +6,7 @@ $(document).ready(function(){
             url: "autocomplete.php",
             data: 'keyword='+$(this).val(),
             success: function(data){
-                if(data == "" || data == null){
+                if(data === "" || data == null){
                     $('#suggestions').hide();
                     $('#click-txt').hide();
                     $('.results-box').hide();          

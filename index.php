@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/f520d024f2.js" crossorigin="anonymous"></script>
     
-    <link rel="stylesheet" href="css/stylesPopup.css">
+    <link rel="stylesheet" href="css/styles.css">
     <!--<link rel="stylesheet" href="css/stylesLogin.css">-->
 
     <title>DC Electrical Contactor Search Database: Repco Inc</title>
@@ -144,7 +144,7 @@
     <div class="container-fluid main-container">
         <form class="window-container" method = "post">
             <!-- Button trigger modal -->
-            <button type="button" name='open_search' action="start_conn()" class="popup-btn btn" data-bs-toggle="modal" data-bs-target="#popup-window-one" onclick="clear_form()">
+            <button type="button" name='open_search' action="start_conn()" class="popup-btn btn" data-bs-toggle="modal" data-bs-target="#popup-window-one">
                 <p>Search Contactors</p>
             </button>
         </form>

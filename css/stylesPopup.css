@@ -695,6 +695,7 @@ iframe{
 
 /** Modal Submit Button **/
 #submit{
+  z-index: 999;
     margin-right: 0.4rem;
 }
 
@@ -1085,12 +1086,10 @@ body {
       top: 0.15em;
       left: -2em;
     }
-    .search-icon:focus + .insert-box{
+    .search-icon:focus + .insert-box,.insert-box:focus, .insert-box.open{
       width: 55% !important;
     }
-    .insert-box:focus{
-      width:55% !important;
-    }
+    
     .table-container{
         height:13.75em;
     }

@@ -1,0 +1,129 @@
+@mixin box-shadow-black-pt7{
+    -moz-box-shadow: 1px 1px 5px rgba(0,0,0,0.7) !important;
+    -ms-box-shadow: 1px 1px 5px rgba(0,0,0,0.7) !important;
+    -o-box-shadow: 1px 1px 5px rgba(0,0,0,0.7) !important;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.7) !important;
+}
+
+@mixin flex($flexflow,$boxsize){
+  -webkit-display: flex !important;
+  -moz-display: flex !important;
+  -ms-display: flex !important;
+  -o-display: flex !important;
+  display: flex !important;
+  -ms-box-sizing: $boxsize;
+  -o-box-sizing: $boxsize;
+  box-sizing: $boxsize;
+  -moz-flex-flow: $flexflow !important;
+  -ms-box-sizing: $flexflow !important;
+  -o-flex-flow: $flexflow !important;
+  flex-flow: $flexflow !important;
+}
+
+@mixin transitionSame($duration,$function,$props...) {
+    $result: ();
+
+    @for $i from 1 through length($props) {
+      $prop: nth($props, $i);
+      $result: append($result, $prop);
+      $result: append($result, $function $duration);
+
+      @if $i != length($props) {
+        $result: append($result, unquote($string: ","));
+      }
+    }
+
+    transition: $result;
+}
+
+@mixin transition-property($property...) {
+    -moz-transition-property:    $property;
+    -o-transition-property:      $property;
+    -webkit-transition-property: $property;
+    transition-property:         $property;
+}
+@mixin transition-duration($duration...) {
+    -moz-transition-property:    $duration;
+    -o-transition-property:      $duration;
+    -webkit-transition-property: $duration;
+    transition-property:         $duration;
+}
+@mixin transition-timing-function($timing...) {
+    -moz-transition-timing-function:    $timing;
+    -o-transition-timing-function:      $timing;
+    -webkit-transition-timing-function: $timing;
+    transition-timing-function:         $timing;
+}
+@mixin transition-delay($delay...) {
+    -moz-transition-delay:    $delay;
+    -o-transition-delay:      $delay;
+    -webkit-transition-delay: $delay;
+    transition-delay:         $delay;
+}
+
+@mixin screen-size($size){
+    @if $size == mobile{
+        //Small Screens (Desktop)  -->  [321px < n > 579px]
+        @media only screen 
+        and (min-width: 20.063em) 
+        and (max-width: 36.188em){
+            @content;
+        }
+    }
+    @if $size == mobile-landscape{
+        //Small Screens (Desktop)  -->  [321px < n > 579px]
+        @media only screen 
+        and (min-width: 20.063em) 
+        and (max-width: 36.188em)
+        and (orientation:landscape){
+            @content;
+        }
+    }
+    @if $size == mobile-321-475{
+       //  [321px < n > 475px] 
+       @media only screen 
+       and (min-width:20.063em) 
+       and (max-width:29.6875em){
+           @content;
+        }
+    }
+    @if $size == mobile-321-450{
+        //  [321px < n > 425px] 
+        @media only screen 
+        and (min-width:20.063em) 
+        and (max-width:28.125em){
+            @content;
+        }
+    }
+    @if $size == mobile-321-425{
+        //  [321px < n > 425px] 
+        @media only screen 
+        and (min-width:20.063em) 
+        and (max-width:26.5em){
+            @content;
+        }
+    }
+    @if $size == medium-screens{
+        // Medium Screens (Desktop)  -->  [580 < n > 959px]
+        @media only screen 
+        and (min-width: 36.25em) 
+        and (max-width: 59.938em){
+
+        }
+    }
+    @if $size == large-screens{
+        // Larger Modern Desktops  -->  [ > 960 ]
+        @media only screen 
+        and (min-width: 60em){
+
+        }
+    }
+}
+
+/* ----------------- */
+// Variables
+
+$primary-red: #990000;
+$secondary-red: #740000;
+$secondary-font: 'Average Sans', 'sans-serif';
+$header-font: 'Fjalla One', 'sans-serif';
