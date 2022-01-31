@@ -2,7 +2,12 @@ let temp = "None";
 
 $(document).ready(function(){
     try{
-        $("#submit").click(function(e){submit_search(e);});
+        document.getElementById('submit').addEventHandler('click',function(e){submit_search(e);});
+        document.getElementByClassName('search-icon').addEventHanlder('click',function(){$('.insert-box').toggleClass('open');});
+        document.getElementById('close').addEventHandler('click',function(){$('#popup-window-one').modal('hide');});
+        document.getElementById('close-search-x').addEventHandler('click',function(){$('#popup-window-one').modal('hide');});
+        document.addEventHandler('keypress',function(event){if(event.keyCode === 13 ){submit_search(event);}});
+        /*$("#submit").click(function(e){submit_search(e);});
         $('.search-icon').on('click', function(){$('.insert-box').toggleClass('open');
         });
         $('#close').click(function(){$('#popup-window-one').modal('hide');
@@ -11,9 +16,9 @@ $(document).ready(function(){
         });
         $()
         $(document).on('keypress', function(event){if(event.keyCode === 13 ){submit_search(event);}
-        });
+        });*/
     }catch(error){
-        console.log("Something is Wrong --> \n\n" + e.message + " --> \n\nAt Line: "+ e.line);
+        console.log("Something is Wrong --> \n\n" + error.message + " --> \n\nAt Line: "+ error.line);
     }
 });
 

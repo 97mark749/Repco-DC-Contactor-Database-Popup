@@ -155,6 +155,7 @@ iframe{
 .modal-body{
   padding-top: 0 !important;
   margin-top: 0 !important;
+  overflow-x: hidden !important;
 }
 .basic-form{
   width: 100% !important;
@@ -1477,7 +1478,15 @@ body {
       }
   }
   
-
+@media only screen 
+  and (max-height:428px)
+  and (max-width: 926px)
+  and (orientation: landscape){
+    bod
+    .modal-content{
+      min-height:100vh !important;
+    }
+}
 
 
 

@@ -130,7 +130,7 @@ function checkExists(array){
         //for each option in the dropdown selected, check if the option exists in the selected size array
         if(jQuery.inArray(this.value,array) === -1){
             // If option is not inside the selected size array --> Disable the option selection
-            $('#'+array[0]+' option[value="'+this.value+'"]').attr('disabled',true);
+            $('#'+array[0]+' option[value="'+this.value+'"]').remove();
         }
         else{
             $('#'+array[0]+' option[value="'+this.value+'"]').attr('disabled',false);
