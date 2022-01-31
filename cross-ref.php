@@ -127,7 +127,6 @@
                 return $columns;    // RETURNS THE COLUMN ARRAY
             }
         }
-        mysqli_close($GLOBALS['connection']);
     }
 
     function insertDropdowns($series, $dd_Headers){
@@ -174,7 +173,6 @@
                     $a5 = get_options_by_size($GLOBALS['connection'],'property9','ds303auxiliaries',$size_col);
                     mysqli_close($GLOBALS['connection']);
                     return json_encode(array($a1,$a2,$a3,$a4,$a5));
-                    break;
                 case 'C80':
                     $a1 = get_options_by_size($GLOBALS['connection'], 'property3','c80blowout_coil_rating',$size_col);
                     $a2 = get_options_by_size($GLOBALS['connection'], 'property4','c80power_pole_configuration',$size_col);
@@ -184,26 +182,22 @@
                     $a6 = get_options_by_size($GLOBALS['connection'], 'property9','c80rh_auxiliary_contacts',$size_col);
                     mysqli_close($GLOBALS['connection']);
                     return json_encode(array($a1,$a2,$a3,$a4,$a5,$a6));
-                    break;
                 case 'C82':
                     $a1 = get_options_by_size($GLOBALS['connection'],'property3', 'c82blowout_coil_rating', $size_col);
                     $a2 = get_options_by_size($GLOBALS['connection'], 'property6', 'c82type_of_mounting', $size_col);
                     $a3 = get_options_by_size($GLOBALS['connection'], 'property8', 'c82auxiliary_contact_location', $size_col);
                     mysqli_close($GLOBALS['connection']);
                     return json_encode(array($a1, $a2, $a3));
-                    break;
                 case 'Bulletin_7400':
                     $a1 = get_options_by_size($GLOBALS['connection'],'property4', 'bulletin_7400blowout_coil_rating', $size_col);
                     $a2 = get_options_by_size($GLOBALS['connection'], 'property5', 'bulletin_7400power_pole_configuration', $size_col);
                     mysqli_close($GLOBALS['connection']);
                     return json_encode(array($a1, $a2));
-                    break;
                 case 'Type_900_Mill_Duty':
                     $a1 = get_options_by_size($GLOBALS['connection'], 'property3', 'type_900_mill_dutypoles', $size_col);
                     $a2 = get_options_by_size($GLOBALS['connection'], 'property5', 'type_900_mill_dutyblowout_coil_rating', $size_col);
                     mysqli_close($GLOBALS['connection']);
                     return json_encode(array($a1, $a2));
-                    break;
             
                 default: break;    
             }
