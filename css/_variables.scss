@@ -3,24 +3,25 @@
 
 $primary-red: #990000;
 $secondary-red: #740000;
+$dark-font-color: #333333;
 $primary-font: 'Fjalla One', 'sans-serif';
 $secondary-font: 'Average Sans', 'sans-serif';
 
 
 @mixin footer-button{
     color: #fff !important;
-    border-color: #212529 !important;
-    background-color: #212529 !important;
+    border-color: #212529;
+    background-color: #212529;
     @include transition-property(background-color,border-color,transform,box-shadow);
     @include transition-duration(200ms,200ms,100ms,100ms);
-    @include transtion-timing(ease-in-out);
+    @include transition-timing(ease-in-out);
     &:hover{
-        background-color: $primary-color;
-        border-color: $primary-color;
-        -moz-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
-        -ms-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
-        -o-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
-        box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
+        background-color: $primary-red;
+        border-color: $primary-red;
+        -moz-box-shadow: 1px 1.5px 4px rgba(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
+        -ms-box-shadow: 1px 1.5px 4px rgba(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
+        -o-box-shadow: 1px 1.5px 4px rgba(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
+        box-shadow: 1px 1.5px 4px rgba(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
     }
     &:active{
         transform: scale(0.97);
@@ -79,4 +80,23 @@ $secondary-font: 'Average Sans', 'sans-serif';
     -ms-transition-timing-function: $time;
     -webkit-transition-timing-function: $time;
     transition-timing-function: $time;
+  }
+
+  /****************** MEDIA QUERUES ******************/
+  @mixin resize($display){
+      @if $display == 'mobile' {
+        @include media('screen','<=phone'){
+            @content;
+        }
+      }
+      @if $display == 'tablet' {
+        @include media('screen','>phone', '<=tablet'){
+            @content;
+        }
+      }
+      @if $display == 'desktop' {
+        @include media('screen','>tablet'){
+            @content;
+        }
+      }
   }

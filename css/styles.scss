@@ -4,6 +4,12 @@ body{
     font-size: 16px; // sets default REM size ratio
     box-sizing: border-box;
 }
+.btn{
+    -moz-box-shadow: 1px 1px 3px rgba(0,0,0,0.7) !important;
+    -ms-box-shadow: 1px 1px 3px rgba(0,0,0,0.7) !important;
+    -o-box-shadow: 1px 1px 3px rgba(0,0,0,0.7) !important;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.7) !important;
+  }
 .main-container{
     @include flex-all-center;
     height: 100vh;
@@ -24,9 +30,6 @@ body{
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
     background-color: $primary-red;
     color: #fff;
-    box-shadow: 1px 1px 7px 0px rgba(153,0,0,0.25),
-              2px 3px 10px 1px rgba(175, 175, 175, 0.8),
-              1px 2px 5px 1px rgba(0,0,0,0.45);
     @include transition-property(background,transform);
     @include transition-duration(300ms);
     @include transition-timing(ease-in-out);
@@ -38,5 +41,150 @@ body{
         background-color: $secondary-red;
         transform: scale(0.98);
         color:white;
+    }
+}
+.modal-dialog{
+  border-radius: 0 !important;
+  max-width:55vw !important;  
+  //phones --> 90vw
+  //tablets --> 80vw
+  max-height: 60vh !important;
+  //phones --> 100vh
+  //tablets --> 80vh Landscape / 90vh Portrait
+
+  .modal-content{
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+
+        .modal-header{
+            border-bottom: none !important;
+
+            .modal-title{
+                font-family: $primary-font;
+                font-size: 1.5rem;
+                font-weight: normal;
+                font-style:normal;
+                color: $dark-font-color;
+                line-height: 1.3em;
+                text-rendering: optimizeLegibility;
+                padding:0;
+            }
+            .btn-close{
+                position: absolute;
+                font-family: 'Average Sans', 'sans-serif';
+                top: 1.5rem;
+                right: 1.375rem;
+                width: 0.5rem !important;
+                height: 0.5rem !important;
+            }
+        }
+
+        .modal-body{
+
+        }
+
+        .modal-footer{
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: flex-end;
+            position: absolute;
+            bottom: -0.15em;
+            width: 100%;
+            
+            button{
+                @include footer-button;
+            }
+
+
+            // MODAL ONE ONLY
+
+            .searchbox-ctr{
+                width: 33vw;
+                position: absolute;
+                left: 0;
+                
+                + div{
+                    //max-width: 60//!important;
+                    // needs to change for different devices
+                }
+                .insert-box{
+                    letter-spacing: 0.05em;
+                    outline: none;
+                    border:none;
+                    align-self: center !important;
+                    padding-left: 0.5rem;
+                    font-size: 14px;
+                    width: 0%;
+                    position: relative;
+                    left: 3.5rem !important;
+                    transition: all 500ms cubic-bezier(0,0.110, 0.35, 2) !important;
+                    opacity:0;
+                    &::placeholder{
+                        margin-bottom: 0.5rem;
+                    }
+                    &:focus{
+                        opacity:1;
+                        width: 70%;
+                        border-radius: 0 !important;
+                        background: transparent;
+                        border-bottom: 1px solid rgba(153, 0, 0, 1);
+                    }
+                    &.open{
+                        opacity:1 !important;
+                        width:70% !important;
+                        border-radius: 0 !important;
+                        background: transparent;
+                        border-bottom: 1px solid rgba(153, 0, 0, 1) !important;
+                    }
+                }
+                .search-icon{
+                    cursor: pointer;
+                    text-align: center;
+                    border: none;
+                    border-radius: 50%;
+                    font-size: 20px;
+                    outline: none;
+                    position:absolute;
+                    top: -0.6em;
+                    left: 1rem;
+                    width: 2rem;
+                    height: 2rem;
+                    border-radius: 50%;
+                    background-color:$secondary-red;  
+                    pointer-events: painted;
+                    @include transition-property(transform,font-size);
+                    @include transition-duration(100ms, 200ms);
+                    @include transition-timing(ease-in-out);
+                    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+                    i{
+                        border-radius: 50%;
+                        color: white;
+                        width: 2rem;
+                        height: 2rem;
+                        text-shadow: 0 1px 0 #CCCCCC, 0 3px 0 rgba(0,0,0,0.8);
+                        position: relative;
+                        top: 0.1em;
+                        transition-property: text-shadow;
+                        transition-duration: 250ms;
+                        transition-timing-function: ease-in-out;
+                        &:hover{
+                            text-shadow: 0 1px 0 #CCCCCC, 0 3px 0 rgba(0,0,0,0.8), 0 4px 3px rgba(0,0,0,0.8);
+                        }
+                    }
+                    &:active{
+                        transform:scale(1.05);
+                    }
+                }
+            }
+            &.footer-btn-group{
+                display: flex;
+                flex-flow: row nowrap;
+                padding:0;
+                margin: 0;
+            }
+        }
     }
 }

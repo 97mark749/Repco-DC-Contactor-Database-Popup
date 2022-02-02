@@ -1,9 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Average+Sans&family=Fjalla+One&display=swap");
+/****************** MEDIA QUERUES ******************/
 body {
   font-family: "Average Sans", "sans-serif";
   font-size: 16px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+.btn {
+  -ms-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7) !important;
+  -o-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7) !important;
+  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7) !important;
+          box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7) !important;
 }
 
 .main-container {
@@ -55,8 +63,6 @@ body {
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   background-color: #990000;
   color: #fff;
-  -webkit-box-shadow: 1px 1px 7px 0px rgba(153, 0, 0, 0.25), 2px 3px 10px 1px rgba(175, 175, 175, 0.8), 1px 2px 5px 1px rgba(0, 0, 0, 0.45);
-          box-shadow: 1px 1px 7px 0px rgba(153, 0, 0, 0.25), 2px 3px 10px 1px rgba(175, 175, 175, 0.8), 1px 2px 5px 1px rgba(0, 0, 0, 0.45);
   -webkit-transition-property: background, transform;
   -webkit-transition-property: background, -webkit-transform;
   transition-property: background, -webkit-transform;
@@ -78,5 +84,210 @@ body {
   -webkit-transform: scale(0.98);
           transform: scale(0.98);
   color: white;
+}
+
+.modal-dialog {
+  border-radius: 0 !important;
+  max-width: 55vw !important;
+  max-height: 60vh !important;
+}
+
+.modal-dialog .modal-content {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-dialog .modal-content .modal-header {
+  border-bottom: none !important;
+}
+
+.modal-dialog .modal-content .modal-header .modal-title {
+  font-family: "Fjalla One", "sans-serif";
+  font-size: 1.5rem;
+  font-weight: normal;
+  font-style: normal;
+  color: #333333;
+  line-height: 1.3em;
+  text-rendering: optimizeLegibility;
+  padding: 0;
+}
+
+.modal-dialog .modal-content .modal-header .btn-close {
+  position: absolute;
+  font-family: 'Average Sans', 'sans-serif';
+  top: 1.5rem;
+  right: 1.375rem;
+  width: 0.5rem !important;
+  height: 0.5rem !important;
+}
+
+.modal-dialog .modal-content .modal-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  position: absolute;
+  bottom: -0.15em;
+  width: 100%;
+}
+
+.modal-dialog .modal-content .modal-footer button {
+  color: #fff !important;
+  border-color: #212529;
+  background-color: #212529;
+  -webkit-transition-property: background-color, border-color, transform, box-shadow;
+  -webkit-transition-property: background-color, border-color, -webkit-transform, -webkit-box-shadow;
+  transition-property: background-color, border-color, -webkit-transform, -webkit-box-shadow;
+  transition-property: background-color, border-color, transform, box-shadow;
+  transition-property: background-color, border-color, transform, box-shadow, -webkit-transform, -webkit-box-shadow;
+  -webkit-transition-duration: 200ms, 200ms, 100ms, 100ms;
+  transition-duration: 200ms, 200ms, 100ms, 100ms;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.modal-dialog .modal-content .modal-footer button:hover {
+  background-color: #990000;
+  border-color: #990000;
+  -ms-box-shadow: 1px 1.5px 4px rgba(0, 0, 0, 0.7), -0.25px 0 0px #000001 !important;
+  -o-box-shadow: 1px 1.5px 4px rgba(0, 0, 0, 0.7), -0.25px 0 0px #000001 !important;
+  -webkit-box-shadow: 1px 1.5px 4px rgba(0, 0, 0, 0.7), -0.25px 0 0px #000001 !important;
+          box-shadow: 1px 1.5px 4px rgba(0, 0, 0, 0.7), -0.25px 0 0px #000001 !important;
+}
+
+.modal-dialog .modal-content .modal-footer button:active {
+  -webkit-transform: scale(0.97);
+          transform: scale(0.97);
+}
+
+.modal-dialog .modal-content .modal-footer .searchbox-ctr {
+  width: 33vw;
+  position: absolute;
+  left: 0;
+}
+
+.modal-dialog .modal-content .modal-footer .searchbox-ctr .insert-box {
+  letter-spacing: 0.05em;
+  outline: none;
+  border: none;
+  -ms-flex-item-align: center !important;
+      -ms-grid-row-align: center !important;
+      align-self: center !important;
+  padding-left: 0.5rem;
+  font-size: 14px;
+  width: 0%;
+  position: relative;
+  left: 3.5rem !important;
+  -webkit-transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2) !important;
+  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2) !important;
+  opacity: 0;
+}
+
+.modal-dialog .modal-content .modal-footer .searchbox-ctr .insert-box::-webkit-input-placeholder {
+  margin-bottom: 0.5rem;
+}
+
+.modal-dialog .modal-content .modal-footer .searchbox-ctr .insert-box:-ms-input-placeholder {
+  margin-bottom: 0.5rem;
+}
+
+.modal-dialog .modal-content .modal-footer .searchbox-ctr .insert-box::-ms-input-placeholder {
+  margin-bottom: 0.5rem;
+}
+
+.modal-dialog .modal-content .modal-footer .searchbox-ctr .insert-box::placeholder {
+  margin-bottom: 0.5rem;
+}
+
+.modal-dialog .modal-content .modal-footer .searchbox-ctr .insert-box:focus {
+  opacity: 1;
+  width: 70%;
+  border-radius: 0 !important;
+  background: transparent;
+  border-bottom: 1px solid #990000;
+}
+
+.modal-dialog .modal-content .modal-footer .searchbox-ctr .insert-box.open {
+  opacity: 1 !important;
+  width: 70% !important;
+  border-radius: 0 !important;
+  background: transparent;
+  border-bottom: 1px solid #990000 !important;
+}
+
+.modal-dialog .modal-content .modal-footer .searchbox-ctr .search-icon {
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  outline: none;
+  position: absolute;
+  top: -0.6em;
+  left: 1rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #740000;
+  pointer-events: painted;
+  -webkit-transition-property: transform, font-size;
+  -webkit-transition-property: font-size, -webkit-transform;
+  transition-property: font-size, -webkit-transform;
+  transition-property: transform, font-size;
+  transition-property: transform, font-size, -webkit-transform;
+  -webkit-transition-duration: 100ms, 200ms;
+  transition-duration: 100ms, 200ms;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+          box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.modal-dialog .modal-content .modal-footer .searchbox-ctr .search-icon i {
+  border-radius: 50%;
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  text-shadow: 0 1px 0 #CCCCCC, 0 3px 0 rgba(0, 0, 0, 0.8);
+  position: relative;
+  top: 0.1em;
+  -webkit-transition-property: text-shadow;
+  transition-property: text-shadow;
+  -webkit-transition-duration: 250ms;
+          transition-duration: 250ms;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+}
+
+.modal-dialog .modal-content .modal-footer .searchbox-ctr .search-icon i:hover {
+  text-shadow: 0 1px 0 #CCCCCC, 0 3px 0 rgba(0, 0, 0, 0.8), 0 4px 3px rgba(0, 0, 0, 0.8);
+}
+
+.modal-dialog .modal-content .modal-footer .searchbox-ctr .search-icon:active {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.modal-dialog .modal-content .modal-footer.footer-btn-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  padding: 0;
+  margin: 0;
 }
 /*# sourceMappingURL=styles.css.map */
