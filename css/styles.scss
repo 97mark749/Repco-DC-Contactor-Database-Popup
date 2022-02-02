@@ -1,0 +1,50 @@
+$primary-red: #990000;
+$secondary-red: #740000;
+$primary-font: 'Fjalla One', 'sans-serif';
+$seondary-font: 'Average Sans', 'sans-serif';
+@mixin footer-button{
+    color: #fff !important;
+    border-color: #212529 !important;
+    background-color: #212529 !important;
+    @include transition-property(background-color,border-color,transform,box-shadow);
+    @include transition-duration(200ms,200ms,100ms,100ms);
+    @include transtion-timing(ease-in-out);
+    &:hover{
+        background-color: $primary-color;
+        border-color: $primary-color;
+        -moz-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
+        -ms-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
+        -o-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
+        box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
+    }
+    &:active{
+        transform: scale(0.97);
+    }
+}
+
+@mixin flex-all-center{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+@mixin transition-property($props...){
+    -moz-transition-property: $props;
+    -o-transition-property: $props;
+    -ms-transition-property: $props;
+    -webkit-transition-property: $props;
+    transition-property: $props;
+  }
+  @mixin transition-duration($dur...){
+    -moz-transition-duration: $dur;
+    -o-transition-duration: $dur;
+    -ms-transition-duration: $dur;
+    -webkit-transition-duration: $dur;
+    transition-duration: $dur;
+  }
+  @mixin transition-timing($time...){
+    -moz-transition-timing-function: $time;
+    -o-transition-timing-function: $time;
+    -ms-transition-timing-function: $time;
+    -webkit-transition-timing-function: $time;
+    transition-timing-function: $time;
+  }
