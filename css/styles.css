@@ -123,6 +123,129 @@ body {
   height: 0.5rem !important;
 }
 
+.modal-dialog .modal-content .modal-switch {
+  position: absolute;
+  z-index: 1;
+  position: absolute;
+  right: 2rem;
+  width: 13.45rem;
+  height: 5.5rem;
+  padding: 0 1em 0 1em;
+  margin: 1em 0.95em 0 1em;
+  background-color: #990000;
+  border: none;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 10px 13px -7px #000000;
+          box-shadow: 0px 10px 13px -7px #000000;
+  -webkit-transition-property: transform, box-shadow;
+  -webkit-transition-property: -webkit-transform, -webkit-box-shadow;
+  transition-property: -webkit-transform, -webkit-box-shadow;
+  transition-property: transform, box-shadow;
+  transition-property: transform, box-shadow, -webkit-transform, -webkit-box-shadow;
+  -webkit-transition-duration: 200ms, 300ms;
+  transition-duration: 200ms, 300ms;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.modal-dialog .modal-content .modal-switch:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  -webkit-box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0, 0, 0, 0) !important;
+          box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0, 0, 0, 0) !important;
+}
+
+.modal-dialog .modal-content .modal-switch #modal-switch-txt {
+  width: 5em;
+  font-size: 1.1rem !important;
+  padding: 0.5em 0 0.5em 0.25em;
+  letter-spacing: 0.05em;
+  text-shadow: #474747 2px 2px 1px !important;
+  color: #fff;
+}
+
+.modal-dialog .modal-content .modal-switch #modal-switch-btn {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  height: 1.75em !important;
+  width: 1.75em !important;
+  font-size: 30px;
+  font-weight: bolder;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0 0.5rem 0 0.5rem !important;
+  padding: 0.35em 0.25em 0.25em 0.25em !important;
+  text-shadow: 1.3px 2px 2px rgba(59, 62, 95, 0.8), 1.5px 2px 8px rgba(153, 0, 0, 0.623);
+  -webkit-transition-property: background-color, box-shadow, transform;
+  -webkit-transition-property: background-color, -webkit-box-shadow, -webkit-transform;
+  transition-property: background-color, -webkit-box-shadow, -webkit-transform;
+  transition-property: background-color, box-shadow, transform;
+  transition-property: background-color, box-shadow, transform, -webkit-box-shadow, -webkit-transform;
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms;
+  -webkit-transition-timing-function: ease-in-out, ease-in-out, ease-in;
+  transition-timing-function: ease-in-out, ease-in-out, ease-in;
+}
+
+.modal-dialog .modal-content .modal-switch #modal-switch-btn:hover {
+  -webkit-transform: scale(1.08);
+          transform: scale(1.08);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  background-color: rgba(190, 188, 188, 0.25);
+  -webkit-box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 0, 0, 0.225);
+          box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 0, 0, 0.225);
+  cursor: pointer !important;
+}
+
+.modal-dialog .modal-content .modal-switch #modal-switch-btn:active {
+  background-color: transparent;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+.modal-dialog .modal-content .basic-form {
+  width: 100%;
+  height: 35vh;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-dialog .modal-content .basic-form .table-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding: 0.5em;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -ms-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5) !important;
+  -o-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5) !important;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5) !important;
+          box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5) !important;
+  border: solid 1px #cccccc;
+  background-color: rgba(175, 175, 175, 0.15);
+  border-radius: 0;
+  height: 100%;
+  width: 60%;
+  -ms-flex-preferred-size: 96%;
+      flex-basis: 96%;
+}
+
+.modal-dialog .modal-content .modal-body {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  overflow-x: hidden !important;
+  height: 35vh;
+}
+
 .modal-dialog .modal-content .modal-footer {
   display: -webkit-box;
   display: -ms-flexbox;

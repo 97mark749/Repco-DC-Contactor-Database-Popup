@@ -80,9 +80,52 @@ body{
                 height: 0.5rem !important;
             }
         }
-
+        .modal-switch{ // MODAL ONE ONLY
+            position:absolute;
+            z-index: 1;
+            @include navigation-button;
+            #modal-switch-txt{
+                width: 5em;
+                font-size: 1.1rem !important;
+                padding: 0.5em 0 0.5em 0.25em;
+                letter-spacing: 0.05em;
+                text-shadow: #474747 2px 2px 1px !important;
+                color:#fff;
+            }
+            #modal-switch-btn{
+                @include toggle-button;
+            }
+        }
+        .basic-form{ // MODAL ONE ONLY
+            width: 100%;
+            height: 35vh;
+            padding: 0;
+            margin: 0;
+            .table-container{
+                display: flex;
+                flex-flow: column nowrap;
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+                padding: 0.5em;
+                overflow-y:auto;
+                overflow-x: hidden;
+                -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.5) !important;
+                -ms-box-shadow: 0 1px 5px rgba(0,0,0,0.5) !important;
+                -o-box-shadow: 0 1px 5px rgba(0,0,0,0.5) !important;
+                box-shadow: 0 1px 5px rgba(0,0,0,0.5) !important;
+                border: solid 1px #cccccc;
+                background-color: rgba(175, 175, 175, 0.15);
+                border-radius: 0;
+                height: 100%;
+                width: 60%;
+                flex-basis: 96%; //dunno why
+            }
+        }
         .modal-body{
-
+            padding-top: 0 !important;
+            margin-top: 0 !important;
+            overflow-x: hidden !important;
+            height: 35vh;
         }
 
         .modal-footer{
