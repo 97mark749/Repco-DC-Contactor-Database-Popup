@@ -1,16 +1,19 @@
 let temp = "None";
 
-$(document).ready(function(){
-    try{
-        document.getElementById('submit').addEventHandler('click',function(e){submit_search(e);});
-        document.getElementByClassName('search-icon').addEventHanlder('click',function(){$('.insert-box').toggleClass('open');});
-        document.getElementById('close').addEventHandler('click',function(){$('#popup-window-one').modal('hide');});
-        document.getElementById('close-search-x').addEventHandler('click',function(){$('#popup-window-one').modal('hide');});
-        document.addEventHandler('keypress',function(event){if(event.keyCode === 13 ){submit_search(event);}});
-    }catch(error){
-        console.log("Something is Wrong --> \n\n" + error.message + " --> \n\nAt Line: "+ error.line);
-    }
-});
+try{
+    const close = document.querySelector('#close');
+    const closeX = document.querySelector('#close-search-x');
+    const searchIcon = document.querySelector('#search-icon');
+    const submit = document.querySelector('#submit');
+    document.getElementById('submit').addEventListener('click',function(e){submit_search(e);});
+    document.getElementById('search-icon').addEventListener('click',function(){$('.insert-box').toggleClass('open');});
+    document.getElementById('close').addEventListener('click',function(){$('#popup-window-one').modal('hide');});
+    document.getElementById('close-search-x').addEventListener('click',function(){$('#popup-window-one').modal('hide');});
+    document.addEventListener('keypress',function(event){if(event.keyCode === 13 ){submit_search(event);}});
+}catch(error){
+    console.log("Something is Wrong --> \n\n" + error.message + " --> \n\nAt Line: "+ error.line);
+}
+
 
 function submit_search(e){
     e.preventDefault();

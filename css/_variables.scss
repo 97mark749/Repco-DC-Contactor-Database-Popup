@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Average+Sans&family=Fjalla+One&display=swap');
+@import './include-media.scss';
+
+$primary-red: #990000;
+$secondary-red: #740000;
+$primary-font: 'Fjalla One', 'sans-serif';
+$secondary-font: 'Average Sans', 'sans-serif';
+
+
+@mixin footer-button{
+    color: #fff !important;
+    border-color: #212529 !important;
+    background-color: #212529 !important;
+    @include transition-property(background-color,border-color,transform,box-shadow);
+    @include transition-duration(200ms,200ms,100ms,100ms);
+    @include transtion-timing(ease-in-out);
+    &:hover{
+        background-color: $primary-color;
+        border-color: $primary-color;
+        -moz-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
+        -ms-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
+        -o-box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
+        box-shadow: 1px 1.5px 4px rgb(0,0,0,0.7), -0.25px 0 0px rgb(0,0,0.7) !important;
+    }
+    &:active{
+        transform: scale(0.97);
+    }
+}
+@mixin toggle-button{
+    height: 1.5em !important;
+    width: 1.5em !important;
+    font-size: 22px;
+    font-weight: bolder;
+    color: white;
+    text-align:center;
+    border-radius: 10px;
+    margin: 0 0.5rem 0 0.5rem !important;
+    padding: 0.25rem !important;
+    text-shadow: 1.3px 2px 2px rgba(59, 62, 95, 0.8), 
+    1.5px 2px 8px rgba(153, 0, 0, 0.623);
+    @include transition-property(background-color,box-shadow,transform);
+    @include transition-duration(200ms);
+    @include transition-timing(ease-in-out,ease-in-out,ease-in);
+    &:hover{
+        transform: scale(1.08);
+        background-color: rgba(190, 188, 188, 0.25);
+        box-shadow: 0 4px 20px 0px rgba(0,0,0,0.14),
+                    0 7px 10px -5px rgba(0,0,0,0.225);
+        cursor: pointer !important;
+    }
+    &:active{
+        background-color:transparent;
+        transform: scale(0.95);
+    }
+}
+
+@mixin flex-all-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin transition-property($props...){
+    -moz-transition-property: $props;
+    -o-transition-property: $props;
+    -ms-transition-property: $props;
+    -webkit-transition-property: $props;
+    transition-property: $props;
+  }
+  @mixin transition-duration($dur...){
+    -moz-transition-duration: $dur;
+    -o-transition-duration: $dur;
+    -ms-transition-duration: $dur;
+    -webkit-transition-duration: $dur;
+    transition-duration: $dur;
+  }
+  @mixin transition-timing($time...){
+    -moz-transition-timing-function: $time;
+    -o-transition-timing-function: $time;
+    -ms-transition-timing-function: $time;
+    -webkit-transition-timing-function: $time;
+    transition-timing-function: $time;
+  }

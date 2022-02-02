@@ -1,1 +1,82 @@
-/* No CSS *//*# sourceMappingURL=styles.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Average+Sans&family=Fjalla+One&display=swap");
+body {
+  font-family: "Average Sans", "sans-serif";
+  font-size: 16px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.main-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: aliceblue;
+}
+
+.window-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 75vh;
+  width: 80vw;
+  background-color: #cfcfcf;
+}
+
+.popup-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  background-color: #990000;
+  color: #fff;
+  -webkit-box-shadow: 1px 1px 7px 0px rgba(153, 0, 0, 0.25), 2px 3px 10px 1px rgba(175, 175, 175, 0.8), 1px 2px 5px 1px rgba(0, 0, 0, 0.45);
+          box-shadow: 1px 1px 7px 0px rgba(153, 0, 0, 0.25), 2px 3px 10px 1px rgba(175, 175, 175, 0.8), 1px 2px 5px 1px rgba(0, 0, 0, 0.45);
+  -webkit-transition-property: background, transform;
+  -webkit-transition-property: background, -webkit-transform;
+  transition-property: background, -webkit-transform;
+  transition-property: background, transform;
+  transition-property: background, transform, -webkit-transform;
+  -webkit-transition-duration: 300ms;
+  transition-duration: 300ms;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.popup-btn p {
+  margin: 0;
+  padding: 0;
+}
+
+.popup-btn:hover {
+  background-color: #740000;
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+  color: white;
+}
+/*# sourceMappingURL=styles.css.map */
