@@ -140,11 +140,48 @@ body{
                 
             }
         }
+
         .modal-body{
             padding-top: 0 !important;
             margin-top: 0 !important;
             overflow-x: hidden !important;
             height: 35vh;
+
+            &#cross-ref-body{
+                display: flex;
+                justify-content: space-around;
+                //gap: 2rem;
+                padding-left: 1.5rem;
+                padding-top: 1.5rem !important;
+                flex-flow: row nowrap;
+            }
+            .spec-selection{ // MODAL TWO ONLY
+                width: 45%;
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: flex-start;
+                h6{
+                    color: $primary-red;
+                    margin-bottom: 1rem;
+                    font-size: 1.1em;
+                    font-weight: 600;
+                }
+                .spec-selectors{
+                    select{
+                        box-shadow: 0 2.25px 1px rgba(0,0,0,0.5) !important;
+                        border-top: 0.5px solid rgba(0,0,0,0.15);
+                        border-left: 0.5px solid rgba(0,0,0,0.15);;
+                    }
+                    #selectManufacturer{
+                        margin-right: 0.6rem;
+                    }
+                }
+
+            }
+            .cross-ref-main-content{ // MODAL TWO ONLY
+                width: 48%;
+                height: 75%;
+            }
         }
 
         .modal-footer{
@@ -157,7 +194,7 @@ body{
             width: 100%;
             
             button{
-                @include footer-button;
+                @include footer-button;  
             }
 
 
