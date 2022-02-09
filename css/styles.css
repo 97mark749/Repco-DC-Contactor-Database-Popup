@@ -399,6 +399,27 @@ body {
   height: 75%;
 }
 
+.modal-dialog .modal-content .modal-body .cross-ref-main-content .dropdown-nav-results {
+  height: 100%;
+  -webkit-box-shadow: 1px 2.25px 1px rgba(0, 0, 0, 0.5);
+          box-shadow: 1px 2.25px 1px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.modal-dialog .modal-content .modal-body .cross-ref-main-content .dropdown-nav-results .card-header {
+  background: #990000;
+}
+
+.modal-dialog .modal-content .modal-body .cross-ref-main-content .dropdown-nav-results .card-header h6 {
+  color: #fff;
+  font-family: "Fjalla One", "sans-serif";
+  font-size: 1.25em;
+  letter-spacing: 0.1rem;
+  font-weight: 400;
+  padding: 0;
+  margin: auto 0;
+}
+
 .modal-dialog .modal-content .modal-footer {
   display: -webkit-box;
   display: -ms-flexbox;
