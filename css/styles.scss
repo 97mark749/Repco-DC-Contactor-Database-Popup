@@ -69,6 +69,7 @@ body{
                 color: $dark-font-color;
                 line-height: 1.3em;
                 text-rendering: optimizeLegibility;
+                margin-left: 0.5rem;
                 padding:0;
             }
             .btn-close{
@@ -82,15 +83,11 @@ body{
         }
         .modal-switch{ // MODAL ONE ONLY
             position:absolute;
+            top: 4.5rem;
             z-index: 1;
             @include navigation-button;
             #modal-switch-txt{
-                width: 5em;
-                font-size: 1.1rem !important;
-                padding: 0.5em 0 0.5em 0.25em;
-                letter-spacing: 0.05em;
-                text-shadow: #474747 2px 2px 1px !important;
-                color:#fff;
+                @include toggle-txt;
             }
             #modal-switch-btn{
                 @include toggle-button;
@@ -104,8 +101,7 @@ body{
             .table-container{
                 display: flex;
                 flex-flow: column nowrap;
-                margin-top: 0.5em;
-                margin-bottom: 0.5em;
+                margin: 0.5rem 0 0.5rem 0.5rem;
                 padding: 0.5em;
                 overflow-y:auto;
                 overflow-x: hidden;
@@ -119,6 +115,29 @@ body{
                 height: 100%;
                 width: 60%;
                 flex-basis: 96%; //dunno why
+            }
+            .results-container{
+                // the popup Container to redirect to Repco's Website
+                display: none;
+                
+                top: 8.5rem;
+                @include navigation-button;
+                .results-box{
+                    width: 13.45rem;
+                    height: 5.5rem;
+                    border-radius: 10px;
+                    @include transition-property(transform, box-shadow);
+                    @include transition-duration(200ms, 300ms);
+                    @include transition-timing(ease-in-out);
+                    #click-txt{
+                        @include toggle-txt;
+                        padding: 1.25em 0 0.75em 0.5em; // orrides the mixin
+                    }
+                    #website_nav{
+                        @include toggle-button;
+                    }
+                }
+                
             }
         }
         .modal-body{
@@ -153,20 +172,61 @@ body{
                     //max-width: 60//!important;
                     // needs to change for different devices
                 }
+                #suggestions{
+                    display: none;
+                    max-height: 7.5rem;
+                    width: 70%; // same width as the text box
+                    padding: 0.25rem 0 0.25rem 0.25rem;
+                    padding-left: 0.5rem;
+                    position: absolute;
+                    left: 3.5rem;
+                    bottom: 2.5rem;
+                    background-color: rgb(231, 229, 229);
+                    border: solid #cccccc 1.25px;
+                    overflow-x: hidden;
+                    overflow-y: auto;
+                    box-shadow: 1px 3px 4px 0 rgba(0,0,0,0.5);
+                    @include transition-property(transform,display);
+                    @include transition-duration(300ms);
+                    @include transition-timing(ease-in-out);
+                    animation: fade-in 200ms ease-in-out !important;
+
+                    #suggestions-list{
+                        li{
+                            margin: 0;
+                            padding-left: 0.5rem;
+                            margin-bottom: 0.25em;
+                            list-style-type: none;
+                            strong{
+                                font-weight: 900;
+                                color:$secondary-red; 
+                                padding: 0 0.08em 0 0;
+                              }
+                            &:hover{
+                                cursor: pointer;
+                                transform: scale(1.05);
+                                transform-origin: left;
+                                font-weight: 800;
+                                color: $secondary-red;
+                            }
+                        }
+                    }
+                }
                 .insert-box{
                     letter-spacing: 0.05em;
                     outline: none;
                     border:none;
                     align-self: center !important;
-                    padding-left: 0.5rem;
-                    font-size: 14px;
+                    padding-left: 1rem;
+                    padding-bottom: 0.25rem;
+                    font-size: 1.1em;
                     width: 0%;
                     position: relative;
                     left: 3.5rem !important;
                     transition: all 500ms cubic-bezier(0,0.110, 0.35, 2) !important;
                     opacity:0;
                     &::placeholder{
-                        margin-bottom: 0.5rem;
+                        margin-bottom: 1rem;
                     }
                     &:focus{
                         opacity:1;
@@ -191,12 +251,12 @@ body{
                     font-size: 20px;
                     outline: none;
                     position:absolute;
-                    top: -0.6em;
-                    left: 1rem;
+                    top: -0.15rem;
+                    left: 1.25rem;
                     width: 2rem;
                     height: 2rem;
                     border-radius: 50%;
-                    background-color:$secondary-red;  
+                    background-color:$primary-red;  
                     pointer-events: painted;
                     @include transition-property(transform,font-size);
                     @include transition-duration(100ms, 200ms);
