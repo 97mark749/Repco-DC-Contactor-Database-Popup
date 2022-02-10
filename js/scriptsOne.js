@@ -1,10 +1,7 @@
 let temp = "None";
 
 try{
-    const close = document.querySelector('#close');
-    const closeX = document.querySelector('#close-search-x');
-    const searchIcon = document.querySelector('#search-icon');
-    const submit = document.querySelector('#submit');
+    document.getElementById('full-screen-data-sheet').addEventListener('click', function(){$("#full-screen-data-listener").toggle('expand');});
     document.getElementById('submit').addEventListener('click',function(e){submit_search(e);});
     document.getElementById('search-icon').addEventListener('click',function(){$('.insert-box').toggleClass('open');});
     document.getElementById('close').addEventListener('click',function(){$('#popup-window-one').modal('hide');});

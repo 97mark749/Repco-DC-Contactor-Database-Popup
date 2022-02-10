@@ -135,7 +135,10 @@
                         <p>View Our Replacement: </p>
                         <i id="data-sheet-nav-arrow" class="material-icons" onclick="navToReplacement()">east</i>
                     </div>
-                    <button type="button" id = 'close-data-sheet' class="btn btn-sm footer-btn" >Close</button>
+                    <div id="data-sheet-footer-toggles">
+                        <button type="button" id = 'full-screen-data-sheet' class="btn btn-sm footer-btn" >View Full Screen</button>
+                        <button type="button" id = 'close-data-sheet' class="btn btn-sm footer-btn" >Close</button>
+                    </div>
                 </div>
             </div>
         </div>
