@@ -48,7 +48,7 @@ body{
   max-width:55vw !important;  
   //phones --> 90vw
   //tablets --> 80vw
-  max-height: 60vh !important;
+  max-height: 65vh !important;
   //phones --> 100vh
   //tablets --> 80vh Landscape / 90vh Portrait
 
@@ -60,6 +60,13 @@ body{
 
         .modal-header{
             border-bottom: none !important;
+            u{
+                color: $primary-red;
+                font-family: $secondary-font;
+                font-weight: 500;
+                font-size: 0.75em;
+                margin-left: 0.15rem;
+            }
 
             .modal-title{
                 font-family: $primary-font;
@@ -144,15 +151,28 @@ body{
         .modal-body{
             padding-top: 0 !important;
             margin-top: 0 !important;
+            margin-left: 1rem;
+            margin-right: 1rem;
             overflow-x: hidden !important;
             height: 35vh;
-
+            &#data-sheet-body{
+                display: flex;
+                justify-content: center;
+            }
+            iframe{
+                position: absolute;
+                width: 46.25rem;
+                height: 19rem;
+                border-bottom: 0.5px solid #2b2b2b;
+                box-shadow: 1px 3px 2px rgba(0,0,0,0.25);
+                border-radius: 5px;
+            }
             &#cross-ref-body{
                 display: flex;
-                justify-content: space-around;
+                justify-content: space-between;
                 //gap: 2rem;
                 padding-left: 1.5rem;
-                padding-top: 1.5rem !important;
+                padding-top: 1.25rem !important;
                 flex-flow: row nowrap;
             }
             .spec-selection{ // MODAL TWO ONLY
@@ -164,7 +184,7 @@ body{
                     color: $primary-red;
                     margin-bottom: 1rem;
                     font-size: 1.1em;
-                    font-weight: 600;
+                    font-weight: 900;
                 }
                 .spec-selectors{
                     select{
@@ -175,17 +195,52 @@ body{
                     #selectManufacturer{
                         margin-right: 0.6rem;
                     }
+                    #selectSeries{
+                        width: 8.375rem;
+                    }
+                    .dd-ctr{
+                        width: 100%;
+                        height: 13rem;
+                        overflow: hidden;
+                        overflow-y:auto;
+                        margin: 2rem 0;
+                        #remaining-dropdowns{
+                            display: flex;
+                            flex-flow: column nowrap;
+                            //margin-top: 3rem;
+                            .dropdown-area{
+                                display: flex;
+                                flex-flow: row wrap;
+                                margin-bottom: 1rem;
+                                label{
+                                    margin-bottom: 0.25rem;
+                                    width: 100%;
+                                    font-size: 1.1em;
+                                }
+                                select{
+                                    width: 92%;
+                                    height: 2rem;
+                                    option{
+                                        vertical-align:middle;
+                                        text-align: center;
+                                    }
+                                    
+                                }
+                                
+                            }
+                        }
+                    }
                 }
 
             }
             .cross-ref-main-content{ // MODAL TWO ONLY
                 width: 48%;
                 height: 75%;
-                
+                padding-top: 0.15rem;
 
                 .dropdown-nav-results{
-                    height: 100%;
-                    box-shadow: 1px 2.25px 1px rgba(0,0,0,0.5);
+                    height: 19rem;
+                    box-shadow: 1.5px 2px 5px rgba(0,0,0,0.25);
                     border: 1px solid rgba(0,0,0,0.5);
                     .card-header{
                         background: $primary-red;
@@ -212,6 +267,28 @@ body{
             bottom: -0.15em;
             width: 100%;
             
+            &#data-sheet-footer{
+                justify-content: space-between;
+                #close-data-sheet{
+                    margin-right: 0.75rem
+                }
+                div{
+                    display: flex;
+                    flex-flow: row nowrap;
+                    align-items: center;
+                    margin-left: 1rem;
+                    > i{
+                        text-align: center;
+                        background: $primary-red;
+                        color: #fff;
+                        box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+                        border-radius: 5px;
+                        height: 1em;
+                        width: 1.5em;
+                        margin-left: 1em;
+                    }
+                }
+            }
             button{
                 @include footer-button;  
             }

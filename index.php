@@ -86,14 +86,16 @@
                             <select id="selectSeries" class="btn dropdown-btn dropdown-toggle dropdown-button" data-bs-toggle="dropdown" data-bs-display="static" aria-expand="false" onchange="set_remaining_dropdowns()" required disabled>
                                 <!-- Will Be Populated From php Document -->
                             </select>
-                    </form>
+                            <form id="dropdown-container" class="dropdown-nav-container">
+                                <div class = "dd-ctr">
+                                <div id="remaining-dropdowns" class="dropdown-area">
+                                    <!-- Will Be Populated From php Document -->
+                                </div>
+                                </div>
+                            </form>
+                        </form>
                     </div>
                     <div class="cross-ref-main-content">
-                        <form id="dropdown-nav-container" class="dropdown-nav-container">
-                            <div id="remaining-dropdowns" class="dropdown-area">
-                                <!-- Will Be Populated From php Document -->
-                            </div>
-                        </form>
                         <div class="card dropdown-nav-results">
                             <div class="card-header">
                                 <h6 class="card-title">Search Results</h6>
