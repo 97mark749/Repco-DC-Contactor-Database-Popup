@@ -35,6 +35,12 @@ $secondary-font: 'Average Sans', 'sans-serif';
     letter-spacing: 0.05em;
     text-shadow: #474747 2px 2px 1px !important;
     color:#fff;
+    @include resize(phone){
+        width: 100%;
+        text-align: center;
+        padding: 0.5em 0 0.5em 0;
+    }
+
 }
 @mixin toggle-button{
     position: absolute;
@@ -54,9 +60,16 @@ $secondary-font: 'Average Sans', 'sans-serif';
     @include transition-property(background-color,box-shadow,transform, right);
     @include transition-duration(200ms,200ms,200ms,500ms);
     @include transition-timing(ease-in-out,ease-in-out,ease-in);
-    /*@media screen and (max-width: 1200px){
-        right:0.25rem;
-    }*/
+    @include resize(phone){
+        background-color: rgba(190, 188, 188, 0.75);
+        border: 0.5px solid rgba(190, 188, 188, 0.75);
+        box-shadow: 1px 2px 1px rgba(0,0,0, 0.5);
+        text-shadow: 1.3px 2px 2px rgba(59, 62, 95, 0.8), 
+            1.5px 2px 8px rgba(112, 112, 112, 0.623);
+        bottom: -1.5rem;
+        top:revert;
+        right: 25%;
+    }
     &:hover{
         transform: scale(1.08);
         transform-origin: center;
@@ -64,10 +77,18 @@ $secondary-font: 'Average Sans', 'sans-serif';
         box-shadow: 0 4px 20px 0px rgba(0,0,0,0.14),
                     0 7px 10px -5px rgba(0,0,0,0.225);
         cursor: pointer !important;
+        @include resize(phone){
+            transform: scale(1);
+            box-shadow: 2px 2px 1px rgba(0,0,0, 0.5);
+            background-color: rgba(190, 188, 188, 0.75);
+        }
     }
     &:active{
         background-color:transparent;
         transform: scale(0.95);
+        @include resize(phone){
+            background-color: rgba(190, 188, 188, 0.75);
+        }
     }
 }
 @mixin navigation-button{
@@ -82,12 +103,16 @@ $secondary-font: 'Average Sans', 'sans-serif';
     border: none;
     border-radius: 10px;
     box-shadow: 0px 10px 13px -7px #000000;
-    @include transition-property(transform,box-shadow, width,right);
+    @include transition-property(transform,box-shadow, width,height);
     @include transition-duration(200ms, 300ms, 200ms,200ms);
     @include transition-timing(ease-in-out);
-    @media screen and (max-width: 800px){
-        width: 12.25rem;
-        //right: 2rem;
+    @include resize(small-tablet){
+        width: 11rem;
+        padding: 0 0.5em 0 0.5em;
+    }
+    @include resize(phone){
+        height: 7rem;
+        width: 9rem;
     }
     &:hover{
         transform: scale(1.02);
@@ -125,18 +150,24 @@ $secondary-font: 'Average Sans', 'sans-serif';
 
   /****************** MEDIA QUERUES ******************/
   @mixin resize($display){
-      @if $display == 'mobile' {
+      @if $display == 'phone' {
         @include media('screen','<=phone'){
             @content;
         }
       }
+      @if $display == 'phoneL'{
+          @media screen and (max-height: 480px)
+                        and (orientation: landscape){
+                            @content;
+                        }
+      }
       @if $display == 'small-tablet' {
-        @include media('screen','>phone', '<=sm-tablet'){
+        @include media('screen','<=sm-tablet'){
             @content;
         }
       }
       @if $display == 'tablet' {
-        @include media('screen','>phone', '<=tablet'){
+        @include media('screen','<=tablet'){
             @content;
         }
       }

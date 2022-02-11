@@ -94,13 +94,13 @@ select {
 .modal-dialog {
   border-radius: 0 !important;
   max-width: 50rem !important;
-  -webkit-transition-property: max-width;
-  transition-property: max-width;
+  max-height: 32.125rem !important;
+  -webkit-transition-property: max-width, max-height;
+  transition-property: max-width, max-height;
   -webkit-transition-duration: 200ms;
   transition-duration: 200ms;
   -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
-  max-height: 32.125rem !important;
 }
 
 @media screen and (min-width: 1441px) {
@@ -109,9 +109,16 @@ select {
   }
 }
 
-@media screen and (min-width: 481px) and (max-width: 926px) {
+@media screen and (max-width: 800px) {
   .modal-dialog {
-    max-width: 95vw !important;
+    max-width: 32rem !important;
+    max-height: 40rem !important;
+  }
+}
+
+@media screen and (max-height: 480px) and (orientation: landscape) {
+  .modal-dialog {
+    max-height: 100% !important;
   }
 }
 
@@ -124,6 +131,12 @@ select {
 
 .modal-dialog .modal-content .modal-header {
   border-bottom: none !important;
+}
+
+@media screen and (max-height: 480px) and (orientation: landscape) {
+  .modal-dialog .modal-content .modal-header {
+    padding-bottom: 0;
+  }
 }
 
 .modal-dialog .modal-content .modal-header u {
@@ -162,6 +175,20 @@ select {
   height: 24rem;
   padding: 0;
   margin: 0;
+  -webkit-transition: height 200ms ease-in-out;
+  transition: height 200ms ease-in-out;
+}
+
+@media screen and (max-width: 800px) {
+  .modal-dialog .modal-content .basic-form {
+    height: 32rem;
+  }
+}
+
+@media screen and (max-height: 480px) and (orientation: landscape) {
+  .modal-dialog .modal-content .basic-form {
+    height: 18rem;
+  }
 }
 
 .modal-dialog .modal-content .basic-form .modal-body {
@@ -178,8 +205,38 @@ select {
           flex-flow: row nowrap;
 }
 
+@media screen and (max-width: 800px) {
+  .modal-dialog .modal-content .basic-form .modal-body {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+  }
+}
+
+@media screen and (max-height: 480px) and (orientation: landscape) {
+  .modal-dialog .modal-content .basic-form .modal-body {
+    height: 18rem;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
 .modal-dialog .modal-content .basic-form .content {
   width: 65%;
+}
+
+@media screen and (max-width: 800px) {
+  .modal-dialog .modal-content .basic-form .content {
+    width: 100%;
+  }
+}
+
+@media screen and (max-height: 480px) and (orientation: landscape) {
+  .modal-dialog .modal-content .basic-form .content {
+    height: 100%;
+  }
 }
 
 .modal-dialog .modal-content .basic-form .table-container {
@@ -202,7 +259,7 @@ select {
   background-color: rgba(175, 175, 175, 0.15);
   border-radius: 0;
   height: 18rem;
-  width: 25rem;
+  width: 90%;
   -ms-flex-preferred-size: 96%;
       flex-basis: 96%;
   -webkit-transition-property: width;
@@ -219,9 +276,17 @@ select {
   }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 800px) {
   .modal-dialog .modal-content .basic-form .table-container {
-    width: 20rem;
+    margin: 0.25rem;
+    margin-left: 0 !important;
+    width: 100%;
+  }
+}
+
+@media screen and (max-height: 480px) and (orientation: landscape) {
+  .modal-dialog .modal-content .basic-form .table-container {
+    max-height: 80%;
   }
 }
 
@@ -241,6 +306,26 @@ select {
           flex-flow: column wrap;
 }
 
+@media screen and (max-width: 800px) {
+  .modal-dialog .modal-content .basic-form .toggles {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    width: 100%;
+    height: 11rem;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media screen and (max-height: 480px) and (orientation: landscape) {
+  .modal-dialog .modal-content .basic-form .toggles {
+    height: 80%;
+  }
+}
+
 .modal-dialog .modal-content .basic-form .toggles .modal-switch {
   z-index: 1;
   width: 13.45rem;
@@ -252,11 +337,11 @@ select {
   border-radius: 10px;
   -webkit-box-shadow: 0px 10px 13px -7px #000000;
           box-shadow: 0px 10px 13px -7px #000000;
-  -webkit-transition-property: transform, box-shadow, width, right;
-  -webkit-transition-property: width, right, -webkit-transform, -webkit-box-shadow;
-  transition-property: width, right, -webkit-transform, -webkit-box-shadow;
-  transition-property: transform, box-shadow, width, right;
-  transition-property: transform, box-shadow, width, right, -webkit-transform, -webkit-box-shadow;
+  -webkit-transition-property: transform, box-shadow, width, height;
+  -webkit-transition-property: width, height, -webkit-transform, -webkit-box-shadow;
+  transition-property: width, height, -webkit-transform, -webkit-box-shadow;
+  transition-property: transform, box-shadow, width, height;
+  transition-property: transform, box-shadow, width, height, -webkit-transform, -webkit-box-shadow;
   -webkit-transition-duration: 200ms, 300ms, 200ms, 200ms;
   transition-duration: 200ms, 300ms, 200ms, 200ms;
   -webkit-transition-timing-function: ease-in-out;
@@ -265,7 +350,15 @@ select {
 
 @media screen and (max-width: 800px) {
   .modal-dialog .modal-content .basic-form .toggles .modal-switch {
-    width: 12.25rem;
+    width: 11rem;
+    padding: 0 0.5em 0 0.5em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .basic-form .toggles .modal-switch {
+    height: 7rem;
+    width: 9rem;
   }
 }
 
@@ -278,7 +371,7 @@ select {
 
 .modal-dialog .modal-content .basic-form .toggles .modal-switch .box {
   width: 100%;
-  height: 25rem;
+  height: 100%;
   border-radius: 10px;
   position: relative;
   -webkit-transition-property: transform, box-shadow;
@@ -300,6 +393,14 @@ select {
   letter-spacing: 0.05em;
   text-shadow: #474747 2px 2px 1px !important;
   color: #fff;
+}
+
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .basic-form .toggles .modal-switch .box #modal-switch-txt {
+    width: 100%;
+    text-align: center;
+    padding: 0.5em 0 0.5em 0;
+  }
 }
 
 .modal-dialog .modal-content .basic-form .toggles .modal-switch .box #modal-switch-btn {
@@ -325,9 +426,19 @@ select {
   transition-duration: 200ms, 200ms, 200ms, 500ms;
   -webkit-transition-timing-function: ease-in-out, ease-in-out, ease-in;
   transition-timing-function: ease-in-out, ease-in-out, ease-in;
-  /*@media screen and (max-width: 1200px){
-        right:0.25rem;
-    }*/
+}
+
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .basic-form .toggles .modal-switch .box #modal-switch-btn {
+    background-color: rgba(190, 188, 188, 0.75);
+    border: 0.5px solid rgba(190, 188, 188, 0.75);
+    -webkit-box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.5);
+            box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.5);
+    text-shadow: 1.3px 2px 2px rgba(59, 62, 95, 0.8), 1.5px 2px 8px rgba(112, 112, 112, 0.623);
+    bottom: -1.5rem;
+    top: revert;
+    right: 25%;
+  }
 }
 
 .modal-dialog .modal-content .basic-form .toggles .modal-switch .box #modal-switch-btn:hover {
@@ -341,10 +452,26 @@ select {
   cursor: pointer !important;
 }
 
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .basic-form .toggles .modal-switch .box #modal-switch-btn:hover {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+            box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+    background-color: rgba(190, 188, 188, 0.75);
+  }
+}
+
 .modal-dialog .modal-content .basic-form .toggles .modal-switch .box #modal-switch-btn:active {
   background-color: transparent;
   -webkit-transform: scale(0.95);
           transform: scale(0.95);
+}
+
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .basic-form .toggles .modal-switch .box #modal-switch-btn:active {
+    background-color: rgba(190, 188, 188, 0.75);
+  }
 }
 
 .modal-dialog .modal-content .basic-form .toggles .results-container {
@@ -357,11 +484,11 @@ select {
   border-radius: 10px;
   -webkit-box-shadow: 0px 10px 13px -7px #000000;
           box-shadow: 0px 10px 13px -7px #000000;
-  -webkit-transition-property: transform, box-shadow, width, right;
-  -webkit-transition-property: width, right, -webkit-transform, -webkit-box-shadow;
-  transition-property: width, right, -webkit-transform, -webkit-box-shadow;
-  transition-property: transform, box-shadow, width, right;
-  transition-property: transform, box-shadow, width, right, -webkit-transform, -webkit-box-shadow;
+  -webkit-transition-property: transform, box-shadow, width, height;
+  -webkit-transition-property: width, height, -webkit-transform, -webkit-box-shadow;
+  transition-property: width, height, -webkit-transform, -webkit-box-shadow;
+  transition-property: transform, box-shadow, width, height;
+  transition-property: transform, box-shadow, width, height, -webkit-transform, -webkit-box-shadow;
   -webkit-transition-duration: 200ms, 300ms, 200ms, 200ms;
   transition-duration: 200ms, 300ms, 200ms, 200ms;
   -webkit-transition-timing-function: ease-in-out;
@@ -371,7 +498,15 @@ select {
 
 @media screen and (max-width: 800px) {
   .modal-dialog .modal-content .basic-form .toggles .results-container {
-    width: 12.25rem;
+    width: 11rem;
+    padding: 0 0.5em 0 0.5em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .basic-form .toggles .results-container {
+    height: 7rem;
+    width: 9rem;
   }
 }
 
@@ -409,6 +544,14 @@ select {
   padding: 1.25em 0 0.75em 0.5em;
 }
 
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .basic-form .toggles .results-container .results-box #click-txt {
+    width: 100%;
+    text-align: center;
+    padding: 0.5em 0 0.5em 0;
+  }
+}
+
 .modal-dialog .modal-content .basic-form .toggles .results-container .results-box #website_nav {
   position: absolute;
   top: 0.5em;
@@ -432,9 +575,19 @@ select {
   transition-duration: 200ms, 200ms, 200ms, 500ms;
   -webkit-transition-timing-function: ease-in-out, ease-in-out, ease-in;
   transition-timing-function: ease-in-out, ease-in-out, ease-in;
-  /*@media screen and (max-width: 1200px){
-        right:0.25rem;
-    }*/
+}
+
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .basic-form .toggles .results-container .results-box #website_nav {
+    background-color: rgba(190, 188, 188, 0.75);
+    border: 0.5px solid rgba(190, 188, 188, 0.75);
+    -webkit-box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.5);
+            box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.5);
+    text-shadow: 1.3px 2px 2px rgba(59, 62, 95, 0.8), 1.5px 2px 8px rgba(112, 112, 112, 0.623);
+    bottom: -1.5rem;
+    top: revert;
+    right: 25%;
+  }
 }
 
 .modal-dialog .modal-content .basic-form .toggles .results-container .results-box #website_nav:hover {
@@ -448,10 +601,26 @@ select {
   cursor: pointer !important;
 }
 
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .basic-form .toggles .results-container .results-box #website_nav:hover {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+            box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+    background-color: rgba(190, 188, 188, 0.75);
+  }
+}
+
 .modal-dialog .modal-content .basic-form .toggles .results-container .results-box #website_nav:active {
   background-color: transparent;
   -webkit-transform: scale(0.95);
           transform: scale(0.95);
+}
+
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .basic-form .toggles .results-container .results-box #website_nav:active {
+    background-color: rgba(190, 188, 188, 0.75);
+  }
 }
 
 .modal-dialog .modal-content .modal-body {
@@ -459,6 +628,14 @@ select {
   margin-right: 1rem;
   overflow-x: hidden !important;
   height: 22rem;
+  -webkit-transition: height 200ms ease-in-out;
+  transition: height 200ms ease-in-out;
+}
+
+@media screen and (max-width: 800px) {
+  .modal-dialog .modal-content .modal-body {
+    height: 32rem;
+  }
 }
 
 .modal-dialog .modal-content .modal-body#data-sheet-body {
@@ -704,7 +881,7 @@ select {
 }
 
 .modal-dialog .modal-content .modal-footer .searchbox-ctr {
-  width: 33vw;
+  width: 60%;
   position: absolute;
   left: 0;
 }
@@ -776,6 +953,13 @@ select {
   -webkit-transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2) !important;
   transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2) !important;
   opacity: 0;
+}
+
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .modal-footer .searchbox-ctr .insert-box {
+    font-size: 1em;
+    padding-left: 0.5rem;
+  }
 }
 
 .modal-dialog .modal-content .modal-footer .searchbox-ctr .insert-box::-webkit-input-placeholder {
