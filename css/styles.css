@@ -7,6 +7,11 @@ body {
           box-sizing: border-box;
 }
 
+select {
+  border-radius: 10px;
+  border: solid 0.5px black;
+}
+
 .btn {
   -ms-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7) !important;
   -o-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7) !important;
@@ -88,8 +93,26 @@ body {
 
 .modal-dialog {
   border-radius: 0 !important;
-  max-width: 55vw !important;
-  max-height: 65vh !important;
+  max-width: 50rem !important;
+  -webkit-transition-property: max-width;
+  transition-property: max-width;
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  max-height: 32.125rem !important;
+}
+
+@media screen and (min-width: 1441px) {
+  .modal-dialog {
+    max-width: 55rem !important;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 926px) {
+  .modal-dialog {
+    max-width: 95vw !important;
+  }
 }
 
 .modal-dialog .modal-content {
@@ -134,96 +157,29 @@ body {
   height: 0.5rem !important;
 }
 
-.modal-dialog .modal-content .modal-switch {
-  position: absolute;
-  top: 4.5rem;
-  z-index: 1;
-  position: absolute;
-  right: 2rem;
-  width: 13.45rem;
-  height: 5.5rem;
-  padding: 0 1em 0 1em;
-  margin: 1em 0.95em 0 1em;
-  background-color: #990000;
-  border: none;
-  border-radius: 10px;
-  -webkit-box-shadow: 0px 10px 13px -7px #000000;
-          box-shadow: 0px 10px 13px -7px #000000;
-  -webkit-transition-property: transform, box-shadow;
-  -webkit-transition-property: -webkit-transform, -webkit-box-shadow;
-  transition-property: -webkit-transform, -webkit-box-shadow;
-  transition-property: transform, box-shadow;
-  transition-property: transform, box-shadow, -webkit-transform, -webkit-box-shadow;
-  -webkit-transition-duration: 200ms, 300ms;
-  transition-duration: 200ms, 300ms;
-  -webkit-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out;
-}
-
-.modal-dialog .modal-content .modal-switch:hover {
-  -webkit-transform: scale(1.02);
-          transform: scale(1.02);
-  -webkit-box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0, 0, 0, 0) !important;
-          box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0, 0, 0, 0) !important;
-}
-
-.modal-dialog .modal-content .modal-switch #modal-switch-txt {
-  width: 5em;
-  height: 100%;
-  font-size: 1.1rem !important;
-  padding: 0.5em 0 0.5em 0.5em;
-  letter-spacing: 0.05em;
-  text-shadow: #474747 2px 2px 1px !important;
-  color: #fff;
-}
-
-.modal-dialog .modal-content .modal-switch #modal-switch-btn {
-  position: absolute;
-  top: 0.5em;
-  right: 0.5em;
-  height: 1.75em !important;
-  width: 1.75em !important;
-  font-size: 30px;
-  font-weight: bolder;
-  color: white;
-  text-align: center;
-  border-radius: 10px;
-  margin: 0 0.5rem 0 0.5rem !important;
-  padding: 0.35em 0.25em 0.25em 0.25em !important;
-  text-shadow: 1.3px 2px 2px rgba(59, 62, 95, 0.8), 1.5px 2px 8px rgba(153, 0, 0, 0.623);
-  -webkit-transition-property: background-color, box-shadow, transform;
-  -webkit-transition-property: background-color, -webkit-box-shadow, -webkit-transform;
-  transition-property: background-color, -webkit-box-shadow, -webkit-transform;
-  transition-property: background-color, box-shadow, transform;
-  transition-property: background-color, box-shadow, transform, -webkit-box-shadow, -webkit-transform;
-  -webkit-transition-duration: 200ms;
-  transition-duration: 200ms;
-  -webkit-transition-timing-function: ease-in-out, ease-in-out, ease-in;
-  transition-timing-function: ease-in-out, ease-in-out, ease-in;
-}
-
-.modal-dialog .modal-content .modal-switch #modal-switch-btn:hover {
-  -webkit-transform: scale(1.08);
-          transform: scale(1.08);
-  -webkit-transform-origin: center;
-          transform-origin: center;
-  background-color: rgba(190, 188, 188, 0.25);
-  -webkit-box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 0, 0, 0.225);
-          box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 0, 0, 0.225);
-  cursor: pointer !important;
-}
-
-.modal-dialog .modal-content .modal-switch #modal-switch-btn:active {
-  background-color: transparent;
-  -webkit-transform: scale(0.95);
-          transform: scale(0.95);
-}
-
 .modal-dialog .modal-content .basic-form {
   width: 100%;
-  height: 35vh;
+  height: 24rem;
   padding: 0;
   margin: 0;
+}
+
+.modal-dialog .modal-content .basic-form .modal-body {
+  overflow: hidden !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.modal-dialog .modal-content .basic-form .content {
+  width: 65%;
 }
 
 .modal-dialog .modal-content .basic-form .table-container {
@@ -245,48 +201,86 @@ body {
   border: solid 1px #cccccc;
   background-color: rgba(175, 175, 175, 0.15);
   border-radius: 0;
-  height: 100%;
-  width: 60%;
+  height: 18rem;
+  width: 25rem;
   -ms-flex-preferred-size: 96%;
       flex-basis: 96%;
+  -webkit-transition-property: width;
+  transition-property: width;
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
 }
 
-.modal-dialog .modal-content .basic-form .results-container {
-  display: none;
-  top: 8.5rem;
-  position: absolute;
-  right: 2rem;
+@media screen and (min-width: 1441px) {
+  .modal-dialog .modal-content .basic-form .table-container {
+    width: 30rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .modal-dialog .modal-content .basic-form .table-container {
+    width: 20rem;
+  }
+}
+
+.modal-dialog .modal-content .basic-form .toggles {
+  width: 35%;
+  height: 18rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+}
+
+.modal-dialog .modal-content .basic-form .toggles .modal-switch {
+  z-index: 1;
   width: 13.45rem;
   height: 5.5rem;
   padding: 0 1em 0 1em;
-  margin: 1em 0.95em 0 1em;
+  border-radius: 10px;
   background-color: #990000;
   border: none;
   border-radius: 10px;
   -webkit-box-shadow: 0px 10px 13px -7px #000000;
           box-shadow: 0px 10px 13px -7px #000000;
-  -webkit-transition-property: transform, box-shadow;
-  -webkit-transition-property: -webkit-transform, -webkit-box-shadow;
-  transition-property: -webkit-transform, -webkit-box-shadow;
-  transition-property: transform, box-shadow;
-  transition-property: transform, box-shadow, -webkit-transform, -webkit-box-shadow;
-  -webkit-transition-duration: 200ms, 300ms;
-  transition-duration: 200ms, 300ms;
+  -webkit-transition-property: transform, box-shadow, width, right;
+  -webkit-transition-property: width, right, -webkit-transform, -webkit-box-shadow;
+  transition-property: width, right, -webkit-transform, -webkit-box-shadow;
+  transition-property: transform, box-shadow, width, right;
+  transition-property: transform, box-shadow, width, right, -webkit-transform, -webkit-box-shadow;
+  -webkit-transition-duration: 200ms, 300ms, 200ms, 200ms;
+  transition-duration: 200ms, 300ms, 200ms, 200ms;
   -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
 }
 
-.modal-dialog .modal-content .basic-form .results-container:hover {
+@media screen and (max-width: 800px) {
+  .modal-dialog .modal-content .basic-form .toggles .modal-switch {
+    width: 12.25rem;
+  }
+}
+
+.modal-dialog .modal-content .basic-form .toggles .modal-switch:hover {
   -webkit-transform: scale(1.02);
           transform: scale(1.02);
   -webkit-box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0, 0, 0, 0) !important;
           box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0, 0, 0, 0) !important;
 }
 
-.modal-dialog .modal-content .basic-form .results-container .results-box {
-  width: 13.45rem;
-  height: 5.5rem;
+.modal-dialog .modal-content .basic-form .toggles .modal-switch .box {
+  width: 100%;
+  height: 25rem;
   border-radius: 10px;
+  position: relative;
   -webkit-transition-property: transform, box-shadow;
   -webkit-transition-property: -webkit-transform, -webkit-box-shadow;
   transition-property: -webkit-transform, -webkit-box-shadow;
@@ -298,7 +292,7 @@ body {
   transition-timing-function: ease-in-out;
 }
 
-.modal-dialog .modal-content .basic-form .results-container .results-box #click-txt {
+.modal-dialog .modal-content .basic-form .toggles .modal-switch .box #modal-switch-txt {
   width: 5em;
   height: 100%;
   font-size: 1.1rem !important;
@@ -306,13 +300,12 @@ body {
   letter-spacing: 0.05em;
   text-shadow: #474747 2px 2px 1px !important;
   color: #fff;
-  padding: 1.25em 0 0.75em 0.5em;
 }
 
-.modal-dialog .modal-content .basic-form .results-container .results-box #website_nav {
+.modal-dialog .modal-content .basic-form .toggles .modal-switch .box #modal-switch-btn {
   position: absolute;
   top: 0.5em;
-  right: 0.5em;
+  right: 0;
   height: 1.75em !important;
   width: 1.75em !important;
   font-size: 30px;
@@ -323,18 +316,21 @@ body {
   margin: 0 0.5rem 0 0.5rem !important;
   padding: 0.35em 0.25em 0.25em 0.25em !important;
   text-shadow: 1.3px 2px 2px rgba(59, 62, 95, 0.8), 1.5px 2px 8px rgba(153, 0, 0, 0.623);
-  -webkit-transition-property: background-color, box-shadow, transform;
-  -webkit-transition-property: background-color, -webkit-box-shadow, -webkit-transform;
-  transition-property: background-color, -webkit-box-shadow, -webkit-transform;
-  transition-property: background-color, box-shadow, transform;
-  transition-property: background-color, box-shadow, transform, -webkit-box-shadow, -webkit-transform;
-  -webkit-transition-duration: 200ms;
-  transition-duration: 200ms;
+  -webkit-transition-property: background-color, box-shadow, transform, right;
+  -webkit-transition-property: background-color, right, -webkit-box-shadow, -webkit-transform;
+  transition-property: background-color, right, -webkit-box-shadow, -webkit-transform;
+  transition-property: background-color, box-shadow, transform, right;
+  transition-property: background-color, box-shadow, transform, right, -webkit-box-shadow, -webkit-transform;
+  -webkit-transition-duration: 200ms, 200ms, 200ms, 500ms;
+  transition-duration: 200ms, 200ms, 200ms, 500ms;
   -webkit-transition-timing-function: ease-in-out, ease-in-out, ease-in;
   transition-timing-function: ease-in-out, ease-in-out, ease-in;
+  /*@media screen and (max-width: 1200px){
+        right:0.25rem;
+    }*/
 }
 
-.modal-dialog .modal-content .basic-form .results-container .results-box #website_nav:hover {
+.modal-dialog .modal-content .basic-form .toggles .modal-switch .box #modal-switch-btn:hover {
   -webkit-transform: scale(1.08);
           transform: scale(1.08);
   -webkit-transform-origin: center;
@@ -345,19 +341,124 @@ body {
   cursor: pointer !important;
 }
 
-.modal-dialog .modal-content .basic-form .results-container .results-box #website_nav:active {
+.modal-dialog .modal-content .basic-form .toggles .modal-switch .box #modal-switch-btn:active {
+  background-color: transparent;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+.modal-dialog .modal-content .basic-form .toggles .results-container {
+  width: 13.45rem;
+  height: 5.5rem;
+  padding: 0 1em 0 1em;
+  border-radius: 10px;
+  background-color: #990000;
+  border: none;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 10px 13px -7px #000000;
+          box-shadow: 0px 10px 13px -7px #000000;
+  -webkit-transition-property: transform, box-shadow, width, right;
+  -webkit-transition-property: width, right, -webkit-transform, -webkit-box-shadow;
+  transition-property: width, right, -webkit-transform, -webkit-box-shadow;
+  transition-property: transform, box-shadow, width, right;
+  transition-property: transform, box-shadow, width, right, -webkit-transform, -webkit-box-shadow;
+  -webkit-transition-duration: 200ms, 300ms, 200ms, 200ms;
+  transition-duration: 200ms, 300ms, 200ms, 200ms;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  margin-right: 0 !important;
+}
+
+@media screen and (max-width: 800px) {
+  .modal-dialog .modal-content .basic-form .toggles .results-container {
+    width: 12.25rem;
+  }
+}
+
+.modal-dialog .modal-content .basic-form .toggles .results-container:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  -webkit-box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0, 0, 0, 0) !important;
+          box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0, 0, 0, 0) !important;
+}
+
+.modal-dialog .modal-content .basic-form .toggles .results-container .results-box {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  position: relative;
+  -webkit-transition-property: transform, box-shadow;
+  -webkit-transition-property: -webkit-transform, -webkit-box-shadow;
+  transition-property: -webkit-transform, -webkit-box-shadow;
+  transition-property: transform, box-shadow;
+  transition-property: transform, box-shadow, -webkit-transform, -webkit-box-shadow;
+  -webkit-transition-duration: 200ms, 300ms;
+  transition-duration: 200ms, 300ms;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.modal-dialog .modal-content .basic-form .toggles .results-container .results-box #click-txt {
+  width: 5em;
+  height: 100%;
+  font-size: 1.1rem !important;
+  padding: 0.5em 0 0.5em 0.5em;
+  letter-spacing: 0.05em;
+  text-shadow: #474747 2px 2px 1px !important;
+  color: #fff;
+  padding: 1.25em 0 0.75em 0.5em;
+}
+
+.modal-dialog .modal-content .basic-form .toggles .results-container .results-box #website_nav {
+  position: absolute;
+  top: 0.5em;
+  right: 0;
+  height: 1.75em !important;
+  width: 1.75em !important;
+  font-size: 30px;
+  font-weight: bolder;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0 0.5rem 0 0.5rem !important;
+  padding: 0.35em 0.25em 0.25em 0.25em !important;
+  text-shadow: 1.3px 2px 2px rgba(59, 62, 95, 0.8), 1.5px 2px 8px rgba(153, 0, 0, 0.623);
+  -webkit-transition-property: background-color, box-shadow, transform, right;
+  -webkit-transition-property: background-color, right, -webkit-box-shadow, -webkit-transform;
+  transition-property: background-color, right, -webkit-box-shadow, -webkit-transform;
+  transition-property: background-color, box-shadow, transform, right;
+  transition-property: background-color, box-shadow, transform, right, -webkit-box-shadow, -webkit-transform;
+  -webkit-transition-duration: 200ms, 200ms, 200ms, 500ms;
+  transition-duration: 200ms, 200ms, 200ms, 500ms;
+  -webkit-transition-timing-function: ease-in-out, ease-in-out, ease-in;
+  transition-timing-function: ease-in-out, ease-in-out, ease-in;
+  /*@media screen and (max-width: 1200px){
+        right:0.25rem;
+    }*/
+}
+
+.modal-dialog .modal-content .basic-form .toggles .results-container .results-box #website_nav:hover {
+  -webkit-transform: scale(1.08);
+          transform: scale(1.08);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  background-color: rgba(190, 188, 188, 0.25);
+  -webkit-box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 0, 0, 0.225);
+          box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 0, 0, 0.225);
+  cursor: pointer !important;
+}
+
+.modal-dialog .modal-content .basic-form .toggles .results-container .results-box #website_nav:active {
   background-color: transparent;
   -webkit-transform: scale(0.95);
           transform: scale(0.95);
 }
 
 .modal-dialog .modal-content .modal-body {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
   margin-left: 1rem;
   margin-right: 1rem;
   overflow-x: hidden !important;
-  height: 35vh;
+  height: 22rem;
 }
 
 .modal-dialog .modal-content .modal-body#data-sheet-body {
