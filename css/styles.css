@@ -151,7 +151,7 @@ select {
 
 .modal-dialog .modal-content .modal-header .modal-title {
   font-family: "Fjalla One", "sans-serif";
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: normal;
   font-style: normal;
   color: #333333;
@@ -251,12 +251,12 @@ select {
   padding: 0.5em;
   overflow-y: auto;
   overflow-x: hidden;
-  -ms-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5) !important;
-  -o-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5) !important;
-  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5) !important;
-          box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5) !important;
-  border: solid 1px #cccccc;
-  background-color: rgba(175, 175, 175, 0.15);
+  -ms-box-shadow: 0 2px 2px 0.5px rgba(0, 0, 0, 0.5) !important;
+  -o-box-shadow: 0 2px 2px 0.5px rgba(0, 0, 0, 0.5) !important;
+  -webkit-box-shadow: 0 2px 2px 0.5px rgba(0, 0, 0, 0.5) !important;
+          box-shadow: 0 2px 2px 0.5px rgba(0, 0, 0, 0.5) !important;
+  border: solid 1.5px #cccccc;
+  background-color: rgba(175, 175, 175, 0.025);
   border-radius: 0;
   height: 18rem;
   width: 90%;
@@ -326,6 +326,15 @@ select {
   }
 }
 
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .basic-form .toggles {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+  }
+}
+
 .modal-dialog .modal-content .basic-form .toggles .modal-switch {
   z-index: 1;
   width: 13.45rem;
@@ -357,8 +366,17 @@ select {
 
 @media screen and (max-width: 480px) {
   .modal-dialog .modal-content .basic-form .toggles .modal-switch {
-    height: 7rem;
-    width: 9rem;
+    background-color: transparent !important;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    width: 80%;
   }
 }
 
@@ -367,6 +385,15 @@ select {
           transform: scale(1.02);
   -webkit-box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0, 0, 0, 0) !important;
           box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0, 0, 0, 0) !important;
+}
+
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .basic-form .toggles .modal-switch:hover {
+    -webkit-transform: revert;
+            transform: revert;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+  }
 }
 
 .modal-dialog .modal-content .basic-form .toggles .modal-switch .box {
@@ -397,8 +424,11 @@ select {
 
 @media screen and (max-width: 480px) {
   .modal-dialog .modal-content .basic-form .toggles .modal-switch .box #modal-switch-txt {
-    width: 100%;
-    text-align: center;
+    color: #990000;
+    text-shadow: none !important;
+    font-weight: 900 !important;
+    text-align: left;
+    font-size: 1.2rem !important;
     padding: 0.5em 0 0.5em 0;
   }
 }
@@ -430,14 +460,11 @@ select {
 
 @media screen and (max-width: 480px) {
   .modal-dialog .modal-content .basic-form .toggles .modal-switch .box #modal-switch-btn {
-    background-color: rgba(190, 188, 188, 0.75);
+    background-color: rgba(153, 0, 0, 0.923);
     border: 0.5px solid rgba(190, 188, 188, 0.75);
     -webkit-box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.5);
             box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.5);
     text-shadow: 1.3px 2px 2px rgba(59, 62, 95, 0.8), 1.5px 2px 8px rgba(112, 112, 112, 0.623);
-    bottom: -1.5rem;
-    top: revert;
-    right: 25%;
   }
 }
 
@@ -505,8 +532,17 @@ select {
 
 @media screen and (max-width: 480px) {
   .modal-dialog .modal-content .basic-form .toggles .results-container {
-    height: 7rem;
-    width: 9rem;
+    background-color: transparent !important;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    width: 80%;
   }
 }
 
@@ -515,6 +551,15 @@ select {
           transform: scale(1.02);
   -webkit-box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0, 0, 0, 0) !important;
           box-shadow: 0px 10px 13px -7px #000000, 0px 7px 4px 2px rgba(0, 0, 0, 0) !important;
+}
+
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .basic-form .toggles .results-container:hover {
+    -webkit-transform: revert;
+            transform: revert;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+  }
 }
 
 .modal-dialog .modal-content .basic-form .toggles .results-container .results-box {
@@ -546,8 +591,11 @@ select {
 
 @media screen and (max-width: 480px) {
   .modal-dialog .modal-content .basic-form .toggles .results-container .results-box #click-txt {
-    width: 100%;
-    text-align: center;
+    color: #990000;
+    text-shadow: none !important;
+    font-weight: 900 !important;
+    text-align: left;
+    font-size: 1.2rem !important;
     padding: 0.5em 0 0.5em 0;
   }
 }
@@ -579,14 +627,11 @@ select {
 
 @media screen and (max-width: 480px) {
   .modal-dialog .modal-content .basic-form .toggles .results-container .results-box #website_nav {
-    background-color: rgba(190, 188, 188, 0.75);
+    background-color: rgba(153, 0, 0, 0.923);
     border: 0.5px solid rgba(190, 188, 188, 0.75);
     -webkit-box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.5);
             box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.5);
     text-shadow: 1.3px 2px 2px rgba(59, 62, 95, 0.8), 1.5px 2px 8px rgba(112, 112, 112, 0.623);
-    bottom: -1.5rem;
-    top: revert;
-    right: 25%;
   }
 }
 
@@ -702,6 +747,7 @@ select {
   margin-bottom: 1rem;
   font-size: 1.1em;
   font-weight: 900;
+  font-style: italic;
 }
 
 .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors select {
@@ -808,6 +854,8 @@ select {
   position: absolute;
   bottom: -0.15em;
   width: 100%;
+  background-color: #fff;
+  z-index: 999999;
 }
 
 .modal-dialog .modal-content .modal-footer#data-sheet-footer {
