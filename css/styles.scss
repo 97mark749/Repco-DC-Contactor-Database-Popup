@@ -149,10 +149,10 @@ select{
                 padding: 0.5em;
                 overflow-y:auto;
                 overflow-x: hidden;
-                -moz-box-shadow: 0 2px 2px 0.5px rgba(0,0,0,0.5) !important;
-                -ms-box-shadow: 0 2px 2px 0.5px rgba(0,0,0,0.5) !important;
-                -o-box-shadow: 0 2px 2px 0.5px rgba(0,0,0,0.5) !important;
-                box-shadow: 0 2px 2px 0.5px rgba(0,0,0,0.5) !important;
+                -moz-box-shadow: 0 1px 4px  rgba(0,0,0,0.5) !important;
+                -ms-box-shadow: 0 1px 4px  rgba(0,0,0,0.5) !important;
+                -o-box-shadow: 0 1px 4px rgba(0,0,0,0.5) !important;
+                box-shadow: 0 1px 4px  rgba(0,0,0,0.5) !important;
                 border: solid 1.5px #cccccc;
                 background-color: rgba(175, 175, 175, 0.025);
                 border-radius: 0;
@@ -278,30 +278,54 @@ select{
                 padding-left: 1.5rem;
                 padding-top: 1.25rem !important;
                 flex-flow: row nowrap;
+                overflow: hidden !important;
+                @include resize(phone){
+                    flex-flow: column-reverse;
+                    justify-content: flex-start;
+                }
             }
             .spec-selection{ // MODAL TWO ONLY
                 width: 45%;
                 display: flex;
                 flex-flow: column nowrap;
                 justify-content: flex-start;
+                @include resize(phone){
+                    flex-flow: row nowrap;
+                    width: 100%;
+                }
                 h6{
                     color: $primary-red;
                     margin-bottom: 1rem;
                     font-size: 1.1em;
                     font-weight: 900;
                     font-style: italic;
+                    @include resize(phone){
+                        margin-top: 1rem;
+                        height: fit-content;
+                    }
                 }
                 .spec-selectors{
+                    @include resize(phone){
+                            margin-top: 1rem;
+                            height: fit-content;
+                    }
                     select{
                         box-shadow: 0 2.25px 1px rgba(0,0,0,0.5) !important;
                         border-top: 0.5px solid rgba(0,0,0,0.15);
                         border-left: 0.5px solid rgba(0,0,0,0.15);
+                        border: solid 0.75px #686868;
                     }
                     #selectManufacturer{
                         margin-right: 0.6rem;
+                        @include resize(phone){
+                            margin-top: 0.25rem;
+                        }
                     }
                     #selectSeries{
                         width: 8.375rem;
+                        @include resize(phone){
+                            margin-top: 0.75rem;
+                        }
                     }
                     .dd-ctr{
                         width: 100%;
@@ -342,13 +366,23 @@ select{
                 width: 48%;
                 height: 75%;
                 padding-top: 0.15rem;
+                @include resize(phone){
+                    width: 100%;
+                }
 
                 .dropdown-nav-results{
                     height: 19rem;
                     box-shadow: 1.5px 2px 5px rgba(0,0,0,0.25);
                     border: 1px solid rgba(0,0,0,0.5);
+                    @include resize(phone){
+                        height: 12rem;
+                    }
                     .card-header{
                         background: $primary-red;
+                        @include resize(phone){
+                            background: transparent;
+                            border: none;
+                        }
                         h6{
                             color: #fff;
                             font-family: $primary-font;
@@ -357,6 +391,16 @@ select{
                             font-weight: 400;
                             padding: 0;
                             margin: auto 0;
+                            @include resize(phone){
+                                background: #fff;
+                                color: $primary-red;
+                                position: absolute;
+                                top: -0.75rem;
+                                left: 0.5rem;
+                                padding: 0 1rem;
+                                font-size: 1.1rem;
+
+                            }
                         }
                     }
                 }

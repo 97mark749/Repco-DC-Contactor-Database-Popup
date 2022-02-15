@@ -251,10 +251,10 @@ select {
   padding: 0.5em;
   overflow-y: auto;
   overflow-x: hidden;
-  -ms-box-shadow: 0 2px 2px 0.5px rgba(0, 0, 0, 0.5) !important;
-  -o-box-shadow: 0 2px 2px 0.5px rgba(0, 0, 0, 0.5) !important;
-  -webkit-box-shadow: 0 2px 2px 0.5px rgba(0, 0, 0, 0.5) !important;
-          box-shadow: 0 2px 2px 0.5px rgba(0, 0, 0, 0.5) !important;
+  -ms-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
+  -o-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
   border: solid 1.5px #cccccc;
   background-color: rgba(175, 175, 175, 0.025);
   border-radius: 0;
@@ -483,9 +483,9 @@ select {
   .modal-dialog .modal-content .basic-form .toggles .modal-switch .box #modal-switch-btn:hover {
     -webkit-transform: scale(1);
             transform: scale(1);
-    -webkit-box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
-            box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
-    background-color: rgba(190, 188, 188, 0.75);
+    -webkit-box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.5), 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 0, 0, 0.225);
+            box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.5), 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 0, 0, 0.225);
+    background-color: #990000;
   }
 }
 
@@ -497,7 +497,7 @@ select {
 
 @media screen and (max-width: 480px) {
   .modal-dialog .modal-content .basic-form .toggles .modal-switch .box #modal-switch-btn:active {
-    background-color: rgba(190, 188, 188, 0.75);
+    background-color: #990000;
   }
 }
 
@@ -650,9 +650,9 @@ select {
   .modal-dialog .modal-content .basic-form .toggles .results-container .results-box #website_nav:hover {
     -webkit-transform: scale(1);
             transform: scale(1);
-    -webkit-box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
-            box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
-    background-color: rgba(190, 188, 188, 0.75);
+    -webkit-box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.5), 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 0, 0, 0.225);
+            box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.5), 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 0, 0, 0.225);
+    background-color: #990000;
   }
 }
 
@@ -664,7 +664,7 @@ select {
 
 @media screen and (max-width: 480px) {
   .modal-dialog .modal-content .basic-form .toggles .results-container .results-box #website_nav:active {
-    background-color: rgba(190, 188, 188, 0.75);
+    background-color: #990000;
   }
 }
 
@@ -726,6 +726,19 @@ select {
   -webkit-box-direction: normal;
       -ms-flex-flow: row nowrap;
           flex-flow: row nowrap;
+  overflow: hidden !important;
+}
+
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .modal-body#cross-ref-body {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-flow: column-reverse;
+            flex-flow: column-reverse;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
 }
 
 .modal-dialog .modal-content .modal-body .spec-selection {
@@ -742,6 +755,16 @@ select {
           justify-content: flex-start;
 }
 
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .modal-body .spec-selection {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    width: 100%;
+  }
+}
+
 .modal-dialog .modal-content .modal-body .spec-selection h6 {
   color: #990000;
   margin-bottom: 1rem;
@@ -750,19 +773,50 @@ select {
   font-style: italic;
 }
 
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .modal-body .spec-selection h6 {
+    margin-top: 1rem;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors {
+    margin-top: 1rem;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+
 .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors select {
   -webkit-box-shadow: 0 2.25px 1px rgba(0, 0, 0, 0.5) !important;
           box-shadow: 0 2.25px 1px rgba(0, 0, 0, 0.5) !important;
   border-top: 0.5px solid rgba(0, 0, 0, 0.15);
   border-left: 0.5px solid rgba(0, 0, 0, 0.15);
+  border: solid 0.75px #686868;
 }
 
 .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors #selectManufacturer {
   margin-right: 0.6rem;
 }
 
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors #selectManufacturer {
+    margin-top: 0.25rem;
+  }
+}
+
 .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors #selectSeries {
   width: 8.375rem;
+}
+
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors #selectSeries {
+    margin-top: 0.75rem;
+  }
 }
 
 .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors .dd-ctr {
@@ -816,6 +870,12 @@ select {
   padding-top: 0.15rem;
 }
 
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .modal-body .cross-ref-main-content {
+    width: 100%;
+  }
+}
+
 .modal-dialog .modal-content .modal-body .cross-ref-main-content .dropdown-nav-results {
   height: 19rem;
   -webkit-box-shadow: 1.5px 2px 5px rgba(0, 0, 0, 0.25);
@@ -823,8 +883,21 @@ select {
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .modal-body .cross-ref-main-content .dropdown-nav-results {
+    height: 12rem;
+  }
+}
+
 .modal-dialog .modal-content .modal-body .cross-ref-main-content .dropdown-nav-results .card-header {
   background: #990000;
+}
+
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .modal-body .cross-ref-main-content .dropdown-nav-results .card-header {
+    background: transparent;
+    border: none;
+  }
 }
 
 .modal-dialog .modal-content .modal-body .cross-ref-main-content .dropdown-nav-results .card-header h6 {
@@ -835,6 +908,18 @@ select {
   font-weight: 400;
   padding: 0;
   margin: auto 0;
+}
+
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .modal-body .cross-ref-main-content .dropdown-nav-results .card-header h6 {
+    background: #fff;
+    color: #990000;
+    position: absolute;
+    top: -0.75rem;
+    left: 0.5rem;
+    padding: 0 1rem;
+    font-size: 1.1rem;
+  }
 }
 
 .modal-dialog .modal-content .modal-footer {
