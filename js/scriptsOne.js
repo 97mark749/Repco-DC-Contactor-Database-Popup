@@ -1,5 +1,5 @@
 let temp = "None";
-
+const resultsCtr = document.querySelector('.results-container');
 try{
     document.getElementById('full-screen-data-sheet').addEventListener('click', function(){$("#full-screen-data-listener").toggle('expand');});
     document.getElementById('submit').addEventListener('click',function(e){submit_search(e);});
@@ -53,11 +53,13 @@ function validate_replacement(temp){
             success: function(data){
                 if(temp==='Please Enter A Valid Catalog Number!'){
                     $("#repcoResult").html("");
+                    resultsCtr.classList.toggle('show');
                     $('.results-box').hide();
                     document.getElementById("form").reset();
                 }
                 else{
                     $("#repcoResult").html(data); get_link();
+                    resultsCtr.classList.toggle('show');
                     $(".results-box").show();
 
                 }

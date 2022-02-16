@@ -36,7 +36,7 @@ $secondary-font: 'Average Sans', 'sans-serif';
     text-shadow: #474747 2px 2px 1px !important;
     color:#fff;
     @include resize(phone){
-        //width: fit-content;
+        width: fit-content;
         color: $primary-red;
         text-shadow: none !important;
         font-weight: 900 !important;

@@ -1,5 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Average+Sans&family=Fjalla+One&display=swap");
 /****************** MEDIA QUERUES ******************/
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-moz-scrollbar {
+  display: none;
+}
+
+::-ms-scrollbar {
+  display: none;
+}
+
 body {
   font-family: "Average Sans", "sans-serif";
   font-size: 16px;
@@ -290,6 +302,48 @@ select {
   }
 }
 
+.modal-dialog .modal-content .basic-form .table-container .table-row {
+  margin-left: 0.5rem;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.modal-dialog .modal-content .basic-form .table-container .table-row:first-child {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.2em;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.modal-dialog .modal-content .basic-form .table-container .table-row:first-child .table-item-header {
+  text-decoration: underline;
+  font-style: italic;
+  font-weight: 900;
+  margin-right: 2rem;
+}
+
+.modal-dialog .modal-content .basic-form .table-container .table-row .table-item-header {
+  font-weight: 800;
+  color: #740000;
+  margin-bottom: 0.5rem;
+}
+
+.modal-dialog .modal-content .basic-form .table-container .table-row .table-item {
+  margin-left: 0.5rem;
+}
+
 .modal-dialog .modal-content .basic-form .toggles {
   width: 35%;
   height: 18rem;
@@ -332,6 +386,9 @@ select {
     -webkit-box-direction: normal;
         -ms-flex-flow: column nowrap;
             flex-flow: column nowrap;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
 }
 
@@ -424,6 +481,9 @@ select {
 
 @media screen and (max-width: 480px) {
   .modal-dialog .modal-content .basic-form .toggles .modal-switch .box #modal-switch-txt {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
     color: #990000;
     text-shadow: none !important;
     font-weight: 900 !important;
@@ -502,6 +562,7 @@ select {
 }
 
 .modal-dialog .modal-content .basic-form .toggles .results-container {
+  opacity: 0;
   width: 13.45rem;
   height: 5.5rem;
   padding: 0 1em 0 1em;
@@ -562,6 +623,10 @@ select {
   }
 }
 
+.modal-dialog .modal-content .basic-form .toggles .results-container.show {
+  opacity: 1;
+}
+
 .modal-dialog .modal-content .basic-form .toggles .results-container .results-box {
   width: 100%;
   height: 100%;
@@ -591,6 +656,9 @@ select {
 
 @media screen and (max-width: 480px) {
   .modal-dialog .modal-content .basic-form .toggles .results-container .results-box #click-txt {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
     color: #990000;
     text-shadow: none !important;
     font-weight: 900 !important;
@@ -769,7 +837,7 @@ select {
   color: #990000;
   margin-bottom: 1rem;
   font-size: 1.1em;
-  font-weight: 900;
+  font-weight: 500;
   font-style: italic;
 }
 
@@ -800,6 +868,7 @@ select {
 }
 
 .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors #selectManufacturer {
+  height: 1.75rem;
   margin-right: 0.6rem;
 }
 
@@ -810,6 +879,7 @@ select {
 }
 
 .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors #selectSeries {
+  height: 1.75rem;
   width: 8.375rem;
 }
 
@@ -889,35 +959,80 @@ select {
   }
 }
 
-.modal-dialog .modal-content .modal-body .cross-ref-main-content .dropdown-nav-results .card-header {
-  background: #990000;
+.modal-dialog .modal-content .modal-body .cross-ref-main-content .dropdown-nav-results .dropdown-results-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-@media screen and (max-width: 480px) {
-  .modal-dialog .modal-content .modal-body .cross-ref-main-content .dropdown-nav-results .card-header {
-    background: transparent;
-    border: none;
-  }
+.modal-dialog .modal-content .modal-body .cross-ref-main-content .dropdown-nav-results .dropdown-results-body .UserDirections {
+  position: relative;
+  top: 2.5rem;
+  width: 15rem;
+  font-size: 1.21rem;
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  line-height: 1.75rem;
+}
+
+.modal-dialog .modal-content .modal-body .cross-ref-main-content .dropdown-nav-results .dropdown-results-body ul {
+  list-style: none;
+  height: 15rem;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.modal-dialog .modal-content .modal-body .cross-ref-main-content .dropdown-nav-results .dropdown-results-body ul li {
+  margin: 0.75rem 0;
+  letter-spacing: 0.15rem;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  text-align: center;
+  font-weight: 500;
+  -webkit-transition-property: transform, color;
+  -webkit-transition-property: color, -webkit-transform;
+  transition-property: color, -webkit-transform;
+  transition-property: transform, color;
+  transition-property: transform, color, -webkit-transform;
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+
+.modal-dialog .modal-content .modal-body .cross-ref-main-content .dropdown-nav-results .dropdown-results-body ul li:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  color: #740000;
+}
+
+.modal-dialog .modal-content .modal-body .cross-ref-main-content .dropdown-nav-results .card-header {
+  background: transparent;
+  border: none;
 }
 
 .modal-dialog .modal-content .modal-body .cross-ref-main-content .dropdown-nav-results .card-header h6 {
-  color: #fff;
   font-family: "Fjalla One", "sans-serif";
-  font-size: 1.25em;
+  font-size: 1.35em;
   letter-spacing: 0.1rem;
   font-weight: 400;
   padding: 0;
   margin: auto 0;
+  background: #fff;
+  color: #990000;
+  position: absolute;
+  top: -0.75rem;
+  left: 0.5rem;
+  padding: 0 1.5rem;
 }
 
 @media screen and (max-width: 480px) {
   .modal-dialog .modal-content .modal-body .cross-ref-main-content .dropdown-nav-results .card-header h6 {
-    background: #fff;
-    color: #990000;
-    position: absolute;
-    top: -0.75rem;
-    left: 0.5rem;
-    padding: 0 1rem;
     font-size: 1.1rem;
   }
 }
@@ -1135,7 +1250,7 @@ select {
   font-size: 20px;
   outline: none;
   position: absolute;
-  top: -0.15rem;
+  top: -0.3rem;
   left: 1.25rem;
   width: 2rem;
   height: 2rem;
