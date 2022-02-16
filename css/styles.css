@@ -825,11 +825,8 @@ select {
 
 @media screen and (max-width: 480px) {
   .modal-dialog .modal-content .modal-body .spec-selection {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row nowrap;
-            flex-flow: row nowrap;
     width: 100%;
+    text-align: center;
   }
 }
 
@@ -852,7 +849,6 @@ select {
 
 @media screen and (max-width: 480px) {
   .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors {
-    margin-top: 1rem;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
@@ -872,21 +868,9 @@ select {
   margin-right: 0.6rem;
 }
 
-@media screen and (max-width: 480px) {
-  .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors #selectManufacturer {
-    margin-top: 0.25rem;
-  }
-}
-
 .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors #selectSeries {
   height: 1.75rem;
   width: 8.375rem;
-}
-
-@media screen and (max-width: 480px) {
-  .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors #selectSeries {
-    margin-top: 0.75rem;
-  }
 }
 
 .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors .dd-ctr {
@@ -907,6 +891,14 @@ select {
           flex-flow: column nowrap;
 }
 
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors .dd-ctr #remaining-dropdowns {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors .dd-ctr #remaining-dropdowns .dropdown-area {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -918,10 +910,30 @@ select {
   margin-bottom: 1rem;
 }
 
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors .dd-ctr #remaining-dropdowns .dropdown-area {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 95%;
+    text-align: left;
+  }
+}
+
 .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors .dd-ctr #remaining-dropdowns .dropdown-area label {
   margin-bottom: 0.25rem;
   width: 100%;
   font-size: 1.1em;
+}
+
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors .dd-ctr #remaining-dropdowns .dropdown-area label {
+    width: 90%;
+  }
 }
 
 .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors .dd-ctr #remaining-dropdowns .dropdown-area select {
@@ -985,6 +997,12 @@ select {
   width: 100%;
   overflow: hidden;
   overflow-y: auto;
+}
+
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .modal-body .cross-ref-main-content .dropdown-nav-results .dropdown-results-body ul {
+    height: 7.5rem;
+  }
 }
 
 .modal-dialog .modal-content .modal-body .cross-ref-main-content .dropdown-nav-results .dropdown-results-body ul li {

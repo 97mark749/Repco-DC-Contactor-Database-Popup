@@ -332,8 +332,9 @@ select{
                 flex-flow: column nowrap;
                 justify-content: flex-start;
                 @include resize(phone){
-                    flex-flow: row nowrap;
+                    //flex-flow: row nowrap;
                     width: 100%;
+                    text-align:center;
                 }
                 h6{
                     color: $primary-red;
@@ -348,7 +349,7 @@ select{
                 }
                 .spec-selectors{
                     @include resize(phone){
-                            margin-top: 1rem;
+                            //padding-top: 1rem;
                             height: fit-content;
                     }
                     select{
@@ -360,16 +361,10 @@ select{
                     #selectManufacturer{
                         height: 1.75rem;
                         margin-right: 0.6rem;
-                        @include resize(phone){
-                            margin-top: 0.25rem;
-                        }
                     }
                     #selectSeries{
                         height: 1.75rem;
                         width: 8.375rem;
-                        @include resize(phone){
-                            margin-top: 0.75rem;
-                        }
                     }
                     .dd-ctr{
                         width: 100%;
@@ -380,15 +375,28 @@ select{
                         #remaining-dropdowns{
                             display: flex;
                             flex-flow: column nowrap;
+                            @include resize(phone){
+                                align-items: center;
+                            }
+
                             //margin-top: 3rem;
                             .dropdown-area{
                                 display: flex;
                                 flex-flow: row wrap;
                                 margin-bottom: 1rem;
+                                @include resize(phone){
+                                    flex-direction: column;
+                                    align-items:center;
+                                    width: 95%;
+                                    text-align: left;
+                                }
                                 label{
                                     margin-bottom: 0.25rem;
                                     width: 100%;
                                     font-size: 1.1em;
+                                    @include resize(phone){
+                                        width: 90%;
+                                    }
                                 }
                                 select{
                                     width: 92%;
@@ -442,6 +450,9 @@ select{
                             width: 100%;
                             overflow: hidden;
                             overflow-y: auto;
+                            @include resize(phone){
+                                height: 7.5rem;
+                            }
                             li{
                                 margin: 0.75rem 0;
                                 letter-spacing: 0.15rem;
