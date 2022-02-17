@@ -77,6 +77,9 @@ select{
   @include resize(phoneL){
     max-height: 100% !important;
   }
+  @include resize(phone){
+    max-height: 95% !important;
+  }
 
   .modal-content{
         width: 100%;
@@ -130,7 +133,7 @@ select{
             }
             @include resize(phoneL){
                 height: 18rem;
-              }
+            }
             .modal-body{
                 overflow: hidden !important;
                 display: flex;
@@ -229,8 +232,10 @@ select{
                     height: 80%;
                   }
                 @include resize(phone){
+                    height: 15rem;
                     flex-flow: column nowrap;
-                    align-items:flex-start;
+                    align-items:center;
+                    justify-content:center;
                 }
                 .modal-switch{ // MODAL ONE ONLY
                     //top: 4.5rem;
@@ -241,6 +246,11 @@ select{
                         height: 100%;
                         border-radius: 10px;
                         position:relative;
+                        @include resize(phone){
+                            display: flex;
+                        flex-flow: row nowrap;
+                        align-items:center;
+                        }
                         @include transition-property(transform, box-shadow);
                         @include transition-duration(200ms, 300ms);
                         @include transition-timing(ease-in-out);
@@ -308,9 +318,10 @@ select{
                 @include transition-property(width,height);
                 @include transition-duration(300ms);
                 @include transition-timing(ease);
-                &.expand{
-                    width: 100vw;
-                    height: 100vh;
+                @include resize(phone){
+                    height: 29rem;
+                    height: clamp(20rem, calc(20rem + ((1vw - 0.2rem) * 90)), 29rem);
+                    width: 90%;
                 }
             }
             &#cross-ref-body{
@@ -323,7 +334,7 @@ select{
                 overflow: hidden !important;
                 @include resize(phone){
                     flex-flow: column-reverse;
-                    justify-content: flex-start;
+                    justify-content: flex-end;
                 }
             }
             .spec-selection{ // MODAL TWO ONLY
@@ -343,7 +354,7 @@ select{
                     font-weight: 500;
                     font-style: italic;
                     @include resize(phone){
-                        margin-top: 1rem;
+                        margin-top: 3rem;
                         height: fit-content;
                     }
                 }
@@ -372,6 +383,9 @@ select{
                         overflow: hidden;
                         overflow-y:auto;
                         margin: 2rem 0;
+                        @include resize(phone){
+                            height: 8.75rem;
+                        }
                         #remaining-dropdowns{
                             display: flex;
                             flex-flow: column nowrap;
@@ -420,6 +434,7 @@ select{
                 padding-top: 0.15rem;
                 @include resize(phone){
                     width: 100%;
+                    height: fit-content;
                 }
 
                 .dropdown-nav-results{
@@ -521,6 +536,9 @@ select{
                     align-items: center;
                     margin-left: 1rem;
                     font-size: 1.1em;
+                    @include resize(phone){
+                        width: 6rem;
+                    }
                     > i{
                         text-align: center;
                         background: $primary-red;
@@ -530,6 +548,9 @@ select{
                         height: 1em;
                         width: 1.5em;
                         margin-left: 1em;
+                        @include resize(phone){
+                            //margin-left: -3rem;
+                        }
                     }
                 }
             }

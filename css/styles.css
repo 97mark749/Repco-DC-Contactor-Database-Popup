@@ -134,6 +134,12 @@ select {
   }
 }
 
+@media screen and (max-width: 480px) {
+  .modal-dialog {
+    max-height: 95% !important;
+  }
+}
+
 .modal-dialog .modal-content {
   width: 100%;
   height: 100%;
@@ -382,13 +388,17 @@ select {
 
 @media screen and (max-width: 480px) {
   .modal-dialog .modal-content .basic-form .toggles {
+    height: 15rem;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-flow: column nowrap;
             flex-flow: column nowrap;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 
@@ -433,7 +443,7 @@ select {
     -webkit-box-direction: normal;
         -ms-flex-flow: row nowrap;
             flex-flow: row nowrap;
-    width: 80%;
+    width: 90%;
   }
 }
 
@@ -469,6 +479,21 @@ select {
   transition-timing-function: ease-in-out;
 }
 
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .basic-form .toggles .modal-switch .box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 .modal-dialog .modal-content .basic-form .toggles .modal-switch .box #modal-switch-txt {
   width: 5em;
   height: 100%;
@@ -481,15 +506,16 @@ select {
 
 @media screen and (max-width: 480px) {
   .modal-dialog .modal-content .basic-form .toggles .modal-switch .box #modal-switch-txt {
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
+    width: 12rem;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
     color: #990000;
     text-shadow: none !important;
     font-weight: 900 !important;
     text-align: left;
-    font-size: 1.2rem !important;
-    padding: 0.5em 0 0.5em 0;
+    font-size: 1.1rem !important;
+    font-size: clamp(0.8rem, calc(0.8rem + ((1vw - 0.2rem) * 3)), 1.1rem) !important;
   }
 }
 
@@ -603,7 +629,7 @@ select {
     -webkit-box-direction: normal;
         -ms-flex-flow: row nowrap;
             flex-flow: row nowrap;
-    width: 80%;
+    width: 90%;
   }
 }
 
@@ -656,15 +682,16 @@ select {
 
 @media screen and (max-width: 480px) {
   .modal-dialog .modal-content .basic-form .toggles .results-container .results-box #click-txt {
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
+    width: 12rem;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
     color: #990000;
     text-shadow: none !important;
     font-weight: 900 !important;
     text-align: left;
-    font-size: 1.2rem !important;
-    padding: 0.5em 0 0.5em 0;
+    font-size: 1.1rem !important;
+    font-size: clamp(0.8rem, calc(0.8rem + ((1vw - 0.2rem) * 3)), 1.1rem) !important;
   }
 }
 
@@ -776,9 +803,12 @@ select {
   transition-timing-function: ease;
 }
 
-.modal-dialog .modal-content .modal-body iframe.expand {
-  width: 100vw;
-  height: 100vh;
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .modal-body iframe {
+    height: 29rem;
+    height: clamp(20rem, calc(20rem + ((1vw - 0.2rem) * 90)), 29rem);
+    width: 90%;
+  }
 }
 
 .modal-dialog .modal-content .modal-body#cross-ref-body {
@@ -803,9 +833,9 @@ select {
     -webkit-box-direction: reverse;
         -ms-flex-flow: column-reverse;
             flex-flow: column-reverse;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
   }
 }
 
@@ -840,7 +870,7 @@ select {
 
 @media screen and (max-width: 480px) {
   .modal-dialog .modal-content .modal-body .spec-selection h6 {
-    margin-top: 1rem;
+    margin-top: 3rem;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
@@ -879,6 +909,12 @@ select {
   overflow: hidden;
   overflow-y: auto;
   margin: 2rem 0;
+}
+
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors .dd-ctr {
+    height: 8.75rem;
+  }
 }
 
 .modal-dialog .modal-content .modal-body .spec-selection .spec-selectors .dd-ctr #remaining-dropdowns {
@@ -955,6 +991,9 @@ select {
 @media screen and (max-width: 480px) {
   .modal-dialog .modal-content .modal-body .cross-ref-main-content {
     width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
 }
 
@@ -1103,6 +1142,12 @@ select {
           align-items: center;
   margin-left: 1rem;
   font-size: 1.1em;
+}
+
+@media screen and (max-width: 480px) {
+  .modal-dialog .modal-content .modal-footer#data-sheet-footer div {
+    width: 6rem;
+  }
 }
 
 .modal-dialog .modal-content .modal-footer#data-sheet-footer div > i {
