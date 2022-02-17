@@ -63,6 +63,22 @@ select{
   border-radius: 0 !important;
   max-width: 50rem !important; 
   max-height: 32.125rem !important;
+  &#data-sheet-page{
+      max-height: 40rem !important;
+      @include resize(lg-desktop){
+        max-width: 55rem !important;
+      }
+      @include resize(small-tablet){
+        max-width: 32rem !important;
+        max-height: 40rem !important;
+      }
+      @include resize(phoneL){
+        max-height: 100% !important;
+      }
+      @include resize(phone){
+        max-height: 95% !important;
+      }
+  }
   @include transition-property(max-width, max-height);
   @include transition-duration(200ms);
   @include transition-timing(ease-in-out);
@@ -311,7 +327,7 @@ select{
             iframe{
                 position: absolute;
                 width: 46.25rem;
-                height: 19rem;
+                height: 26rem;
                 border: 0.5px solid #2b2b2b;
                 box-shadow: 1px 3px 2px rgba(0,0,0,0.25);
                 border-radius: 5px;

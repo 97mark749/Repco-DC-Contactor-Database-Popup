@@ -115,6 +115,35 @@ select {
   transition-timing-function: ease-in-out;
 }
 
+.modal-dialog#data-sheet-page {
+  max-height: 40rem !important;
+}
+
+@media screen and (min-width: 1441px) {
+  .modal-dialog#data-sheet-page {
+    max-width: 55rem !important;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .modal-dialog#data-sheet-page {
+    max-width: 32rem !important;
+    max-height: 40rem !important;
+  }
+}
+
+@media screen and (max-height: 480px) and (orientation: landscape) {
+  .modal-dialog#data-sheet-page {
+    max-height: 100% !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .modal-dialog#data-sheet-page {
+    max-height: 95% !important;
+  }
+}
+
 @media screen and (min-width: 1441px) {
   .modal-dialog {
     max-width: 55rem !important;
@@ -790,7 +819,7 @@ select {
 .modal-dialog .modal-content .modal-body iframe {
   position: absolute;
   width: 46.25rem;
-  height: 19rem;
+  height: 26rem;
   border: 0.5px solid #2b2b2b;
   -webkit-box-shadow: 1px 3px 2px rgba(0, 0, 0, 0.25);
           box-shadow: 1px 3px 2px rgba(0, 0, 0, 0.25);

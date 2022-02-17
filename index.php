@@ -126,7 +126,7 @@
 
 
     <div class="modal" id="popup-window-three" data-bs-backdrop= "static" aria-hidden="true" aria-labelledby="ModalTogglePDF" tabindex="-1">
-        <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-dialog modal-dialog-scrollable" id='data-sheet-page'>
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="data-sheet-title"><!-- Assigned By jQuery --></h5>
